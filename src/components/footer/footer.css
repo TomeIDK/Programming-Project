@@ -1,0 +1,58 @@
+@import url(../../css/default.css);
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* Footer */
+.footer{
+    width: 100%;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+}
+
+
+.footer__container{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: var(--bg-footer);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer__logo{
+    grid-column: 2;
+    margin: auto;
+}
+
+.footer__wrapper{
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.footer__socials-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: .875rem;
+}
+
+.footer__info{
+    background-color: #FFFFFF;
+    padding-top: 0;
+}
+
+.footer__info-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .25rem;
+    margin: 0;
+}
+
+.footer__info-list a{
+    text-decoration: none;
+    color: black;
+}
