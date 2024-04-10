@@ -50,6 +50,9 @@ body{
     justify-content: space-around;
     padding: .25rem;
     margin: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: .875rem;
 }
 
 .footer__info-list a{
