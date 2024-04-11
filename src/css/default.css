@@ -3,7 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root{
+    --primary: #E30613;
+    --secondary: #1BBCB6;
+    --accent: #FFFFFF; /* TBD */
     --bg: #F6F6F6;
     --box-shadow: rgb(0 0 0 / 0.1);
     --bg-footer: #1D1D1B;
+    --text-muted: #71717a;
 }
