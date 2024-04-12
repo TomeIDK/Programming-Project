@@ -1,0 +1,61 @@
+@import url(../../css/default.css);
+
+.btn {
+  border-radius: 0.375rem;
+  font-family: "Roboto";
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--bg);
+  height: 2.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button--blue {
+  transition: background-color 150ms ease;
+  background-color: var(--secondary-200);
+}
+
+.cta-button--blue:hover {
+  background-color: var(--secondary-300);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button--red {
+  transition: background-color 150ms ease;
+  background-color: var(--primary-400);
+}
+
+.cta-button--red:hover {
+  background-color: var(--primary-500);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-button {
+  color: var(--text);
+  background-color: transparent;
+  border: 1px solid #666666;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button:hover {
+  transition: all 100ms ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #818181;
+}
+
+.tertiary-button {
+  box-shadow: none;
+  color: var(--text);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: fit-content;
+}
+
+.tertiary-button:hover {
+  text-decoration: underline;
+}

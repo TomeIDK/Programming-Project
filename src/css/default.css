@@ -1,13 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
-:root{
-    --primary: #E30613;
-    --secondary: #1BBCB6;
-    --accent: #FFFFFF; /* TBD */
-    --bg: #F6F6F6;
-    --box-shadow: rgb(0 0 0 / 0.1);
-    --bg-footer: #1D1D1B;
-    --text-muted: #71717a;
+:root {
+  /* Primary */
+  --primary-100: #ffa3ad;
+  --primary-200: #ff727f;
+  --primary-300: #ff4151;
+  --primary-400: #e30613; /* Base */
+  --primary-500: #990000;
+  --primary-600: #7c0000;
+  --primary-700: #660000;
+  --primary-800: #500000;
+  --primary-900: #330000; /* Base */
+
+  /* Secondary */
+  --secondary-100: #87e2e0;
+  --secondary-200: #61cdcb;
+  --secondary-300: #3bbab6;
+  --secondary-400: #1bbcb6; /* Base */
+  --secondary-500: #00958d;
+  --secondary-600: #007b72;
+  --secondary-700: #00655e;
+  --secondary-800: #004f49;
+  --secondary-900: #003934;
+
+  --bg: #f6f6f6;
+  --box-shadow: rgb(0 0 0 / 0.1);
+  --bg-footer: #1d1d1b;
+  --text-muted: #71717a;
+  --text: #09090B;
+  --text-hover: #333333;
 }
