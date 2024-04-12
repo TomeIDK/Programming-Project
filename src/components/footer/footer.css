@@ -18,20 +18,24 @@ body{
     padding-left: 1rem;
     background-color: var(--bg-footer);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-rows: repeat(5, 50px);
 }
 
 .footer__logo{
     grid-column: 2;
+    grid-row: span;
     margin: auto;
 }
 
 .footer__wrapper{
-    margin-right: auto;
     margin-top: auto;
+    grid-row: 4;
+    grid-column: 3;
 }
 
 .footer__socials-list{
+    padding: 0;
     list-style: none;
     display: flex;
     align-items: center;
