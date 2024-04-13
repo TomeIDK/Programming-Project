@@ -35,6 +35,16 @@ p{
     text-wrap: pretty;
 }
 
+button{
+    background-color: transparent;
+    border: none;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+
 @media (prefers-reduced-motion: no-preference){
     :has(:target){
         scroll-behavior: smooth;
