@@ -5,11 +5,17 @@ body{
     margin: 0;
 }
 
+ul{ /* Don't copy, in reset.css */
+    padding: 0;
+    list-style: none;
+}
+
 /* Footer */
 .footer{
     width: 100%;
     padding-top: .5rem;
     padding-bottom: 1rem;
+    font-family: 'Inter';
 }
 
 

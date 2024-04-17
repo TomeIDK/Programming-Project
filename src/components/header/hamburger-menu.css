@@ -19,8 +19,20 @@ body{ /* Don't copy, in reset.css */
     margin: 0;
 }
 
-body.blur > *:not(.nav-menu){ /* .blur class toggled on body when menu is opened/closed */
+.hidden{
+    display: none;
+}
+
+body.blur > *:not(.nav-menu){
     animation-name: blur;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    user-select: none;
+}
+
+body.unblur > *:not(.nav-menu){
+    animation-name: unblur;
     animation-duration: var(--kf-duration);
     animation-fill-mode: forwards;
 }
@@ -34,10 +46,17 @@ body.blur > *:not(.nav-menu){ /* .blur class toggled on body when menu is opened
     min-height: 100%;
     border-left: 1px solid var(--text);
     width: min(20rem,calc(100vw - 2.5rem));
+    background-color: var(--bg);
 }
 
 .nav-menu.active{
     animation-name: active;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+}
+
+.nav-menu.inactive{
+    animation-name: inactive;
     animation-duration: var(--kf-duration);
     animation-fill-mode: forwards;
 }
@@ -86,12 +105,23 @@ body.blur > *:not(.nav-menu){ /* .blur class toggled on body when menu is opened
     align-items: center;
 }
 
+/* Keyframes Animations */
+
 @keyframes active {
-    0% {
+    from {
         transform: translateX(100%);
     }
-    100%{
+    to {
         transform: translateX(0);
+    }
+}
+
+@keyframes inactive {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
     }
 }
 
@@ -102,5 +132,14 @@ body.blur > *:not(.nav-menu){ /* .blur class toggled on body when menu is opened
     }
     100%{
         filter: blur(4px);
+    }
+}
+
+@keyframes unblur{
+    0% {
+        filter: blur(4px);
+    }
+    100%{
+        filter: blur(0px);
     }
 }
