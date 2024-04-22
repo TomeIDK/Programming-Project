@@ -31,4 +31,6 @@
   --text-muted: #71717a;
   --text: #09090B;
   --text-hover: #333333;
+  --border-color: #e5e7eb;
+  --disabled: #bdc3c7;
 }
