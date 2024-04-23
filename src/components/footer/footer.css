@@ -1,4 +1,4 @@
-@import url(../../css/default.css);
+@import url("/src/css/default.css");
 
 body{
     padding: 0;
@@ -26,6 +26,15 @@ ul{ /* Don't copy, in reset.css */
     display: grid;
     grid-template-columns: 1fr 0.5fr 1fr;
     grid-template-rows: repeat(5, 50px);
+}
+
+.footer__contact{
+    color: white;
+    font-family: 'Inter';
+    grid-column: 1;
+    grid-row: 4;
+    align-self: center;
+    justify-self: center;
 }
 
 .footer__logo{
