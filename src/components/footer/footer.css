@@ -1,14 +1,5 @@
 @import url("/src/css/default.css");
-
-body{
-    padding: 0;
-    margin: 0;
-}
-
-ul{ /* Don't copy, in reset.css */
-    padding: 0;
-    list-style: none;
-}
+@import url("/src/css/reset.css");
 
 /* Footer */
 .footer{

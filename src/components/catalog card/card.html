@@ -1,270 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="card.css" />
-    <title>Catalog Card</title>
-  </head>
-  <body>
-    <!-- Catalog -->
-    <div class="catalog">
-      <!-- Available Product Card -->
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
 
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="card.css" />
+  <title>Catalog Card</title>
+</head>
 
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
+<body>
+  <!-- Catalog -->
+  <div class="catalog">
+    <!-- Available Product Card -->
+    <div class="catalog__product">
+      <img class="product__image" src="/src/resources/images/placeholder.svg" alt="Product" />
 
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
+      <div class="product__content">
+        <h3 class="product__title">Product Titel</h3>
 
-          <div>
+        <ul class="product__tag-list">
+          <li class="product__tag">VR</li>
+          <li class="product__tag">Gaming</li>
+          <li class="product__tag">Film</li>
+        </ul>
+
+        <p class="product__availability">
+          Nu beschikbaar <span class="availability-amount">(4/5)</span>
+        </p>
+
+        <div>
+          <a href="#">
             <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Unavailable Product Card -->
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-          </ul>
-
-          <p class="product__availability unavailable">
-            Nu onbeschikbaar <span class="availability-amount">(0/3)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue disabled">
-              In uitleenmandje
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dummy Data -->
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="catalog__product">
-        <img
-          class="product__image"
-          src="../../resources/images/placeholder.svg"
-          alt="Product"
-        />
-        <div class="product__content">
-          <h3 class="product__title">Product Titel</h3>
-
-          <ul class="product__tag-list">
-            <li class="product__tag">VR</li>
-            <li class="product__tag">Gaming</li>
-            <li class="product__tag">Film</li>
-          </ul>
-          <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
-          </p>
-
-          <div>
-            <button class="btn secondary-button">Specificaties</button>
-            <button class="btn cta-button--blue">In uitleenmandje</button>
-          </div>
+          </a>
+          <button class="btn cta-button--blue">In uitleenmandje</button>
         </div>
       </div>
     </div>
-  </body>
+
+    <!-- Unavailable Product Card -->
+    <div class="catalog__product">
+      <img class="product__image" src="/src/resources/images/placeholder.svg" alt="Product" />
+
+      <div class="product__content">
+        <h3 class="product__title">Product Titel</h3>
+
+        <ul class="product__tag-list">
+          <li class="product__tag">VR</li>
+        </ul>
+
+        <p class="product__availability unavailable">
+          Nu onbeschikbaar <span class="availability-amount">(0/3)</span>
+        </p>
+
+        <div>
+          <a href="#">
+            <button class="btn secondary-button">Specificaties</button>
+          </a>
+          <button class="btn cta-button--blue disabled">
+            In uitleenmandje
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
