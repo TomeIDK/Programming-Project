@@ -119,9 +119,113 @@ class HamburgerMenu extends HTMLElement {
   }
 }
 
+class EhbFooter extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    // Add component styling to <head>
+    let stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "/src/components/footer/footer.css";
+    document.head.appendChild(stylesheet);
+
+    // Component
+    // this.classList = "footer";
+
+    this.innerHTML = `
+    <footer class="footer">
+      <div class="footer__container">
+        <img
+          class="footer__logo"
+          src="/src/resources/images/ehblogo-footer.jpg"
+          alt="Erasmushogeschool Brussel"
+          width="250"
+        />
+        <div class="footer__wrapper">
+          <ul class="footer__socials-list">
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/facebooklogo.png"
+                  width="32px"
+                  alt="Facebook"
+              /></a>
+            </li>
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/linkedinlogo.png"
+                  width="32px"
+                  alt="LinkedIn"
+              /></a>
+            </li>
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/xlogo.png"
+                  width="32px"
+                  alt="X"
+              /></a>
+            </li>
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/instagramlogo.png"
+                  width="32px"
+                  alt="Instagram"
+              /></a>
+            </li>
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/youtubelogo.png"
+                  width="32px"
+                  alt="YouTube"
+              /></a>
+            </li>
+            <li class="socials-list-item">
+              <a href=""
+                ><img
+                  src="/src/resources/images/discordlogo.png"
+                  width="32px"
+                  alt="Discord"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__info">
+        <ul class="footer__info-list">
+          <li class="footer__info-list-item">
+            <a href="#">©Erasmushogeschool Brussel 2024</a>
+          </li>
+          <li class="footer__info-list-item">
+            <a href="#">Cookieverklaring</a>
+          </li>
+          <li class="footer__info-list-item"><a href="#">Disclaimer</a></li>
+          <li class="footer__info-list-item">
+            <a href="#">Gebruikersvoorwaarde</a>
+          </li>
+          <li class="footer__info-list-item">
+            <a href="#">Privacyverklaring</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  `;
+  }
+}
+
 // Define Custom HTML Elements
 customElements.define("ehb-header", EhbHeader);
 customElements.define("hamburger-menu", HamburgerMenu);
+customElements.define("ehb-footer", EhbFooter);
 
 function loadScript(src, cb) {
   let script = document.createElement("script");
