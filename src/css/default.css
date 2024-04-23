@@ -35,23 +35,20 @@
   --disabled: #bdc3c7;
 }
 
-h1.Pagina-Titel{
-  font-family: 'Roboto';
-
-  font-size: 48px;
+h1.page__title{
+  font-family: 'Inter';
+  font-size: 3rem;
   font-weight: bold;
 
 }
-h2.Pagina-Ondertitel{
+h2.page__subtitle{
   color: var(--secondary-400);
-  font-family: 'Roboto';
-  font-size: 30px;
+  font-family: 'Inter';
+  font-size: 1.75rem;
   font-weight: 600;
-
 }
 
-p.Info-Paragraaf{
-  font-family: 'Roboto';
-  font-size: 20px;
-
+p.page__text{
+  font-family: 'Inter';
+  font-size: 1.25rem;
 }
