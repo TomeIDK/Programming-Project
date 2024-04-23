@@ -1,11 +1,11 @@
 const datalist = document.getElementById("Filters");
 
 function editDatalist(){
-    const newOptions = [ 'camera 50', 'flash 3', 'Keylight 2']
+    const newOptions = [ 'camera 50', 'flash 3', 'Keylight 2'];
 }
 
 while(datalist.firstChild){
-    datalist.removeChild(datalist.firstChild)
+    datalist.removeChild(datalist.firstChild);
 }
 
 newOptions.forEach(Option => {
@@ -16,8 +16,17 @@ newOptions.forEach(Option => {
 
 editDatalist();
 
-
-
+function addItem() {
+    const newItemInput = document.getElementById('newItem');
+    const newItemValue = newItemInput.value.trim();
+    if (newItemValue !== '') {
+      const dataList = document.getElementById('options');
+      const optionElement = document.createElement('option');
+      optionElement.value = newItemValue;
+      dataList.appendChild(optionElement);
+      newItemInput.value = '';
+    }
+}
 
 /*const Filters =  [
 'Camera 1',
