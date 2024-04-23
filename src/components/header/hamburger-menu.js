@@ -16,4 +16,7 @@ btnClose.addEventListener("click", () => {
   body.classList.remove("blur");
   nav.classList.add("inactive");
   nav.classList.remove("active");
+  setTimeout(() => {
+    nav.classList.add("hidden");
+  }, 450)
 });
