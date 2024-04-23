@@ -1,5 +1,5 @@
 const btnClose = document.getElementById("nav-close");
-const body = document.getElementById("body");
+const body = document.body;
 const nav = document.getElementById("nav-menu");
 const hamburgerMenu = document.getElementById("hamburger-menu");
 
@@ -16,4 +16,7 @@ btnClose.addEventListener("click", () => {
   body.classList.remove("blur");
   nav.classList.add("inactive");
   nav.classList.remove("active");
+  setTimeout(() => {
+    nav.classList.add("hidden");
+  }, 450)
 });

@@ -1,4 +1,4 @@
-@import url(../../css/default.css);
+@import url("/src/css/default.css");
 
 :root{
     --kf-duration: 450ms;
@@ -47,6 +47,7 @@ body.unblur > *:not(.nav-menu){
     border-left: 1px solid var(--text);
     width: min(20rem,calc(100vw - 2.5rem));
     background-color: var(--bg);
+    z-index: 99;
 }
 
 .nav-menu.active{

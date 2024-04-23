@@ -37,6 +37,7 @@
 
 h1.Pagina-Titel{
   font-family: 'Roboto';
+
   font-size: 48px;
   font-weight: bold;
 
@@ -52,4 +53,9 @@ p.Info-Paragraaf{
   width: 50%;
   font-family: 'Roboto';
   font-size: 20px;
+
+  font-size: 36px;
+  font-weight: bold;
+
+
 }
