@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="filter.css" />
-    <title>Filter</title>
-  </head>
-  <body>
-    <div class="search-bar form">
-      <div class="search-bar__container search-bar__search">
-        <img
-          class="search-bar__icon"
-          src="../../resources/images/magnifying-glass.svg"
-          alt="Zoeken"
-        />
-        
-        <script src="/Programming-Project/src/components/filter/searchfilters.js"></script>
-        <input id="search-bar" class="input" type="text" placeholder="Zoeken..." list="">
-          <datalist id="Filters" role="listbox">
-            <option value="camera 1"></option>
-            <option value="camera 20"></option>
-            <option value="capibara 1"></option>
-          </datalist>
-        
 
-         
-        
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="filter.css" />
+  <title>Filter</title>
+</head>
 
-      </div>
-      <div class="search-bar__container search-bar__filter">
-        <img
-          class="search-bar__icon"
-          src="../../resources/images/filter.svg"
-          alt="Filters"
-        />
-        <input
-          id="tag-filter"
-          class="input"
-          type="search"
-          placeholder="Filter..."
-        />
-      </div> 
+<body>
+  <div class="search-bar form">
+    <div class="search-bar__container search-bar__search">
+      <img class="search-bar__icon" src="../../resources/images/magnifying-glass.svg" alt="Zoeken" />
+
+      <input id="search-bar" class="input" type="text" placeholder="Zoeken...">
+      <datalist id="Filters">
+        <option value="camera 1"></option>
+        <option value="camera 20"></option>
+        <option value="capibara 1"></option>
+      </datalist>
+
+
+
+
+
     </div>
-    <input type="text" id="newItem" placeholder="Voeg een item toe">
-          <button onclick="addItem()">Toevoegen</button>
-  </body>
+    <div class="search-bar__container search-bar__filter">
+      <img class="search-bar__icon" src="../../resources/images/filter.svg" alt="Filters" />
+      <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
+    </div>
+  </div>
+  <input type="text" id="newItem" placeholder="Voeg een item toe">
+  <button onclick="addItem()">Toevoegen</button>
+  <script src="filter.js"></script>
+</body>
+
 </html>
