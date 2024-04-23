@@ -34,3 +34,10 @@
   --border-color: #e5e7eb;
   --disabled: #bdc3c7;
 }
+
+h1.Pagina-Titel{
+  font-family: 'Roboto';
+  font-size: 36px;
+  font-weight: bold;
+
+}
