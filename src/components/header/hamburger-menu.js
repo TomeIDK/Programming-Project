@@ -1,5 +1,5 @@
 const btnClose = document.getElementById("nav-close");
-const body = document.getElementById("body");
+const body = document.body;
 const nav = document.getElementById("nav-menu");
 const hamburgerMenu = document.getElementById("hamburger-menu");
 
