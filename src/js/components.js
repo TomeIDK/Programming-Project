@@ -29,7 +29,7 @@ class EhbHeader extends HTMLElement {
         </a>
         <h1 class="header__title">MediaLab</h1>
         <div class="header__wrapper">
-          <button class="header__cart btn">
+          <button class="header__cart header__btn">
             <span class="cart__items">1</span>
             <img
               src="/src/resources/images/backpack.svg"
@@ -37,7 +37,7 @@ class EhbHeader extends HTMLElement {
               alt=""
             />
           </button>
-          <button id="hamburger-menu" class="header__hamburger-menu btn">
+          <button id="hamburger-menu" class="header__hamburger-menu header__btn">
             <img
               src="/src/resources/images/hamburger-menu.svg"
               width="32px"
@@ -222,10 +222,99 @@ class EhbFooter extends HTMLElement {
   }
 }
 
+class CatalogCard extends HTMLElement {
+  constructor() {
+    super();
+
+    this.src = "";
+    this.title = "";
+    this.tags = "";
+    this.available = 0;
+    this.max = 0;
+    this.href = "";
+  }
+
+  connectedCallback() {
+    this.src = this.getAttribute("src");
+    this.title = this.getAttribute("title");
+    this.tags = this.getAttribute("tags");
+    this.available = this.getAttribute("available");
+    this.max = this.getAttribute("max");
+    this.href = this.getAttribute("href");
+
+
+    this.render();
+  }
+
+  render() {
+    // Add component styling to <head>
+    let stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "/src/components/catalog card/card.css";
+    document.head.appendChild(stylesheet);
+
+    // Component Logic
+    this.classList = "catalog__product";
+
+    let availability = `        
+    <p class="product__availability">
+    Nu beschikbaar <span class="availability-amount">(${this.available}/${this.max})</span>
+    </p>
+    `;
+
+    if (this.available === 0) {
+      availability = `        
+      <p class="product__availability unavailable">
+      Nu onbeschikbaar <span class="availability-amount">(${this.available}/${this.max})</span>
+      </p>
+      `;
+    }
+    let tags = "";
+
+    this.tags = this.tags.split(",");
+
+    this.tags.forEach((tag) => {
+      tags += `
+      <li class="product__tag">${tag}</li>
+      `
+    });
+
+    
+
+    // Component Build
+    this.innerHTML = `
+    <div class="catalog__product">
+      <img
+        class="product__image"
+        src="/src/resources/images/${this.src}"
+        alt="${this.title}"
+      />
+
+      <div class="product__content">
+        <h3 class="product__title">${this.title}</h3>
+
+        <ul class="product__tag-list">
+        ${tags}
+        </ul>
+
+        ${availability}
+
+        <div>
+          <a href="${this.href}">
+            <button class="btn secondary-button">Specificaties</button>
+          </a>
+          <button class="btn cta-button--blue">In uitleenmandje</button>
+        </div>
+    </div>
+  `;
+  }
+}
+
 // Define Custom HTML Elements
 customElements.define("ehb-header", EhbHeader);
 customElements.define("hamburger-menu", HamburgerMenu);
 customElements.define("ehb-footer", EhbFooter);
+customElements.define("catalog-card", CatalogCard);
 
 function loadScript(src, cb) {
   let script = document.createElement("script");
