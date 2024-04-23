@@ -310,57 +310,11 @@ class CatalogCard extends HTMLElement {
   }
 }
 
-class BasketCard extends HTMLElement {
-  constructor() {
-    super();
-    this.src = "";
-    this.title = "";
-    this.qty = 1;
-  }
-
-  connectedCallback() {
-    this.src = this.getAttribute("src");
-    this.title = this.getAttribute("title");
-    this.qty = this.getAttribute("qty");
-    this.render();
-  }
-
-  render() {
-    // Add component styling to <head>
-    let stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = "/src/components/basket card/card.css";
-    document.head.appendChild(stylesheet);
-
-    // Component Logic
-
-    
-
-    // Component Build
-    this.innerHTML = `
-    <div class="item-list__item">
-    <img
-      src="/src/resources/images/${this.src}"
-      class="item__image"
-      width="100"
-      alt="Product"
-    />
-    <div class="item__container">
-      <h2 class="item__title">${this.title}</h2>
-      <p class="item__quantity">Quantity: ${this.qty}</p>
-    </div>
-    <button class="btn tertiary-button">Verwijder</button>
-  </div>
-  `;
-  }
-}
-
 // Define Custom HTML Elements
 customElements.define("ehb-header", EhbHeader);
 customElements.define("hamburger-menu", HamburgerMenu);
 customElements.define("ehb-footer", EhbFooter);
 customElements.define("catalog-card", CatalogCard);
-customElements.define("basket-card", BasketCard);
 
 function loadScript(src, cb) {
   let script = document.createElement("script");
