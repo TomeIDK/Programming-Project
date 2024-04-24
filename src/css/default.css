@@ -307,27 +307,21 @@ body.unblur > *:not(.nav-menu){
 }
 
 /* Default Styles */
-
-h1.Pagina-Titel{
-  font-family: 'Roboto';
-
-  font-size: 48px;
-
 h1.page__title{
   font-family: 'Inter';
   font-size: 3rem;
-
   font-weight: bold;
-
 }
+
 h2.page__subtitle{
   color: var(--secondary-400);
   font-family: 'Inter';
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 600;
 }
 
 p.page__text{
   font-family: 'Inter';
-  font-size: 1.25rem;
+  font-size: 1rem;
+  margin-top: auto;
 }
