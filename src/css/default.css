@@ -37,6 +37,7 @@
   --kf-duration: 450ms; /* Keyframe animation duration */
 }
 
+
 /* Web Components */
 
 /* Header */
@@ -311,23 +312,22 @@ h1.Pagina-Titel{
   font-family: 'Roboto';
 
   font-size: 48px;
+
+h1.page__title{
+  font-family: 'Inter';
+  font-size: 3rem;
+
   font-weight: bold;
 
 }
-h2.Pagina-Ondertitel{
-  font-family: 'Roboto';
-  font-size: 30px;
+h2.page__subtitle{
+  color: var(--secondary-400);
+  font-family: 'Inter';
+  font-size: 1.75rem;
   font-weight: 600;
-
 }
 
-p.Info-Paragraaf{
-  width: 50%;
-  font-family: 'Roboto';
-  font-size: 20px;
-
-  font-size: 36px;
-  font-weight: bold;
-
-
+p.page__text{
+  font-family: 'Inter';
+  font-size: 1.25rem;
 }

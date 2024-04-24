@@ -1,16 +1,4 @@
-@import url(../../css/default.css);
-
-ul {
-  /* Don't copy, in reset.css */
-  padding: 0;
-  list-style: none;
-}
-
-body {
-  /* Don't copy, in reset.css */
-  padding: 0;
-  margin: 0;
-}
+@import url("/src/css/default.css");
 
 .basket__item-list{
     display: flex;
@@ -44,7 +32,6 @@ body {
   font-weight: 600;
   letter-spacing: -0.025em;
   color: var(--text);
-
 }
 
 .item__quantity {
