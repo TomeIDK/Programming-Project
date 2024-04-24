@@ -17,6 +17,7 @@ ul{ /* Don't copy, in reset.css */
 body{ /* Don't copy, in reset.css */
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .hidden{
