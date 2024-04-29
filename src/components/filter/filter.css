@@ -52,3 +52,28 @@
   .filter-option:hover {
     background-color: #ddd;
   }
+
+
+
+
+#Filters {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+
+}
+
+#Filters li a{
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  background-color: #ddd ;
+  padding: 12px ;
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+#Filters li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
