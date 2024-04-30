@@ -1,0 +1,54 @@
+@import url(../../css/default.css);
+/*  Input template from form */
+@import url(../../components/form/form.css);
+
+.search-bar{
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+.search-bar__container{
+    display: flex;
+    flex-grow: 1;
+    padding: 0.5rem 0.75rem 0.5rem 0;
+}
+
+.search-bar__icon{
+    padding: 0.5rem 0.375rem 0.5rem 0.75rem;
+}
+
+.search-bar .input{
+    height: auto;
+    border: none;
+    margin: 0;
+    width: 100%;
+}
+
+.search-bar__filter{
+    background-color: var(--disabled);
+}
+
+.search-container {
+    position: relative;
+  }
+  
+  .filter-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    display: none;
+  }
+  
+  .filter-option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .filter-option:hover {
+    background-color: #ddd;
+  }
