@@ -1,16 +1,5 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 const mysql = require('mysql');
-=======
-const mysql = require("mysql");
-// import express from 'express';
-// import path from 'path';
->>>>>>> Stashed changes
 const express = require("express");
-=======
-const mysql= require('mysql');
-const express = require('express');
->>>>>>> Stashed changes
 const app = express();
 const port = 3000;
 const path = require("path");
@@ -26,6 +15,26 @@ app.get('/cataloog', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'cataloog.html'));
 });
 
+app.get('/product/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'cataloog.html'));
+});
+
+app.get('/uitleenmandje/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'uitleenmandje.html'));
+});
+
+app.get('/uitleningen/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'uitleningen.html'));
+});
+
+app.get('/reservaties/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'reservaties.html'));
+});
+
+app.get('/geschiedenis/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'geschiedenis.html'));
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 
@@ -35,7 +44,7 @@ app.listen(port, () => {
       user: "2324PROGPRGR10", // Your MySQL username
       password: "hVWX33SX", // Your MySQL password
       database: "dt5.ehb.be", // Your database name
-    }).promise();
+    });
 
   connection.connect((err) => {
     if (err) {
