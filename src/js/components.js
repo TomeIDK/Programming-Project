@@ -16,6 +16,7 @@ class EhbHeader extends HTMLElement {
   }
 
   render() {
+    // Component Logic
     let basket = `
     <button class="header__cart header__btn">
     <span class="cart__items">1</span>
@@ -31,6 +32,7 @@ class EhbHeader extends HTMLElement {
       basket = "";
     }
 
+    // Component
     this.innerHTML = `
       <header class="header">
       <div class="header__container">
@@ -68,16 +70,11 @@ class HamburgerMenu extends HTMLElement {
   }
 
   render() {
-    // Add component styling to <head>
-    let stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = "/src/components/header/hamburger-menu.css";
-    document.head.appendChild(stylesheet);
-
-    // Component
+    // Component Logic
     this.id = "nav-menu";
     this.classList = "nav-menu hidden";
 
+    // Component
     this.innerHTML = `
       <div class="nav-menu__section">
         <a href="#" class="nav-menu__link">
@@ -97,7 +94,7 @@ class HamburgerMenu extends HTMLElement {
             <a href="#" class="nav-menu__link">Reserveren</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Meer Info</a>
+            <a href="/src/info.html" class="nav-menu__link">Meer Info</a>
           </li>
           <li class="nav-menu__item">
             <a href="#" class="nav-menu__link">Mijn Uitleningen</a>
@@ -119,7 +116,7 @@ class HamburgerMenu extends HTMLElement {
   `;
 
     // Load component functionality
-    loadScript("/src/components/header/hamburger-menu.js", (script) => {
+    loadScript("/src/components/custom/header/hamburger-menu.js", (script) => {
       console.log(`Script ${script.src} loaded.`);
     });
   }
@@ -135,15 +132,7 @@ class EhbFooter extends HTMLElement {
   }
 
   render() {
-    // Add component styling to <head>
-    let stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = "/src/components/footer/footer.css";
-    document.head.appendChild(stylesheet);
-
     // Component
-    // this.classList = "footer";
-
     this.innerHTML = `
     <footer class="footer">
       <div class="footer__container">
