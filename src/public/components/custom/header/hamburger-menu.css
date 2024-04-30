@@ -1,0 +1,147 @@
+@import url("/src/css/default.css");
+
+:root{
+    --kf-duration: 450ms;
+}
+
+button{ /* Don't copy, in reset.css */
+    background-color: transparent;
+    border: none;
+}
+
+ul{ /* Don't copy, in reset.css */
+    padding: 0;
+    list-style: none;
+}
+
+body{ /* Don't copy, in reset.css */
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.hidden{
+    display: none;
+}
+
+body.blur > *:not(.nav-menu){
+    animation-name: blur;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    user-select: none;
+}
+
+body.unblur > *:not(.nav-menu){
+    animation-name: unblur;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+}
+
+.nav-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Inter';
+    font-size: 1rem;
+    min-height: 100%;
+    border-left: 1px solid var(--text);
+    width: min(20rem,calc(100vw - 2.5rem));
+    background-color: var(--bg);
+    z-index: 99;
+}
+
+.nav-menu.active{
+    animation-name: active;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+}
+
+.nav-menu.inactive{
+    animation-name: inactive;
+    animation-duration: var(--kf-duration);
+    animation-fill-mode: forwards;
+}
+
+.nav-menu__section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+}
+
+.nav-menu__section:nth-of-type(2){
+    border-top: 1px solid #0f172a1a;
+    border-bottom: 1px solid #0f172a1a;
+}
+
+.nav-menu__button{
+    cursor: pointer;
+}
+
+.nav-menu__list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+
+}
+
+.nav-menu__link{
+    color: var(--text);
+    text-decoration: none;
+}
+
+.nav-menu__item{
+    transition: font-weight 150ms ease;
+}
+
+.nav-menu__item:hover{
+    font-weight: 500;
+}
+
+.nav-menu__logout{
+    font-family: 'Inter';
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Keyframes Animations */
+
+@keyframes active {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes inactive {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes blur{
+    0% {
+        filter: blur(0px);
+
+    }
+    100%{
+        filter: blur(4px);
+    }
+}
+
+@keyframes unblur{
+    0% {
+        filter: blur(4px);
+    }
+    100%{
+        filter: blur(0px);
+    }
+}
