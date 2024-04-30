@@ -1,11 +1,8 @@
-import mysql from'mysql';
-// import express from 'express';
-// import path from 'path';
+const mysql = require('mysql');
 const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
-// const mysql = require("mysql");
 
 app.use(express.static(path.join(__dirname, "public")));
 
