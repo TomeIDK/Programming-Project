@@ -1,5 +1,11 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 const mysql = require('mysql');
+=======
+const mysql = require("mysql");
+// import express from 'express';
+// import path from 'path';
+>>>>>>> Stashed changes
 const express = require("express");
 =======
 const mysql= require('mysql');
@@ -25,12 +31,11 @@ app.listen(port, () => {
 
   const connection = mysql
     .createConnection({
-      host: "", // Change this to your MySQL host
+      host: "dt5.ehb.be", // Change this to your MySQL host
       user: "2324PROGPRGR10", // Your MySQL username
       password: "hVWX33SX", // Your MySQL password
-      database: "2324PROGPRGR10", // Your database name
-    })
-    .promise();
+      database: "dt5.ehb.be", // Your database name
+    }).promise();
 
   connection.connect((err) => {
     if (err) {
