@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/public/components/button/button.css">
+    <link rel="stylesheet" href="/src/public/css/reset.css">
+    <link rel="stylesheet" href="/src/public/css/default.css">
+    <link rel="stylesheet" href="/src/public/components\filter\filter.css">
+    <link rel="stylesheet" href="/src/public/css/specificatieproduct.css">
+    <link rel="stylesheet" href="/src/public/components/catalog card/card.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <ehb-header nobasket></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+        
+        <diV id="flexbox">
+            <article>
+                <h2 class="page__subtitle">Nikon Camera</h2>
+                <p class="product__availability">
+                    Nu beschikbaar <span class="availability-amount">(4/5)</span>
+                </p>
+                <img src="/src/public/images/Nikon Camera.jpg">
+                
+            </article>
+
+            <article>
+                <h3 >Beschrijving en specificatie </h3>
+                <p>Canon EOS 2000D EF-S 18-55 mm f/3,5-5,6 III SLR camera kit 24,1 MP CMOS 6000 x 4000 pixels zwart - digitale camera's (24,1 MP, 6000 x 4000 pixels, CMOS, Full HD, zwart)
+                </p>
+                <br>
+                
+                <h3 >Specifieke voorwaarden voor uitlening </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                </p>
+
+                <form action="#" method="post">
+                    <br>
+                    <label for="reden">Selecteer de reden voor uitlening:</label><br>
+                    <select id="reden" name="reden">
+                        <option value="Les">Les</option>
+                        <option value="Eindwerk">Eindwerk</option>
+                        <option value="Project">Project</option>
+                        <option value="Persoonlijk Gebruik">Persoonlijk Gebruik</option>
+                        <option value="Andere">Andere...</option>
+                    </select>
+                </form>
+                <br>
+
+                <div id="Kalender"></div>
+                <br>
+                <button class="btn cta-button--red">Ga terug</button><button class="btn cta-button--blue">In uitleenmandje</button>
+            </article>
+
+            
+        </diV>
+        <br>
+        <br>
+
+        
+    </main>
+
+    
+    <ehb-footer></ehb-footer>
+    <script src="/src\public\js\components.js"></script>
+</body>
+
+</html>
