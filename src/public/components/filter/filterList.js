@@ -4,7 +4,7 @@ function myFilters() {
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('search-bar');
   filter = input.value.toUpperCase();
-  ul = document.getElementById("Filters");
+  ul = document.getElementById("filters");
   li = ul.getElementsByTagName('li');
 
   

@@ -6,45 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="filter.css" />
   <title>Filter</title>
-</head> 
+</head>
 
 <body>
   <div class="search-bar form">
     <div class="search-bar__container search-bar__search">
-      <img class="search-bar__icon" src="../../resources/images/magnifying-glass.svg" alt="Zoeken" />
-
-      <input 
-      id="search-bar"
-       class="input" type="text" 
-       placeholder="Zoeken..." 
-       onkeyup="myFilters()"/>
-
-       
-      <ul id="Filters">
-        <li><a href="#">camera 1</a></li>
-        <li><a href="#">camera 5</a></li>
-      
-        <li><a href="#">key-light 15</a></li>
-        <li><a href="#">Bob</a></li>
-      
-        <li><a href="#">VR</a></li>
-        <li><a href="#">Oculus</a></li>
-        <li><a href="#">microfoon 25</a></li>
-      </ul>
-
-
-      
-      
-
-
+      <img class="search-bar__icon" src="../../images/magnifying-glass.svg" alt="Zoeken" />
+      <input id="search-bar" class="input" type="text" placeholder="Zoeken..." />
     </div>
+
     <div class="search-bar__container search-bar__filter">
-      <img class="search-bar__icon" src="../../resources/images/filter.svg" alt="Filters" />
+      <img class="search-bar__icon" src="../../images/filter.svg" alt="Filters" />
       <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
     </div>
   </div>
 
-  <script src="filterList.js"></script>
+
+  <div id="tag-filter-dropdown" class="tag-filter-dropdown">
+    <ul id="tag-filter-list">
+    </ul>
+  </div>
+
+  <script src="filter.js"></script>
 </body>
 
 </html>

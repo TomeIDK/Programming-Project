@@ -1,67 +1,52 @@
-const datalist = document.getElementById("Filters");
+const searchBar = document.getElementById("search-bar");
+const tagFilter = document.getElementById("tag-filter");
+const tagDropdown = document.getElementById("tag-filter-dropdown");
+const tagList = document.getElementById("tag-filter-list");
+let li = tagList.getElementsByTagName("li");
+let tags = ["vr", "video", "camera"];
 
-function editDatalist(){
-    const newOptions = [ 'camera 50', 'flash 3', 'Keylight 2'];
-}
+tags.forEach((tag) => {
+  let filterItem = document.createElement("li");
+  filterItem.classList.add("filter-list__item");
+  filterItem.innerText = tag;
 
-while(datalist.firstChild){
-    datalist.removeChild(datalist.firstChild);
-}
-
-newOptions.forEach(Option => {
-    const newOption = document.createElement("option");
-    newOption.value = option;
-    datalist.appendChild(newOption);
+  tagList.appendChild(filterItem);
 });
 
-editDatalist();
 
-function addItem() {
-    const newItemInput = document.getElementById('newItem');
-    const newItemValue = newItemInput.value.trim();
-    if (newItemValue !== '') {
-      const dataList = document.getElementById('options');
-      const optionElement = document.createElement('option');
-      optionElement.value = newItemValue;
-      dataList.appendChild(optionElement);
-      newItemInput.value = '';
+// Search bar filter
+// TODO: Change li to item you want to hide/show
+searchBar.addEventListener("keyup", () => {
+  // Declare variables
+  let txtValue;
+  let filter = searchBar.value.toUpperCase();
+  li = tagList.getElementsByTagName("li");
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    txtValue = li[i].textContent || li[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
     }
-}
+  }
+});
 
-/*const Filters =  [
-'Camera 1',
-'Micro 1 ', 
-'kabel 3', 
-'Camera 4' 
-];
+// Tag filter
+tagFilter.addEventListener("keyup", () => {
+  // Declare variables
+  let txtValue;
+  let filter = tagFilter.value.toUpperCase();
+  li = tagList.getElementsByTagName("li");
 
-function filterFunction(){
-    const input = document.getElementById("search-bar");
-    const filterOptions = document.getElementById("filterOptions");
-    const realFilters = document.getElementById("Filters")
-    const inputValue = input.ariaValueMax.toLowerCase();
-}
-
-while (filterOptions.firstChild){
-    filterOptions.removeChild(filterOptions.firstChild);
-}
-
-Filters.forEach(filter => {
-    if (filter.toLowerCase().includes(inputValue)){
-        const option = document.createElement("dic");
-        option.classList.add("filter-option");
-        option.textContent= filter;
-        option.addEventListener('click',function(){
-            input.value = filter;
-            filterOptions.style.display = "none";
-        });
-        filterOptions.appendChild(option);
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    txtValue = li[i].textContent || li[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
     }
-})
-
-if (inputValue){
-    filterOptions.style.display ="Block";
-} else {
-    filterOptions.style.display = "none";
-}
-*/
+  }
+});
