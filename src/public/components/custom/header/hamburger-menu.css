@@ -1,4 +1,4 @@
-@import url("/src/css/default.css");
+@import url("../../../css/default.css");
 
 :root{
     --kf-duration: 450ms;
