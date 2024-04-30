@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" type="text/css" href="/src/public/components/button/button.css">
-    <link rel="stylesheet" type="text/css" href="/src/public/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/src/public/css/default.css">
-    <link rel="stylesheet" type="text/css" href="/src/public/components/filter/filter.css">
-    <link rel="stylesheet" type="text/css" href="/src/public/css/catalogus.css">
+    <link rel="stylesheet" type="text/css" href="components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="css/catalogus.css">
+    <link rel="stylesheet" type="text/css" href="components/date-picker/date-picker.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
             <!--Search bar-->
             <div class="search-bar form">
                 <div class="search-bar__container search-bar__search">
-                    <img class="search-bar__icon" src="/src/public/images/magnifying-glass.svg" alt="Zoeken" />
+                    <img class="search-bar__icon" src="./images/magnifying-glass.svg" alt="Zoeken" />
 
                     <input id="search-bar" class="input" type="text" placeholder="Zoeken...">
                     <datalist id="Filters">
@@ -30,19 +30,20 @@
                     </datalist>
                 </div>
                 <div class="search-bar__container search-bar__filter">
-                    <img class="search-bar__icon" src="/src/public/images/filter.svg" alt="Filters" />
+                    <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
+                  
                     <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
                     <input class="datepicker" type="date" placeholder="Kies een datum">
                 </div>
             </div>       
         </div>
         <!-- https:/air-datepicker.com/docs -->
-        <script src="..//components/filter/filter.js"></script>
+        <script src=".//components/filter/filter.js"></script>
         <!-- Catalog -->
         <div class="catalog">
             <!-- Available Product Card -->
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -66,7 +67,7 @@
                 </div>
             </div>
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -90,7 +91,7 @@
                 </div>
             </div>
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -114,7 +115,7 @@
                 </div>
             </div>
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -162,7 +163,7 @@
                 </div>
             </div>
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -187,7 +188,7 @@
             </div>
             <!-- Unavailable Product Card -->
             <div class="catalog__product">
-                <img class="product__image" src="/src/public/images/placeholder.svg" alt="Product" />
+                <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
@@ -215,7 +216,7 @@
 
     </main>
     <ehb-footer></ehb-footer>
-    <script src="/src\public\js\components.js"></script>
+    <script src="./js/components.js"></script>
 
 </body>
 
