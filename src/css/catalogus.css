@@ -1,0 +1,36 @@
+@import url('/src/components/catalog card/card.css');
+@import url('/src\components\date-picker\date-picker.css');
+main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#searchbar__Date{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.search-bar.form{
+    width: 70%;
+}
+.datepicker{
+    width: 250px;
+}
+.search-bar__search{
+    width: 70%;
+}
+.search-bar{
+    display: flex;
+  
+    align-items: center;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+.search-bar__container{
+    gap: 5px;
+
+}
