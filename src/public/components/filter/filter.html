@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="filter.css" />
+    <title>Filter</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="filter.css" />
-  <title>Filter</title>
-</head>
+  <body>
+    <div class="search-bar form">
+      <div class="search-bar__container search-bar__search">
+        <img
+          class="search-bar__icon"
+          src="../../images/magnifying-glass.svg"
+          alt="Zoeken"
+        />
+        <input
+          id="search-bar"
+          class="input"
+          type="text"
+          placeholder="Zoeken..."
+        />
+      </div>
 
-<body>
-  <div class="search-bar form">
-    <div class="search-bar__container search-bar__search">
-      <img class="search-bar__icon" src="../../images/magnifying-glass.svg" alt="Zoeken" />
-      <input id="search-bar" class="input" type="text" placeholder="Zoeken..." />
+      <div class="search-bar__container search-bar__filter">
+        <img
+          class="search-bar__icon"
+          src="../../images/filter.svg"
+          alt="Filters"
+        />
+        <input
+          id="tag-filter"
+          class="input"
+          type="search"
+          placeholder="Filter..."
+        />
+        <ul id="tag-filter-list"></ul>
+      </div>
     </div>
 
-    <div class="search-bar__container search-bar__filter">
-      <img class="search-bar__icon" src="../../images/filter.svg" alt="Filters" />
-      <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
-    </div>
-  </div>
-
-
-  <div id="tag-filter-dropdown" class="tag-filter-dropdown">
-    <ul id="tag-filter-list">
-    </ul>
-  </div>
-
-  <script src="filter.js"></script>
-</body>
-
+    <script src="filter.js"></script>
+  </body>
 </html>
