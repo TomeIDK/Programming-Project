@@ -8,7 +8,7 @@
   grid-template-columns: 1fr 0.4fr;
   align-items: center;
   border: 1px solid #ccc;
-  width: 50%;
+  width: 75%;
 }
 
 .search-bar__container {
@@ -33,9 +33,84 @@
   position: relative;
 }
 
-#tag-filter-list{
+.filter__dropdown{
+  visibility: hidden;
   position: absolute;
   top: calc(100% - 8px);
   left: 42px;
-  border: 1px solid red;
+  border: 1px solid #ccc;
+  background-color: white;
+  width: fit-content;
+  margin-top: 2px;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  overflow-y: scroll;
+  max-height: 12rem;
 }
+
+.search-bar__filter:focus-within .filter__dropdown{
+  visibility: visible;
+}
+
+.filter-list__item{
+  display: flex;
+  gap: .375rem;
+  align-items: center;
+  padding: 0.125rem .25rem;
+}
+
+.dropdown__label{
+  position: relative;
+  padding-left: 1.375rem;
+  cursor: default;
+  font-size: .875rem;
+  font-weight: 300;
+}
+
+.dropdown__checkbox{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.dropdown__checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.125rem;
+  border: 1px solid var(--text);
+  cursor: pointer;
+}
+
+.dropdown__label .dropdown__checkbox:checked ~ .dropdown__checkmark{
+  background-color: var(--text);
+}
+
+.dropdown__checkmark::after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.dropdown__label .dropdown__checkbox:checked ~ .dropdown__checkmark::after{
+  display: block;
+}
+
+.dropdown__label .dropdown__checkmark::after{
+  left: 50%;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg) translateY(25%) translateX(-10%);
+}
+
+
+

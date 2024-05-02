@@ -3,13 +3,26 @@ const tagFilter = document.getElementById("tag-filter");
 const tagDropdown = document.getElementById("tag-filter-dropdown");
 const tagList = document.getElementById("tag-filter-list");
 let li = tagList.getElementsByTagName("li");
-let tags = ["vr", "video", "camera"];
+let tags = ["vr", "video", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera"];
 
 tags.forEach((tag) => {
   let filterItem = document.createElement("li");
   filterItem.classList.add("filter-list__item");
-  filterItem.innerText = tag;
 
+  let cbItem = document.createElement("input");
+  cbItem.type = "checkbox";
+  cbItem.classList.add("dropdown__checkbox");
+
+  let customCb = document.createElement("span");
+  customCb.classList.add("dropdown__checkmark");
+
+  let cbLabel = document.createElement("label");
+  cbLabel.innerText = tag;
+  cbLabel.classList.add("dropdown__label");
+
+  cbLabel.appendChild(cbItem);
+  cbLabel.appendChild(customCb);
+  filterItem.appendChild(cbLabel);
   tagList.appendChild(filterItem);
 });
 
