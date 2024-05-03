@@ -3,7 +3,23 @@ const tagFilter = document.getElementById("tag-filter");
 const tagDropdown = document.getElementById("tag-filter-dropdown");
 const tagList = document.getElementById("tag-filter-list");
 let li = tagList.getElementsByTagName("li");
-let tags = ["vr", "video", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera", "camera"];
+let tags = [
+  "vr",
+  "video",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+  "camera",
+];
+let selectedTags = [];
+const testList = document.getElementById("test");
+const testListItems = testList.querySelectorAll("li");
 
 tags.forEach((tag) => {
   let filterItem = document.createElement("li");
@@ -24,8 +40,46 @@ tags.forEach((tag) => {
   cbLabel.appendChild(customCb);
   filterItem.appendChild(cbLabel);
   tagList.appendChild(filterItem);
+
+  cbItem.addEventListener("change", () => {
+    if (cbItem.checked) {
+      addTag(tag);
+    } else {
+      removeTag(tag);
+    }
+    updateTags();
+  });
 });
 
+// Add tag to filter array
+function addTag(tag) {
+  selectedTags.push(tag);
+}
+
+// Remove tag from filter array
+function removeTag(tag) {
+  let index = selectedTags.indexOf(tag);
+  if (index > -1) {
+    selectedTags.splice(index, 1);
+  }
+}
+
+// Read all values of filter array and update accordingly
+function updateTags() {
+  if (selectedTags.length == 0) {
+    testListItems.forEach((item) => {
+      item.style.display = "";
+    })
+  } else {
+    testListItems.forEach((item) => {
+      if (selectedTags.includes(item.innerText.toLowerCase())) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+}
 
 // Search bar filter
 // TODO: Change li to item you want to hide/show
@@ -63,5 +117,3 @@ tagFilter.addEventListener("keyup", () => {
     }
   }
 });
-
-
