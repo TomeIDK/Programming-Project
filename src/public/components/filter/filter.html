@@ -8,7 +8,8 @@
   </head>
 
   <body>
-    <div class="search-bar form">
+    <!-- https://gyazo.com/7bbabcea1561b3693ed89d092e9f93bf -->
+    <!-- <div class="search-bar form">
       <div class="search-bar__container search-bar__search">
         <img
           class="search-bar__icon"
@@ -44,7 +45,82 @@
       <li>Camera</li>
       <li>Beeld</li>
       <li>U Moeder</li>
+    </ul> -->
+
+    <div class="search-bar form">
+      <div class="search-bar__container search-bar__search">
+        <img
+          class="search-bar__icon"
+          src="../../images/magnifying-glass.svg"
+          alt="Zoeken"
+        />
+        <input
+          id="search-bar"
+          class="input"
+          type="text"
+          placeholder="Zoeken..."
+        />
+      </div>
+
+      <div class="search-bar__container search-bar__filter" tabindex="0">
+        <img
+        class="search-bar__icon"
+        src="../../images/filter.svg"
+        alt="Filters"
+      />
+      <button id="search-bar-btn-filter" class="search-bar__btn-filter">
+        <span class="btn-filter__text">Selecteer Tags</span>
+
+        <ul id="selected-tags-list" class="btn-filter__selected-tags-list">
+        </ul>
+
+        <img
+        class="btn-filter__icon"
+        src="../../images/chevron-down.svg"
+        alt="V"
+      />
+      </button>
+      <ul id="tag-filter-list" class="filter__dropdown">
+        <input
+        id="tag-filter"
+        class="input dropdown__tag-filter"
+        type="search"
+        placeholder="Voer tags in"
+      />
+      </ul>
+
+      </div>
+    </div>
+
+    <ul id="test" class="test">
+      <li>VR</li>
+      <li>Video</li>
+      <li>Camera</li>
+      <li>Beeld</li>
+      <li>U Moeder</li>
     </ul>
+
+    <!-- <div class="search-bar__container search-bar__filter" tabindex="0">
+      <img
+      class="search-bar__icon"
+      src="../../images/filter.svg"
+      alt="Filters"
+    />
+    <button class="search-bar__btn-filter">
+      <span class="btn-filter__text">Selecteer Tags</span>
+      <ul class="btn-filter__selected-tags-list">
+        <li class="selected-tag"><span>Camera</span> <img src="../../images/x-mark.svg" class="selected-tag__close" alt="X"></li>
+        <li class="selected-tag"><span>Camera</span> <img src="../../images/x-mark.svg" class="selected-tag__close" alt="X"></li>
+        <li class="selected-tag"><span>Camera</span> <img src="../../images/x-mark.svg" class="selected-tag__close" alt="X"></li>
+        <li class="selected-tag"><span>Camera</span> <img src="../../images/x-mark.svg" class="selected-tag__close" alt="X"></li>
+      </ul>
+      <img
+      class="btn-filter__icon"
+      src="../../images/chevron-down.svg"
+      alt="V"
+    />
+    </button>
+    </div> -->
 
     <script src="filter.js"></script>
   </body>
