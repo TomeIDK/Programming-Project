@@ -4,8 +4,7 @@
 @import url("../../components/form/form.css");
 
 .search-bar {
-  display: grid;
-  grid-template-columns: 1fr 0.4fr;
+  display: flex;
   align-items: center;
   border: 1px solid #ccc;
   width: 75%;
@@ -13,8 +12,11 @@
 
 .search-bar__container {
   display: flex;
-  flex-grow: 1;
   padding: 0.5rem 0.75rem 0.5rem 0;
+}
+
+.search-bar__search{
+  width: 70%;
 }
 
 .search-bar__icon {
@@ -31,6 +33,7 @@
 .search-bar__filter {
   background-color: var(--disabled);
   position: relative;
+  width: 30%;
 }
 
 .filter__dropdown{
@@ -126,11 +129,13 @@
   border-width: 1px;
   font-size: 0.875rem;
   background-color: white;
-  display: grid;
-  grid-template-columns: .5fr 1fr .1fr;
+  display: flex;
+  justify-content: space-between;
   gap: .5rem;
   align-items: center;
   width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  min-width: 80%;
 }
 
 .search-bar__btn-filter:focus-visible{
@@ -145,12 +150,11 @@
 .btn-filter__selected-tags-list{
   display: flex;
   gap: 5px;
+  max-width: 90%;
   overflow-x: scroll;
-  scroll-margin: 1rem;
   overscroll-behavior: contain;
-  padding-bottom: .4rem;
-  padding-top: .4rem;
   scrollbar-width: none;
+  visibility: hidden;
 }
 
 .selected-tag{
@@ -163,12 +167,14 @@
   font-weight: 500;
   font-family: 'Inter';
   font-size: .75rem;
-  padding: .2rem 1rem;
+  padding: .2rem .4rem;
   text-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .selected-tag__close{
   width: 1rem;
+  cursor: pointer;
 }
 
 .btn-filter__icon{

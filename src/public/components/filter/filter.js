@@ -1,8 +1,9 @@
 const searchBar = document.getElementById("search-bar");
 const tagFilter = document.getElementById("tag-filter");
 const tagList = document.getElementById("tag-filter-list");
-const selectedTagsList = document.getElementById("selected-tags-list");
 const btnFilter = document.getElementById("search-bar-btn-filter");
+const selectedTagsList = document.getElementById("selected-tags-list");
+const tagFilterSpan = document.getElementById("tag-filter-span");
 
 // Horizontal scroll via scroll wheel on selected tags list
 selectedTagsList.addEventListener("wheel", function (e) {
@@ -13,7 +14,7 @@ selectedTagsList.addEventListener("wheel", function (e) {
 
 // (Test) Values
 let li = tagList.getElementsByTagName("li");
-let tags = ["vr", "video", "camera", "beeld", "u moeder"];
+let tags = ["vr", "video", "camera", "beeld", "greenscreen", "placeholder", "long word", "another long word"];
 let selectedTags = [];
 const testList = document.getElementById("test");
 const testListItems = testList.querySelectorAll("li");
@@ -52,6 +53,7 @@ tags.forEach((tag) => {
 // Add tag to filter array
 function addTag(tag) {
   selectedTags.push(tag);
+
   let selectedTag = document.createElement("li");
   selectedTag.classList.add("selected-tag");
 
@@ -66,6 +68,11 @@ function addTag(tag) {
   selectedTag.appendChild(selectedTagSpan);
   selectedTag.appendChild(selectedTagClose);
   selectedTagsList.appendChild(selectedTag);
+
+  selectedTagClose.addEventListener("click", () => {
+    removeTag(tag);
+    updateTags();
+  })
 }
 
 // Remove tag from filter array and selected tags list
@@ -74,6 +81,14 @@ function removeTag(tag) {
   if (index > -1) {
     selectedTags.splice(index, 1);
   }
+
+  // Uncheck removed tag
+  let tagListItems = tagList.querySelectorAll("li label");
+  tagListItems.forEach((item) => {
+    if (item.innerText == tag) {
+      item.querySelectorAll("input")[0].checked = false;
+    }
+  })
 
   // Remove tags from selected tags list
   let selectedTagsListItems = selectedTagsList.querySelectorAll("li");
@@ -86,13 +101,15 @@ function removeTag(tag) {
 
 // Read all values of filter array and update accordingly
 function updateTags() {
+  btnFilter.prepend(tagFilterSpan);
+  selectedTagsList.style.display = "hidden";
   if (selectedTags.length == 0) {
     testListItems.forEach((item) => {
       item.style.display = "";
     });
-    // btnFilter.querySelectorAll("span")[0].style.display = "";
   } else {
-    // btnFilter.querySelectorAll("span")[0].style.display = "none";
+    tagFilterSpan.remove();
+    selectedTagsList.style.visibility = "visible";
     testListItems.forEach((item) => {
       if (selectedTags.includes(item.innerText.toLowerCase())) {
         item.style.display = "";
