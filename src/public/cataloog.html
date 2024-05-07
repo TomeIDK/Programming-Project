@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="components/button/button.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/default.css">
-    <link rel="stylesheet" type="text/css" href="components/filter/filter.css">
-    <link rel="stylesheet" type="text/css" href="css/catalogus.css">
-    <link rel="stylesheet" type="text/css" href="components/date-picker/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="./css/catalogus.css">
+
     <title>Document</title>
 </head>
+
 <body>
-    <ehb-header nobasket></ehb-header>
+    <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-        <div id="searchbar__Date">
-            <!--Search bar-->
+        <div id="searchbar__date">
             <div class="search-bar form">
                 <div class="search-bar__container search-bar__search">
                     <img class="search-bar__icon" src="./images/magnifying-glass.svg" alt="Zoeken" />
@@ -30,18 +30,19 @@
                     </datalist>
                 </div>
                 <div class="search-bar__container search-bar__filter">
-                    <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
-                  
-                    <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
+
+                    <div class="search-bar__filter">
+                        <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
+                        <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
+                    </div>
+
                     <input class="datepicker" type="date" placeholder="Kies een datum">
                 </div>
-            </div>       
+            </div>
         </div>
-        <!-- https:/air-datepicker.com/docs -->
-        <script src=".//components/filter/filter.js"></script>
-        <!-- Catalog -->
+        <script src="./components/filter/filter.js"></script>
+
         <div class="catalog">
-            <!-- Available Product Card -->
             <div class="catalog__product">
                 <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
@@ -59,9 +60,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -83,9 +82,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -107,9 +104,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -131,9 +126,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -155,9 +148,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -189,7 +180,6 @@
             <!-- Unavailable Product Card -->
             <div class="catalog__product">
                 <img class="product__image" src="./images/placeholder.svg" alt="Product" />
-
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
 
@@ -202,16 +192,13 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <button class="btn secondary-button">Specificaties</button>
                         <button class="btn cta-button--blue disabled">
                             In uitleenmandje
                         </button>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </main>
