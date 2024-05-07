@@ -4,50 +4,38 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-article{
-    width: 100%;
-    margin-bottom: 10px;
-    gap: 15px;
-    padding: 25px;
-    border-radius: 26px;
-    background-color: rgb(216, 216, 216);
-    display: flex;
-}
-article img{
-    height: 150px;
-    width: auto;
-}
-.product__uitleenmandje__1{
-    font-size: 35px;
-}
-p{
-    margin-top: auto;
-    margin-bottom: 0;
-    font-size: 30px;
-}
+
 h2{
     font-size: 45px;
     margin-bottom: 10px;
     color: var(--secondary-400);
 }
-.x-mark {
-    margin-left: auto;
-}
+
 button.btn.cta-button--red{
     margin-right: 5px;
 }
 
-#Kalender{
-    margin-left: auto;
+#kalender{
+  
     background-color: brown;
     width: 300px;
     height: 200px;
+    margin-bottom: 10px;
 }
-#container{
-    gap: 15px;
-    width: 100%;
+.basket {
+    display: grid;
+    grid-template-columns: 80% auto; /* First column for items, second for calendar */
+    gap: 20px; /* Adjust the gap between items and calendar */
+}
+
+.basket .basket__item-list {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between items */
 }
-#articles{
-    width: 60%;
+
+.item-list__item {
+    width: 100%; /* Items take full width by default */
+    background-color: #f0f0f0; /* Just for visualization */
+    padding: 10px; /* Adjust padding as needed */
 }

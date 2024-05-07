@@ -5,90 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/src/public/components/button/button.css">
-    <link rel="stylesheet" href="/src/public/css/reset.css">
-    <link rel="stylesheet" href="/src/public/css/default.css">
-    <link rel="stylesheet" href="/src/public/components\filter\filter.css">
-    <link rel="stylesheet" href="/src/public/css/uitleenmandje.css">
+    <link rel="stylesheet" href="./components/button/button.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/uitleenmandje.css">
+    <link rel="stylesheet" href="./components/basket card/card.css">
     <title>Document</title>
 </head>
 
 <body>
-    <ehb-header nobasket></ehb-header>
+    <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
         <h2>Uitleenmadje</h2>
-        <div id="container">
-<<<<<<< Updated upstream
-            
-
-                
-                <div>
-=======
-            <div id="articles">
->>>>>>> Stashed changes
-                <article>
-                    <img src="/src/public/images/Nikon Camera.jpg">
-                    <div>
-                        <span class="product__uitleenmandje__1">Nikon camera</span>
-                        <br>
-                        <p>
-                            ID:
-                            <span class="product__uitleenmandje__1__id">451235</span> Van
-                            <span class="product__uitleenmandje__1__begin"> 15/4/2024</span> Tot
-                            <span class="product__uitleenmandje__1__einde"> 22/4/2024</span>
-                        </p>
-
+        <div id="kalender"></div>
+        <section class="basket"> <!-- Container, don't copy for every card -->
+            <ul class="basket__item-list"> <!-- Container, don't copy for every card -->
+                <div class="item-list__item"> <!-- Copy this and append it to the container -->
+                    <img
+                        src="./images/placeholder.svg"
+                        class="item__image"
+                        width="100"
+                        alt="Product"
+                    />
+                    <div class="item__container">
+                        <h3 class="item__title">Canon EOS M50</h3>
+                        <p class="item__quantity">Quantity: 1</p>
                     </div>
-                    <div class="x-mark"> <img src="/src/public/images/x-mark.svg" alt=""></div>
-
-                </article>
-                <article>
-                    <img src="/src/public/images/Nikon Camera.jpg">
-                    <div>
-                        <span class="product__uitleenmandje__2">Nikon camera</span>
-                        <br>
-                        <p>
-                            ID:
-                            <span class="product__uitleenmandje__2__id">451235</span> Van
-                            <span class="product__uitleenmandje__2__begin"> 15/4/2024</span> Tot
-                            <span class="product__uitleenmandje__2__einde"> 22/4/2024</span>
-                        </p>
-
+                    <button class="btn tertiary-button">Verwijder</button>
+                </div>
+                <li class="item-list__item"> <!-- Copy this and append it to the container -->
+                    <img
+                        src="./images/placeholder.svg"
+                        class="item__image"
+                        width="100"
+                        alt="Product"
+                    />
+                    <div class="item__container">
+                        <h3 class="item__title">Nikon Camera</h3>
+                        <p class="item__quantity">Quantity: 1</p>
                     </div>
-                    <div class="x-mark"> <img src="/src/public/images/x-mark.svg" alt=""></div>
-
-                </article>
-                <article>
-                    <img src="/src/public/images/Nikon Camera.jpg">
-                    <div>
-                        <span class="product__uitleenmandje__3">Nikon camera</span>
-                        <br>
-                        <p>
-                            ID:
-                            <span class="product__uitleenmandje__3__id">451235</span> Van
-                            <span class="product__uitleenmandje__3__begin"> 15/4/2024</span> Tot
-                            <span class="product__uitleenmandje__3__einde"> 22/4/2024</span>
-                        </p>
-
+                    <button class="btn tertiary-button">Verwijder</button>
+                </li>
+                <li class="item-list__item"> <!-- Copy this and append it to the container -->
+                    <img
+                        src="./images/placeholder.svg"
+                        class="item__image"
+                        width="100"
+                        alt="Product"
+                    />
+                    <div class="item__container">
+                        <h3 class="item__title">Nog een ander product</h3>
+                        <p class="item__quantity">Quantity: 1</p>
                     </div>
-                    <div class="x-mark"> <img src="/src/public/images/x-mark.svg" alt=""></div>
-
-                </article>
-<<<<<<< Updated upstream
-            </div><div id="Kalender"></div>
-=======
-            </div>
-            <div id="Kalender"></div>
->>>>>>> Stashed changes
-        </div>
-        <button class="btn cta-button--red">Ga terug</button><button class="btn cta-button--blue">reserveren</button>
-
+                    <button class="btn tertiary-button">Verwijder</button>
+                </li>
+            </ul>
+        </section>
     </main>
 
 
     <ehb-footer></ehb-footer>
-    <script src="/src\public\js\components.js"></script>
+    <script src="./js/components.js"></script>
 </body>
 
 </html>
