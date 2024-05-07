@@ -36,7 +36,7 @@ connection.connect((err) => {
 
 // Route to get all products
 app.get("/api/products", (req, res) => {
-  const query = "SELECT * FROM products";
+  const query = "SELECT * FROM Product";
   connection.query(query, (error, results) => {
     if (error) {
       console.error("Error getting products: " + error);
