@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="./css/uitleenmandje.css">
     <link rel="stylesheet" href="./components/basket card/card.css">
     <title>Document</title>
+    <style>
+        /* Style for the popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            
+        }
+    </style>
 </head>
 
 <body>
@@ -19,9 +34,9 @@
     <main>
         <h2>Uitleenmadje</h2>
         <div id="kalender"></div>
-        <section class="basket"> <!-- Container, don't copy for every card -->
-            <ul class="basket__item-list"> <!-- Container, don't copy for every card -->
-                <div class="item-list__item"> <!-- Copy this and append it to the container -->
+        <section class="basket">
+            <ul class="basket__item-list">
+                <div class="item-list__item">
                     <img
                         src="./images/placeholder.svg"
                         class="item__image"
@@ -34,7 +49,7 @@
                     </div>
                     <button class="btn tertiary-button">Verwijder</button>
                 </div>
-                <li class="item-list__item"> <!-- Copy this and append it to the container -->
+                <li class="item-list__item">
                     <img
                         src="./images/placeholder.svg"
                         class="item__image"
@@ -47,7 +62,7 @@
                     </div>
                     <button class="btn tertiary-button">Verwijder</button>
                 </li>
-                <li class="item-list__item"> <!-- Copy this and append it to the container -->
+                <li class="item-list__item">
                     <img
                         src="./images/placeholder.svg"
                         class="item__image"
@@ -62,11 +77,33 @@
                 </li>
             </ul>
         </section>
+        <br>
+        
+        <!-- Buttons -->
+        <button class="btn secondary-button">Terug naar catalogus</button>
+        <button id="lenenBtn" class="btn cta-button--blue">Lenen</button>
     </main>
-
 
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
+    <script>
+        // JavaScript to show popup when "Lenen" button is clicked
+        document.getElementById('lenenBtn').addEventListener('click', function() {
+            // Create popup element
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerHTML = '<h3>Reservatie geslaagd</h3><p>Je reservatie is gelukt er wordt een   e-mail gestuurd naar ... met de bevestigings details </p> <p>Op te halen op: ../../.... Terug te brengen op: ../../.... </p> <p> Product: ........ product ID: ........ ........</p><button class="btn cta-button--blue" onclick="closePopup()">Close</button>';
+            
+            // Append popup to body
+            document.body.appendChild(popup);
+        });
+
+        // Function to close the popup
+        function closePopup() {
+            var popup = document.querySelector('.popup');
+            popup.parentNode.removeChild(popup);
+        }
+    </script>
 </body>
 
 </html>
