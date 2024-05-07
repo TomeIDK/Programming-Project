@@ -1,5 +1,5 @@
-@import url("/src/css/default.css");
-@import url("/src/css/reset.css");
+@import url("../../../css/default.css");
+@import url("../../../css/reset.css");
 
 /* Footer */
 .footer{

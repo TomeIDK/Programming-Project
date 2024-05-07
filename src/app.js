@@ -1,34 +1,32 @@
-import mysql from'mysql';
-// import express from 'express';
-// import path from 'path';
+require("dotenv").config();
+const mysql = require("mysql");
 const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
-// const mysql = require("mysql");
 
+// Routers
+const info = require("./routes/info");
+const catalog = require("./routes/catalog");
+const product = require("./routes/product");
+
+// Load router modules
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/info", info);
+app.use("/cataloog", catalog);
+app.use("/product/:id", product);
 
-
-app.get('/info', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'info.html'));
-});
-
-app.get('/cataloog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'cataloog.html'));
-});
-
+// Listen for connections
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 
-  const connection = mysql
-    .createConnection({
-      host: "", // Change this to your MySQL host
-      user: "2324PROGPRGR10", // Your MySQL username
-      password: "hVWX33SX", // Your MySQL password
-      database: "2324PROGPRGR10", // Your database name
-    })
-    .promise();
+  // MySQL connection
+  const connection = mysql.createConnection({
+    host: process.env.DB_HOST, // Change this to your MySQL host
+    user: process.env.DB_USERNAME, // Your MySQL username
+    password: process.env.DB_PASSWORD, // Your MySQL password
+    database: process.env.DB_DATABASE, // Your database name
+  });
 
   connection.connect((err) => {
     if (err) {

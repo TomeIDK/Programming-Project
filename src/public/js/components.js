@@ -21,7 +21,7 @@ class EhbHeader extends HTMLElement {
     <button class="header__cart header__btn">
     <span class="cart__items">1</span>
     <img
-      src="/src/public/images/backpack.svg"
+      src="images/backpack.svg"
       width="32px"
       alt=""
     />
@@ -38,7 +38,7 @@ class EhbHeader extends HTMLElement {
       <div class="header__container">
         <a href="#">
           <img
-            src="/src/public/images/ehblogo.svg"
+            src="images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
           />
         </a>
@@ -47,7 +47,7 @@ class EhbHeader extends HTMLElement {
           ${basket}
           <button id="hamburger-menu" class="header__hamburger-menu header__btn">
             <img
-              src="/src/public/images/hamburger-menu.svg"
+              src="images/hamburger-menu.svg"
               width="32px"
               alt=""
             />
@@ -79,19 +79,19 @@ class HamburgerMenu extends HTMLElement {
       <div class="nav-menu__section">
         <a href="#" class="nav-menu__link">
           <img
-            src="/src/public/images/ehblogo-notext.png"
+            src="images/ehblogo-notext.png"
             width="32"
             alt="Erasmushogeschool Brussel"
           />
         </a>
         <button id="nav-close" class="nav-menu__button">
-          <img src="/src/public/images/x-mark.svg" width="24" alt="X" />
+          <img src="images/x-mark.svg" width="24" alt="X" />
         </button>
       </div>
       <div class="nav-menu__section">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Reserveren</a>
+            <a href="/cataloog" class="nav-menu__link">Reserveren</a>
           </li>
           <li class="nav-menu__item">
             <a href="/info" class="nav-menu__link">Meer Info</a>
@@ -110,7 +110,7 @@ class HamburgerMenu extends HTMLElement {
 
       <div class="nav-menu__section">
         <button class="nav-menu__button nav-menu__logout nav-menu__item">
-          <img src="/src/public/images/logout.svg" alt="Uitloggen" /> Uitloggen
+          <img src="images/logout.svg" alt="Uitloggen" /> Uitloggen
         </button>
       </div>
   `;
@@ -138,7 +138,7 @@ class EhbFooter extends HTMLElement {
       <div class="footer__container">
         <img
           class="footer__logo"
-          src="/src/public/images/ehblogo-footer.jpg"
+          src="images/ehblogo-footer.jpg"
           alt="Erasmushogeschool Brussel"
           width="250"
         />
@@ -147,7 +147,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/facebooklogo.png"
+                  src="images/facebooklogo.png"
                   width="32px"
                   alt="Facebook"
               /></a>
@@ -155,7 +155,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/linkedinlogo.png"
+                  src="images/linkedinlogo.png"
                   width="32px"
                   alt="LinkedIn"
               /></a>
@@ -163,7 +163,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/xlogo.png"
+                  src="images/xlogo.png"
                   width="32px"
                   alt="X"
               /></a>
@@ -171,7 +171,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/instagramlogo.png"
+                  src="images/instagramlogo.png"
                   width="32px"
                   alt="Instagram"
               /></a>
@@ -179,7 +179,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/youtubelogo.png"
+                  src="images/youtubelogo.png"
                   width="32px"
                   alt="YouTube"
               /></a>
@@ -187,7 +187,7 @@ class EhbFooter extends HTMLElement {
             <li class="socials-list-item">
               <a href=""
                 ><img
-                  src="/src/public/images/discordlogo.png"
+                  src="images/discordlogo.png"
                   width="32px"
                   alt="Discord"
               /></a>
