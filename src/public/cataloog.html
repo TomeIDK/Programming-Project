@@ -213,6 +213,13 @@
             </div>
 
         </div>
+    <div>
+        <ul>
+            <% resultArray.forEach(row => { %>
+                <li><%= row.productName %></li>
+            <% }); %>
+        </ul>
+    </div>
 
     </main>
     <ehb-footer></ehb-footer>

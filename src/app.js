@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 3000;
 const path = require("path");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -54,11 +54,12 @@ app.listen(port, () => {
     console.log("Connected to database");
   });
 
-
-  const cursor =connection.query("SELECT ProductID FROM Product WHERE aantalbeschikbaar < 10");
+  const resultArray = [];
+  const cursor =connection.query("SELECT * FROM Product");
 
   cursor.on("result",(row) =>{
-    console.log(row);
+    const existingRow = resultArray.find(existingRow => existingRow.ProductID === row.ProductID);
+    resultArray.push(row);
   });
 
   cursor.on("error",(err) =>{
@@ -68,6 +69,19 @@ app.listen(port, () => {
   cursor.on("end", () => {
     connection.end();
     console.log("Query execution complete");
+    console.log("reult array: ", resultArray);
+    
   });
+
+  app.set("view engine" , "ejs");
+  app.use (express.static(path.join(__dirname, "public")));
+
+  app.get ("/Product", (req, res) =>{
+    res.json(resultArray);
+  });
+
+  app.listen(3000, () => {
+    console.log("Server is running")
+  })
 
 });
