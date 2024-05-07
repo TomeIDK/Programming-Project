@@ -1,0 +1,59 @@
+@import url("/src/css/default.css");
+@import url("/src/css/reset.css");
+
+.toast-container{
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    z-index: 100;
+}
+
+.toast-notification{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: .5rem 1rem;
+    border-radius: .875rem;
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    animation: slideIn 500ms ease forwards;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.toast__icon{
+    width: 2rem;
+}
+
+.toast__message{
+    font-family: 'Inter';
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@keyframes slideIn {
+    from {
+      transform: translateY(-100%) translateX(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) translateX(-50%);
+      opacity: 1;
+    }
+  }
+
+  .show {
+    animation: slideOut 500ms ease forwards 2s;
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }

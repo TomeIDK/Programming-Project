@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="filter.css" />
+    <title>Filter</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="filter.css" />
-  <title>Filter</title>
-</head>
+  <body>
+    <div class="search-bar form">
+      <div class="search-bar__container search-bar__search">
+        <img
+          class="search-bar__icon"
+          src="../../images/magnifying-glass.svg"
+          alt="Zoeken"
+        />
+        <input
+          id="search-bar"
+          class="input"
+          type="text"
+          placeholder="Zoeken..."
+        />
+      </div>
 
-<body>
-  <div class="search-bar form">
-    <div class="search-bar__container search-bar__search">
-      <img class="search-bar__icon" src="../../images/magnifying-glass.svg" alt="Zoeken" />
+      <div class="search-bar__container search-bar__filter" tabindex="0">
+        <img
+        class="search-bar__icon"
+        src="../../images/filter.svg"
+        alt="Filters"
+      />
+      <button id="search-bar-btn-filter" class="search-bar__btn-filter">
+        <span id="tag-filter-span" class="btn-filter__text">Selecteer Tags</span>
 
-      <input id="search-bar" class="input" type="text" placeholder="Zoeken...">
-      <datalist id="Filters">
-        <option value="camera 1"></option>
-        <option value="camera 20"></option>
-        <option value="capibara 1"></option>
-      </datalist>
+        <ul id="selected-tags-list" class="btn-filter__selected-tags-list">
+        </ul>
 
+        <img
+        class="btn-filter__icon"
+        src="../../images/chevron-down.svg"
+        alt="V"
+      />
+      </button>
+      <ul id="tag-filter-list" class="filter__dropdown">
+        <input
+        id="tag-filter"
+        class="input dropdown__tag-filter"
+        type="search"
+        placeholder="Voer tags in"
+      />
+      </ul>
 
-
-
-
+      </div>
     </div>
-    <div class="search-bar__container search-bar__filter">
-      <img class="search-bar__icon" src="../../images/filter.svg" alt="Filters" />
-      <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
-    </div>
-  </div>
-  <input type="text" id="newItem" placeholder="Voeg een item toe">
-  <button onclick="addItem()">Toevoegen</button>
-  <script src="filter.js"></script>
-</body>
 
+    <ul id="test" class="test">
+      <li>VR</li>
+      <li>Video</li>
+      <li>Camera</li>
+      <li>Beeld</li>
+    </ul>
+
+    <script src="filter.js"></script>
+  </body>
 </html>
