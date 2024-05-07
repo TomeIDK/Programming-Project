@@ -40,7 +40,7 @@ app.get("/api/products", (req, res) => {
   connection.query(query, (error, results) => {
     if (error) {
       console.error("Error getting products: " + error);
-      res.status(500).json({ error: "Error getting products" });
+      res.status(500).json({ error: `Error getting products: ${error}` });
     } else {
       res.json(results);
     }
