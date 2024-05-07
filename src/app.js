@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Create Express app
 const app = express();
@@ -13,6 +13,10 @@ const info = require('./routes/info');
 const catalog = require('./routes/catalog');
 app.use('/info', info);
 app.use('/cataloog', catalog);
+
+// Set up view engine and static files
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
 // Database connection
 const connection = mysql.createConnection({
@@ -30,15 +34,7 @@ connection.connect((err) => {
     console.log("Connected to database");
 });
 
-// Set up view engine and static files
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
 
-// Routes
-// Home route
-app.get("/", (req, res) => {
-    res.render("index");
-});
 
 // API routes
 // Get all products
