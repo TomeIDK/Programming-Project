@@ -145,7 +145,7 @@ class EhbFooter extends HTMLElement {
         <div class="footer__wrapper">
           <ul class="footer__socials-list">
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://www.facebook.com/erasmushogeschool" target="_blank"
                 ><img
                   src="images/facebooklogo.png"
                   width="32px"
@@ -153,7 +153,7 @@ class EhbFooter extends HTMLElement {
               /></a>
             </li>
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://www.linkedin.com/school/erasmushogeschool-brussel/" target="_blank"
                 ><img
                   src="images/linkedinlogo.png"
                   width="32px"
@@ -161,7 +161,7 @@ class EhbFooter extends HTMLElement {
               /></a>
             </li>
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://twitter.com/ehbrussel" target="_blank"
                 ><img
                   src="images/xlogo.png"
                   width="32px"
@@ -169,7 +169,7 @@ class EhbFooter extends HTMLElement {
               /></a>
             </li>
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://www.instagram.com/erasmushogeschool/" target="_blank"
                 ><img
                   src="images/instagramlogo.png"
                   width="32px"
@@ -177,7 +177,7 @@ class EhbFooter extends HTMLElement {
               /></a>
             </li>
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://www.youtube.com/user/ehbrussel" target="_blank"
                 ><img
                   src="images/youtubelogo.png"
                   width="32px"
@@ -185,7 +185,7 @@ class EhbFooter extends HTMLElement {
               /></a>
             </li>
             <li class="socials-list-item">
-              <a href=""
+              <a href="https://discord.gg/3xyz3Dg6xG" target="_blank"
                 ><img
                   src="images/discordlogo.png"
                   width="32px"
