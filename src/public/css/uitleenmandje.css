@@ -22,20 +22,3 @@ button.btn.cta-button--red{
     height: 200px;
     margin-bottom: 10px;
 }
-.basket {
-    display: grid;
-    grid-template-columns: 80% auto; /* First column for items, second for calendar */
-    gap: 20px; /* Adjust the gap between items and calendar */
-}
-
-.basket .basket__item-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adjust the gap between items */
-}
-
-.item-list__item {
-    width: 100%; /* Items take full width by default */
-    background-color: #f0f0f0; /* Just for visualization */
-    padding: 10px; /* Adjust padding as needed */
-}
