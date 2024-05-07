@@ -3,16 +3,23 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
+const port = 3000;
 
 // Create Express app
 const app = express();
 
+// Routes
+const info = require('./routes/info');
+const catalog = require('./routes/catalog');
+app.use('/info', info);
+app.use('/cataloog', catalog);
+
 // Database connection
 const connection = mysql.createConnection({
-    host: "dt5.ehb.be",
-    user: "2324PROGPRGR10",
-    password: "hVWX33SX",
-    database: "2324PROGPRGR10"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 });
 
 connection.connect((err) => {
