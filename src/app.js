@@ -1,98 +1,56 @@
+require("dotenv").config();
 const mysql = require("mysql");
 const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
 
+
+// Routers
+const info = require("./routes/info");
+const catalog = require("./routes/catalog");
+const product = require("./routes/product");
+
+
+// Load router modules
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/info", info);
+app.use("/cataloog", catalog);
+app.use("/product/:id", product);
 
-
-app.get('/info', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'info.html'));
-});
-
-app.get('/cataloog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'cataloog.html'));
-});
-
-// Route to get all products
-app.get("/api/products", (req, res) => {
-  const query = "SELECT * FROM products";
-  connection.query(query, (error, results) => {
-    if (error) {
-      console.error("Error getting products: " + error);
-      res.status(500).json({ error: `Error getting products: ${error}` });
-    } else {
-      res.json(results);
-    }
-  });
-app.get('/product/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'cataloog.html'));
-});
-
-app.get('/uitleenmandje/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'uitleenmandje.html'));
-});
-
-app.get('/uitleningen/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'uitleningen.html'));
-});
-
-app.get('/reservaties/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'reservaties.html'));
-});
-
-app.get('/geschiedenis/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'geschiedenis.html'));
-});
-
+// Listen for connections
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 
-  const connection = mysql
-    .createConnection({
-      host: "dt5.ehb.be", // Change this to your MySQL host
-      user: "2324PROGPRGR10", // Your MySQL username
-      password: "hVWX33SX", // Your MySQL password
-      database: "2324PROGPRGR10", // Your database name
-    });
    
+  // MySQL connection
+  const connection = mysql.createConnection({
+    host: process.env.DB_HOST, // Change this to your MySQL host
+    user: process.env.DB_USERNAME, // Your MySQL username
+    password: process.env.DB_PASSWORD, // Your MySQL password
+    database: process.env.DB_DATABASE, // Your database name
+  });
+
   connection.connect((err) => {
     if (err) {
       console.error("Error connecting to database: " + err.stack);
-      return;
+
     }
     console.log("Connected to database");
   });
+});
 
-  const resultArray = [];
-  const cursor =connection.query("SELECT * FROM Product");
-
-  cursor.on("result",(row) =>{
-    const existingRow = resultArray.find(existingRow => existingRow.ProductID === row.ProductID);
-    resultArray.push(row);
+  
+app.get('/api/products', (req, res) => {
+  const query = "SELECT * FROM Product"; // Veronderstellende dat de tabel 'products' heet
+  connection.query(query, (error, results) => {
+    if (error) {
+      console.error("Error querying database: " + error.stack);
+      res.status(500).json({ error: "Failed to retrieve products from database" });
+      return;
+    }
+    res.json(results);
   });
 
-  cursor.on("error",(err) =>{
-   console.error('error executing query: ', err);
-  });
-
-  cursor.on("end", () => {
-    connection.end();
-    console.log("Query execution complete");
-    console.log("reult array: ", resultArray);
-    
-  });
-
-  app.set("view engine" , "ejs");
-  app.use (express.static(path.join(__dirname, "public")));
-
-  app.get ("/Product", (req, res) =>{
-    res.json(resultArray);
-  });
-
-  app.listen(3000, () => {
-    console.log("Server is running")
-  })
 
 });
