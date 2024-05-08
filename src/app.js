@@ -11,8 +11,10 @@ const app = express();
 // Routes
 const info = require('./routes/info');
 const catalog = require('./routes/catalog');
+const api = require('./routes/api');
 app.use('/info', info);
 app.use('/cataloog', catalog);
+app.use("/api", api);
 
 // Set up view engine and static files
 app.set("view engine", "ejs");
@@ -33,8 +35,6 @@ connection.connect((err) => {
     }
     console.log("Connected to database");
 });
-
-
 
 // API routes
 // Get all products
