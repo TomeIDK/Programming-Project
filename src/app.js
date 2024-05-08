@@ -31,9 +31,10 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) {
         console.error("Error connecting to database: " + err.stack);
+        console.error("\nBen je geconnecteerd met het schoolnetwerk? (VPN)");
         return;
     }
-    console.log("Connected to database");
+    console.log("Connected to database: ", path.basename(__filename));
 });
 
 // API routes
