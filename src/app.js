@@ -12,9 +12,11 @@ const app = express();
 const info = require('./routes/info');
 const catalog = require('./routes/catalog');
 const api = require('./routes/api');
+const product = require("./routes/product");
 app.use('/info', info);
 app.use('/cataloog', catalog);
 app.use("/api", api);
+app.use("/product", product);
 
 // Set up view engine and static files
 app.set("view engine", "ejs");
