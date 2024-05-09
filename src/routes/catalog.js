@@ -9,6 +9,7 @@ const mysql = require("mysql");
 
 // DB variables
 let tags = [];
+let products = [];
 
 // Database connection
 const connection = mysql.createConnection({
@@ -38,13 +39,29 @@ connection.query("SELECT tagID from Tag", (error, results, fields) => {
 
   tags = results.map((tag) => tag.tagID);
 
+});
+
+// Retrieve products
+connection.query("SELECT productID, naam, aantalBeschikbaar, afbeelding from Product", (error, results, fields) => {
+  if (error) {
+    console.error("Error executing query:", error);
+    return;
+  }
+  products = results;
+
+  // Remove last item in array because it returns an unusable object
+  products.pop();
+  
+  console.log("products:", products);
+});
+
+
   // Close DB connection
   connection.end();
-});
 
 // Define route handler function and render response with necessary data
 router.get("/", async (req, res) => {
-  res.render("cataloog", { tags: tags });
+  res.render("cataloog", { tags: tags, products: products });
 });
 
 module.exports = router;
