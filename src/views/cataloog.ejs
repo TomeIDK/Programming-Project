@@ -6,18 +6,20 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="./components/button/button.css"
+      href="/components/button/button.css"
     />
-    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="./components/filter/filter.css"
+      href="/components/filter/filter.css"
     />
-    <link rel="stylesheet" type="text/css" href="./css/catalogus.css" />
+    <link rel="stylesheet" type="text/css" href="/css/catalogus.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
-    <title>MediaLab - Cataloog</title>
+    <title>EhB MediaLab - Cataloog</title>
   </head>
 
   <body>
@@ -28,7 +30,7 @@
         <div class="search-bar__container search-bar__search">
           <img
             class="search-bar__icon"
-            src="./images/magnifying-glass.svg"
+            src="/images/magnifying-glass.svg"
             alt="Zoeken"
           />
           <input
@@ -42,7 +44,7 @@
         <div class="search-bar__container search-bar__filter" tabindex="0">
           <img
             class="search-bar__icon"
-            src="./images/filter.svg"
+            src="/images/filter.svg"
             alt="Filters"
           />
           <button id="search-bar-btn-filter" class="search-bar__btn-filter">
@@ -57,7 +59,7 @@
 
             <img
               class="btn-filter__icon"
-              src="./images/chevron-down.svg"
+              src="/images/chevron-down.svg"
               alt="V"
             />
           </button>
@@ -110,8 +112,8 @@
             <p class="product__availability">
               Nu beschikbaar
               <span class="availability-amount">
-                <%= `(${product.aantalBeschikbaar}/${product.aantalBeschikbaar})`
-                %>
+                <%=
+                `(${product.aantalBeschikbaar}/${product.aantalBeschikbaar})` %>
               </span>
             </p>
 
@@ -139,8 +141,7 @@
     </main>
     <ehb-footer></ehb-footer>
     <script src="/js/cataloog.js"></script>
-    <script src="./js/components.js"></script>
-    <script src="../public/js/cataloog.js"></script>
-    <script src="./components/date-picker/date-picker.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/components/date-picker/date-picker.js"></script>
   </body>
 </html>
