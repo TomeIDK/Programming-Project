@@ -42,7 +42,6 @@ class EhbHeader extends HTMLElement {
             alt="Erasmushogeschool Brussel"
           />
         </a>
-        <h1 class="header__title">MediaLab</h1>
         <div class="header__wrapper">
           ${basket}
           <button id="hamburger-menu" class="header__hamburger-menu header__btn">

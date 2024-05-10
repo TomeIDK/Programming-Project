@@ -26,6 +26,7 @@
     <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
+      <h1 class="page__title">MediaLab Cataloog</h1>
       <div class="search-bar form">
         <div class="search-bar__container search-bar__search">
           <img
@@ -82,9 +83,10 @@
             <% }); %>
           </ul>
         </div>
+        <div class="search-bar__container search-bar__datepicker">
+          <input id="datepicker" class="input" placeholder="Kies een datum" />
+        </div>
       </div>
-
-      <input id="datepicker" class="input" placeholder="Kies een datum" />
 
       <div class="catalog">
         <% products.forEach((product, index) => { %>
@@ -116,23 +118,22 @@
                 `(${product.aantalBeschikbaar}/${product.aantalBeschikbaar})` %>
               </span>
             </p>
-
-            <div>
-              <button
-                id="btn-specs<%= index %>"
-                class="btn secondary-button"
-                data-id="<%= product.productID %>"
-              >
-                Specificaties
-              </button>
-              <button
-                id="btn-add<%= index %>"
-                class="btn cta-button--blue"
-                data-id="<%= product.productID %>"
-              >
-                In uitleenmandje
-              </button>
-            </div>
+          </div>
+          <div class="product__buttons">
+            <button
+              id="btn-specs<%= index %>"
+              class="btn secondary-button"
+              data-id="<%= product.productID %>"
+            >
+              Specificaties
+            </button>
+            <button
+              id="btn-add<%= index %>"
+              class="btn cta-button--blue"
+              data-id="<%= product.productID %>"
+            >
+              In uitleenmandje
+            </button>
           </div>
         </div>
 
