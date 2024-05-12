@@ -197,17 +197,17 @@ class EhbFooter extends HTMLElement {
       <div class="footer__info">
         <ul class="footer__info-list">
           <li class="footer__info-list-item">
-            <a href="#">©Erasmushogeschool Brussel 2024</a>
+            <a href="">©Erasmushogeschool Brussel 2024</a>
           </li>
           <li class="footer__info-list-item">
-            <a href="#">Cookieverklaring</a>
+            <a href="https://www.erasmushogeschool.be/en/cookie-statement" target="_blank">Cookieverklaring</a>
           </li>
-          <li class="footer__info-list-item"><a href="#">Disclaimer</a></li>
+          <li class="footer__info-list-item"><a href="https://www.erasmushogeschool.be/en/disclaimer" target="_blank">Disclaimer</a></li>
           <li class="footer__info-list-item">
-            <a href="#">Gebruikersvoorwaarde</a>
+            <a href="https://www.erasmushogeschool.be/en/terms-of-use" target="_blank">Gebruikersvoorwaarde</a>
           </li>
           <li class="footer__info-list-item">
-            <a href="#">Privacyverklaring</a>
+            <a href="https://www.erasmushogeschool.be/en/privacy-statement" target="_blank">Privacyverklaring</a>
           </li>
         </ul>
       </div>
