@@ -104,11 +104,10 @@
           <div class="product__content">
             <h3 class="product__title"><%= product.naam %></h3>
 
-            <!-- TODO: Add tags to each card from DB -->
             <ul class="product__tag-list">
-              <li class="product__tag">collaboration</li>
-              <li class="product__tag">Gaming</li>
-              <li class="product__tag">Film</li>
+              <% product.product_tags.forEach(tag => { %>
+              <li class="product__tag"><%= tag %></li>
+              <% }); %>
             </ul>
 
             <p class="product__availability">
