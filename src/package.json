@@ -11,11 +11,15 @@
   "dependencies": {
     "@easepick/core": "^1.2.1",
     "@easepick/lock-plugin": "^1.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "litepicker": "^2.0.12",
     "mysql": "^2.18.1",
     "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

@@ -57,6 +57,7 @@ GROUP BY Product.productID, Product.naam`,
     products.forEach((product) => {
       product.product_tags = product.product_tags.split(", ");
     });
+    console.log("products:", products);
   }
 );
 
