@@ -27,22 +27,6 @@ app.use("/product", product);
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-// Database connection
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error("Error connecting to database: " + err.stack);
-        console.error("\nBen je geconnecteerd met het schoolnetwerk? (VPN)");
-        return;
-    }
-    console.log("Connected to database: ", path.basename(__filename));
-});
 
 // API routes
 // Get all products
