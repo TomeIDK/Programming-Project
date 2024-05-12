@@ -3,10 +3,15 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
+const cors = require('cors');
 const port = process.env.PORT || 3000;
+const DBService = require("./dbService");
 
 // Create Express app
 const app = express();
+app.use(express.json());
+app.use(cors());
+const dbService = new DBService();
 
 // Routes
 const info = require('./routes/info');
@@ -54,13 +59,11 @@ app.get("/api/products", (req, res) => {
 
 // Handle reservation
 app.post("/api/reservations", (req, res) => {
-    const { productId, userId } = req.body;
-    connection.query("INSERT INTO Reservations (ProductID, UserID) VALUES (?, ?)", [productId, userId], (err, result) => {
+    const { productId, userId, reservationDate } = req.body;
+    dbService.addReservation(productId, userId, reservationDate, (err, result) => {
         if (err) {
-            console.error('Error adding reservation to database: ', err);
             res.status(500).json({ error: 'Failed to add reservation' });
         } else {
-            console.log('Reservation added successfully');
             res.status(200).json({ message: 'Reservation added successfully' });
         }
     });
