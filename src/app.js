@@ -42,13 +42,27 @@ app.get("/api/products", (req, res) => {
 });
 
 // Handle reservation
-app.post("/api/reservations", (req, res) => {
-    const { productId, userId, reservationDate } = req.body;
-    dbService.addReservation(productId, userId, reservationDate, (err, result) => {
+app.post("/api/uitleningen", (req, res) => {
+    const { productId, userId, startDatum, reden } = req.body;
+    dbService.addUitlening(productId, userId, startDatum, reden, (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Failed to add reservation' });
+            console.error('Error adding uitlening to database: ', err);
+            res.status(500).json({ error: 'Failed to add uitlening' });
         } else {
-            res.status(200).json({ message: 'Reservation added successfully' });
+            console.log('Uitlening added successfully');
+            res.status(200).json({ message: 'Uitlening added successfully' });
+        }
+    });
+});
+
+
+// Handle number available
+app.get("/api/products/availability", (req, res) => {
+    dbService.getProductAvailability((err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to fetch product availability' });
+        } else {
+            res.status(200).json(result);
         }
     });
 });
