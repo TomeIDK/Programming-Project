@@ -120,12 +120,17 @@
           </div>
           <div class="product__buttons">
             <button
-              id="btn-specs<%= index %>"
-              class="btn secondary-button"
-              data-id="<%= product.productID %>"
-            >
+              id="btn-specs<%= index %>" 
+              class="btn secondary-button" 
+              onclick="location.href='/product/<%= product.productID %>'" 
+              data-id="<%= product.productID %>">
               Specificaties
             </button>
+
+              
+            
+              
+            
             <button
               id="btn-add<%= index %>"
               class="btn cta-button--blue"
