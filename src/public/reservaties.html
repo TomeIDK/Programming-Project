@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
-    <link rel="stylesheet" type="text/css" href="./css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./css/default.css">
-    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
-    <link rel="stylesheet" type="text/css" href="./css/reservaties.css">
-    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/button/button.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/filter/filter.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/reservaties.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-        <h1>Mijn reservaties</h1>
-        <div class="reservaties"></div>
-        
-        <ul class="reservaties__artikel">
-            <li>
-                <span>Artikel</span>
-                <span>Datum gereserveed</span>
-                <span>Gereserveerd tot</span>
-                <span></span>
+      <h1>Mijn Reservaties</h1>
 
-            </li>
-            <li>
-                <span class="reservaties__artikel1--naam">Printer </span>
-                <span class="reservaties__artikel1--datum1"> 01/01/2024</span>
-                <span class="reservaties__artikel1--datum2"> 01/01/2024</span>
-                <span><button class="btn secondary-button">Annuleer reservatie</button></span>
-            </li>
-            <li>
-                <span class="reservaties__artikel2--naam">Printer </span>
-                <span class="reservaties__artikel2--datum1"> 01/01/2024</span>
-                <span class="reservaties__artikel2--datum2">01/01/2024 </span>
+      <ul class="reservation">
+        <li class="reservation__item reservation__heading">
+          <span class="reservation__title">Product</span>
+          <span class="reservation__title">Datum gereserveerd</span>
+          <span class="reservation__title">Gereserveerd tot</span>
+          <span class="reservation__title">Verlenging</span>
+        </li>
+        <li class="reservation__item">
+          <span class="reservation__article--name">Printer </span>
+          <span class="reservation__article--date-from"> 01/01/2024</span>
+          <span class="reservation__article--date-until"> 01/01/2024</span>
+          
+          <button class="btn secondary-button">Annuleer reservatie</button>
+        </li>
+        <li class="reservation__item">
+          <span class="reservation__article--name">Printer </span>
+          <span class="reservation__article--date-from"> 01/01/2024</span>
+          <span class="reservation__article--date-until">01/01/2024 </span>
 
-                <span><button class="btn secondary-button">Annuleer reservatie</button></span>
-            </li>
-            <li>
-                <span class="reservaties__artikel3--naam">Printer </span>
-                <span class="reservaties__artikel3--datum1">01/01/2024 </span>
-                <span class="reservaties__artikel3--datum2">01/01/2024 </span>
-                <span><button class="btn secondary-button">Annuleer reservatie</button></span>
-            </li>
-        </ul>
-
+          <button class="btn secondary-button">Annuleer reservatie</button>
+        </li>
+        <li class="reservation__item">
+          <span class="reservation__article--name">Printer </span>
+          <span class="reservation__article--date-from">01/01/2024 </span>
+          <span class="reservation__article--date-until">01/01/2024 </span>
+          
+          <button class="btn secondary-button">Annuleer reservatie</button>
+        </li>
+      </ul>
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./components/filter/filter.js"></script>
-    <script src="./components/date-picker/date-picker.js"></script>
-
-
-</body>
-
+  </body>
 </html>

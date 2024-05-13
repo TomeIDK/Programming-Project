@@ -9,7 +9,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-.reservaties__artikel {
+.reservation {
     padding: 0;
     margin: 0;
     margin-bottom: 2rem;
@@ -18,25 +18,22 @@ h1 {
     flex-direction: column;
 }
 
-.reservaties__artikel li {
-    display: flex;
-    list-style: none;
-    padding: 8px 12px;
-}
-.reservaties__artikel li span{
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #000000;
-
-}
-
-
-.reservaties__artikel li:first-child {
+.reservation__heading{
     font-weight: bold;
 }
 
-.reservaties__artikel span {
-    margin-top: 1rem;
-    flex: 1;
+.reservation__item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    list-style: none;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.reservation__item .btn{
+    width: fit-content;
 }
 
 
