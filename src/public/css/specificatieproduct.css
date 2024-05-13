@@ -29,6 +29,16 @@ section img{
 p.product__availability{
     margin-bottom: 2rem;
 }
+
+.reden{
+    padding: 1rem 0;
+    border-top: 1px solid var(--text-muted);
+}
+
+.datepicker{
+    margin: 1rem 0 2rem 0;
+}
+
 label{
     font-weight: bolder;
 }

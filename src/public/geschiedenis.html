@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
-    <link rel="stylesheet" type="text/css" href="./css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./css/default.css">
-    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
-    <link rel="stylesheet" type="text/css" href="./css/geschiedenis.css">
-    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/button/button.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/filter/filter.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/geschiedenis.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-        <h1>Mijn geschiedenis</h1>
-        <div class="geschiedenis"></div>
-        
-        <ul class="geschiedenis__artikel">
-            <li>
-                <span>Artikel</span>
-                <span>Datum uitgeleend</span>
-                <span>Uitgeleend tot</span>
-                <span>Commentaar</span>
-                <span></span>
+      <h1>Mijn Geschiedenis</h1>
 
-            </li>
-            <li>
-                <span class="geschiedenis__artikel1--naam">Printer </span>
-                <span class="geschiedenis__artikel1--datum1"> 01/01/2024</span>
-                <span class="geschiedenis__artikel1--datum2"> 01/01/2024</span>
-                <span class="geschiedenis__artikel1--commentaar"> basdfbjksbjkdfsbjksdfbjk</span>
-                <span><button class="btn secondary-button">opnieuw reserveren</button></span>
-            </li>
-            <li>
-                <span class="geschiedenis__artikel2--naam">Printer </span>
-                <span class="geschiedenis__artikel2--datum1"> 01/01/2024</span>
-                <span class="geschiedenis__artikel2--datum2">01/01/2024 </span>
-                <span class="geschiedenis__artikel2--commentaar"> basdfbjksbjkdfsbjksdfbjk</span>
+      <ul class="history">
+        <li class="history__item history__heading">
+          <span class="history__title">Product</span>
+          <span class="history__title">Datum uitgeleend</span>
+          <span class="history__title">Uitgeleend tot</span>
+          <span class="history__title">Opnieuw Reserveren</span>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from"> 01/01/2024</span>
+          <span class="history__article--date-until"> 01/01/2024</span>
+          
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from"> 01/01/2024</span>
+          <span class="history__article--date-until">01/01/2024 </span>
 
-                <span><button class="btn secondary-button">opnieuw reserveren</button></span>
-            </li>
-            <li>
-                <span class="geschiedenis__artikel3--naam">Printer </span>
-                <span class="geschiedenis__artikel3--datum1">01/01/2024 </span>
-                <span class="geschiedenis__artikel3--datum2">01/01/2024 </span>
-                <span class="geschiedenis__artikel3--commentaar"> basdfbjksbjkdfsbjksdfbjk</span>
-                <span><button class="btn secondary-button">opnieuw reserveren</button></span>
-            </li>
-        </ul>
-
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from">01/01/2024 </span>
+          <span class="history__article--date-until">01/01/2024 </span>
+          
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+      </ul>
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./components/filter/filter.js"></script>
-    <script src="./components/date-picker/date-picker.js"></script>
-
-
-</body>
-
+  </body>
 </html>

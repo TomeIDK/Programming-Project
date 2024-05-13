@@ -9,7 +9,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-.geschiedenis__artikel {
+.history {
     padding: 0;
     margin: 0;
     margin-bottom: 2rem;
@@ -18,25 +18,22 @@ h1 {
     flex-direction: column;
 }
 
-.geschiedenis__artikel li {
-    display: flex;
-    list-style: none;
-    padding: 8px 12px;
-}
-.geschiedenis__artikel li span{
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #000000;
-
-}
-
-
-.geschiedenis__artikel li:first-child {
+.history__heading{
     font-weight: bold;
 }
 
-.geschiedenis__artikel span {
-    margin-top: 1rem;
-    flex: 1;
+.history__item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    list-style: none;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.history__item .btn{
+    width: fit-content;
 }
 
 
