@@ -20,20 +20,16 @@
     <main>
       <diV id="flexbox">
         <article>
-          <h2 class="page__subtitle">Nikon Camera</h2>
+          <h2 class="page__subtitle"><%= product.naam %></h2>
           <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount">(4/5)</span>
+            Nu beschikbaar <span class="availability-amount"><%= product.aantalBeschikbaar%></span>
           </p>
-          <img src="/images/Nikon Camera.jpg" />
+          <img src="<%= product.afbeelding %>" alt="<%= product.naam %>">
         </article>
 
         <article>
           <h3>Beschrijving en specificatie</h3>
-          <p>
-            Canon EOS 2000D EF-S 18-55 mm f/3,5-5,6 III SLR camera kit 24,1 MP
-            CMOS 6000 x 4000 pixels zwart - digitale camera's (24,1 MP, 6000 x
-            4000 pixels, CMOS, Full HD, zwart)
-          </p>
+          <p class="product__description"><%= product.specificaties %></p>
           <br />
 
           <h3>Specifieke voorwaarden voor uitlening</h3>
