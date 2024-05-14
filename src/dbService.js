@@ -1,11 +1,7 @@
 const mysql = require("mysql");
-<<<<<<< Updated upstream
-require("dotenv").config();
-=======
 const dotenv = require('dotenv)');
 const uuid = require('uuid');
 dotenv.config();
->>>>>>> Stashed changes
 
 class DBService {
     constructor() {
@@ -26,18 +22,6 @@ class DBService {
         });
     }
 
-<<<<<<< Updated upstream
-    addReservation(productId, userId, reservationDate, callback) {
-        this.connection.query(
-            "INSERT INTO Reservations (ProductID, UserID, ReservationDate) VALUES (?, ?, ?)",
-            [productId, userId, reservationDate],
-            (err, result) => {
-                if (err) {
-                    console.error('Error adding reservation to database: ', err);
-                    callback(err, null);
-                } else {
-                    console.log('Reservation added successfully');
-=======
     addUitlening(productId, userId, startDatum, reden, callback) {
         const uitleningID = uuid.v4().substring(0, 9); // Genereer een unieke uitleningID
     
@@ -65,17 +49,13 @@ class DBService {
                     callback(err, null);
                 } else {
                     console.log('Product availability fetched successfully');
->>>>>>> Stashed changes
                     callback(null, result);
                 }
             }
         );
     }
     
-<<<<<<< Updated upstream
-=======
     
->>>>>>> Stashed changes
 }
 
 module.exports = DBService;
