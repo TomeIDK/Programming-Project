@@ -12,6 +12,8 @@ const MySQLStore = require("express-mysql-session")(session);
 
 // Create Express app
 const app = express();
+
+// Global middleware
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
@@ -43,6 +45,7 @@ const product = require("./routes/product");
 const uitleenmandje = require('./routes/uitleenmandje');
 
 app.use("/login", login);
+app.use("/", login);
 app.use("/info", info);
 app.use("/cataloog", catalog);
 app.use("/api", api);

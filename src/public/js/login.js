@@ -14,16 +14,14 @@ btnLogin.addEventListener("click", async (event) => {
       },
       body: JSON.stringify({ email: email, pass: pass }),
     });
-    console.log("test");
     if (response.ok) {
       const data = await response.json();
       console.log("Response:", data);
-    //   window.location.href = "/cataloog";
+      window.location.href = "/cataloog";
     } else {
       console.error("Request failed with status:", response.status);
     }
   } catch (error) {
-    console.log("Catch triggered");
     console.error("Request failed:", error);
   }
 });
