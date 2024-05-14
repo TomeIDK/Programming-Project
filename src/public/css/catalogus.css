@@ -1,5 +1,5 @@
-@import url("/src/public/components/catalog card/card.css");
-@import url("/src/public/components/date-picker/date-picker.css");
+@import url("../components/catalog card/card.css");
+@import url("../components/date-picker/date-picker.css");
 
 main {
   width: 80%;

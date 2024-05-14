@@ -5,7 +5,9 @@ const path = require("path");
 const router = express.Router();
 const mysql = require("mysql");
 
+
 // middleware specific to this router
+
 
 // DB variables
 let tags = [];

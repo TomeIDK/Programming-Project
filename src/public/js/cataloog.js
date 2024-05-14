@@ -93,7 +93,6 @@ function removeTag(tag) {
 }
 
 // Read all values of filter array and update accordingly
-// TODO: Change filter to card tags instead of test list
 function updateTags() {
   btnFilter.prepend(tagFilterSpan); // Show "Selecteer Tags"
   selectedTagsList.style.display = "hidden"; // Remove inline taglist
