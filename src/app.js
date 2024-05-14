@@ -1,38 +1,73 @@
+// Require modules
 require("dotenv").config();
-const mysql = require("mysql");
 const express = require("express");
-const app = express();
-const port = 3000;
+const mysql = require("mysql");
 const path = require("path");
+const cors = require('cors');
+const port = process.env.PORT || 3000;
+const DBService = require("./dbService");
 
-// Routers
-const info = require("./routes/info");
-const catalog = require("./routes/catalog");
+// Create Express app
+const app = express();
+app.use(express.json());
+app.use(cors());
+const dbService = new DBService();
+
+// Routes
+const info = require('./routes/info');
+const catalog = require('./routes/catalog');
+const api = require('./routes/api');
 const product = require("./routes/product");
+app.use('/info', info);
+app.use('/cataloog', catalog);
+app.use("/api", api);
+app.use("/product", product);
 
-// Load router modules
+// Set up view engine and static files
+app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/info", info);
-app.use("/cataloog", catalog);
-app.use("/product/:id", product);
 
-// Listen for connections
+
+// API routes
+// Get all products
+app.get("/api/products", (req, res) => {
+    connection.query("SELECT * FROM Product", (err, result) => {
+        if (err) {
+            console.error('Error fetching products: ', err);
+            res.status(500).json({ error: 'Failed to fetch products' });
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+// Handle reservation
+app.post("/api/uitleningen", (req, res) => {
+    const { productId, userId, startDatum, reden } = req.body;
+    dbService.addUitlening(productId, userId, startDatum, reden, (err, result) => {
+        if (err) {
+            console.error('Error adding uitlening to database: ', err);
+            res.status(500).json({ error: 'Failed to add uitlening' });
+        } else {
+            console.log('Uitlening added successfully');
+            res.status(200).json({ message: 'Uitlening added successfully' });
+        }
+    });
+});
+
+
+// Handle number available
+app.get("/api/products/availability", (req, res) => {
+    dbService.getProductAvailability((err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to fetch product availability' });
+        } else {
+            res.status(200).json(result);
+        }
+    });
+});
+
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-
-  // MySQL connection
-  const connection = mysql.createConnection({
-    host: process.env.DB_HOST, // Change this to your MySQL host
-    user: process.env.DB_USERNAME, // Your MySQL username
-    password: process.env.DB_PASSWORD, // Your MySQL password
-    database: process.env.DB_DATABASE, // Your database name
-  });
-
-  connection.connect((err) => {
-    if (err) {
-      console.error("Error connecting to database: " + err.stack);
-      return;
-    }
-    console.log("Connected to database");
-  });
+    console.log(`Server is running on port ${port}`);
 });

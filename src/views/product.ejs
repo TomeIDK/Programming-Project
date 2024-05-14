@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/components/button/button.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/components/filter/filter.css" />
+    <link rel="stylesheet" href="/css/specificatieproduct.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/components/catalog card/card.css" />
+    <title>EhB MediaLab - </title>
+  </head>
+
+  <body>
+    <ehb-header nobasket></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+      <diV id="flexbox">
+        <article>
+          <h2 class="page__subtitle"><%= product.naam %></h2>
+          <p class="product__availability">
+            Nu beschikbaar <span class="availability-amount"><%= product.aantalBeschikbaar%></span>
+          </p>
+          <img src="<%= product.afbeelding %>" alt="<%= product.naam %>">
+        </article>
+
+        <article>
+          <h3>Beschrijving en specificatie</h3>
+          <p class="product__description"><%= product.specificaties %></p>
+          <br />
+
+          <h3>Specifieke voorwaarden voor uitlening</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </p>
+
+          <form action="#" method="post">
+            <br />
+            <label for="reden">Selecteer de reden voor uitlening:</label><br />
+            <select id="reden" name="reden">
+              <option value="Les">Les</option>
+              <option value="Eindwerk">Eindwerk</option>
+              <option value="Project">Project</option>
+              <option value="Persoonlijk Gebruik">Persoonlijk Gebruik</option>
+              <option value="Andere">Andere...</option>
+            </select>
+          </form>
+          <br />
+
+          <div id="Kalender"></div>
+          <br />
+          <button class="btn cta-button--red">Ga terug</button
+          ><button class="btn cta-button--blue">In uitleenmandje</button>
+        </article>
+      </diV>
+      <br />
+      <br />
+    </main>
+
+    <ehb-footer></ehb-footer>
+    <script src="/js/components.js"></script>
+  </body>
+</html>

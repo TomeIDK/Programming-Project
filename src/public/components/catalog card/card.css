@@ -59,6 +59,11 @@
     color: var(--primary-400);
 }
 
+.product__buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
 .disabled{
     background-color: var(--disabled);
     color: var(--text-muted);
