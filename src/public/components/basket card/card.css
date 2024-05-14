@@ -1,5 +1,6 @@
 @import url("../../css/default.css");
 
+
 .basket{
   margin-top: 1rem;
   /* flex: 1; */
@@ -22,15 +23,18 @@
 
 .item-list__item {
   padding: 10px;
+
   font-family: "Inter";
   display: flex;
   align-items: center;
+
   width: 100%;
   border-bottom: 1px solid var(--border-color);
 }
 
 .item-list__item:last-child {
   border-bottom: none;
+
 }
 
 .item__image {
