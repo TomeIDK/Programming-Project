@@ -27,22 +27,6 @@ app.use("/product", product);
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-// Database connection
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error("Error connecting to database: " + err.stack);
-        console.error("\nBen je geconnecteerd met het schoolnetwerk? (VPN)");
-        return;
-    }
-    console.log("Connected to database: ", path.basename(__filename));
-});
 
 // API routes
 // Get all products
@@ -58,13 +42,27 @@ app.get("/api/products", (req, res) => {
 });
 
 // Handle reservation
-app.post("/api/reservations", (req, res) => {
-    const { productId, userId, reservationDate } = req.body;
-    dbService.addReservation(productId, userId, reservationDate, (err, result) => {
+app.post("/api/uitleningen", (req, res) => {
+    const { productId, userId, startDatum, reden } = req.body;
+    dbService.addUitlening(productId, userId, startDatum, reden, (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Failed to add reservation' });
+            console.error('Error adding uitlening to database: ', err);
+            res.status(500).json({ error: 'Failed to add uitlening' });
         } else {
-            res.status(200).json({ message: 'Reservation added successfully' });
+            console.log('Uitlening added successfully');
+            res.status(200).json({ message: 'Uitlening added successfully' });
+        }
+    });
+});
+
+
+// Handle number available
+app.get("/api/products/availability", (req, res) => {
+    dbService.getProductAvailability((err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to fetch product availability' });
+        } else {
+            res.status(200).json(result);
         }
     });
 });
