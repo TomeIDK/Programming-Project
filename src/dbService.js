@@ -58,6 +58,42 @@ class DBService {
       }
     );
   }
+
+  createBasketItem(uitleenmandjeID, userID, productID, aantal, callback) {
+    let now = new Date();
+    now = now.toISOString().slice(0, 19).replace("T", " ");
+    // Insert basket item if no basket exists for user yet
+    if (!uitleenmandjeID) {
+      this.connection.query(
+        `INSERT INTO Uitleenmandje (userID, productID, aantal, gemaaktOp)
+        VALUES (${userID}, ${productID}, ${aantal}, '${now}')`,
+        (err, result) => {
+          if (err) {
+            console.error("Error creating lending basket: ", err);
+            callback(err, null);
+          } else {
+            console.log("Lending basket created succesfully");
+            callback(null, result);
+          }
+        }
+      );
+    } else {
+      // Insert basket item if basket already exists for user
+      this.connection.query(
+        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal, gemaaktOp)
+        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${aantal}, '${now}')`,
+        (err, result) => {
+          if (err) {
+            console.error("Error creating lending basket: ", err);
+            callback(err, null);
+          } else {
+            console.log("Lending basket created succesfully");
+            callback(null, result);
+          }
+        }
+      );
+    }
+  }
 }
 
 module.exports = DBService;

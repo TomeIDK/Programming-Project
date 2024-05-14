@@ -68,7 +68,6 @@ connection.end();
 
 // Define route handler function and render response with necessary data
 router.get("/", async (req, res) => {
-  console.log("session: ", req.session.user.uitleenmandjeID);
   res.render("cataloog", { tags: tags, products: products });
 });
 
