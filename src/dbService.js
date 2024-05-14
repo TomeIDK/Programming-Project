@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-const dotenv = require('dotenv)');
+const dotenv = require('dotenv');
 const uuid = require('uuid');
 dotenv.config();
 
