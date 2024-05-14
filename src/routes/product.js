@@ -26,13 +26,24 @@ connection.connect((err) => {
   console.log("Connected to database: ", path.basename(__filename));
 });
 
-// Close DB connection
-connection.end();
 
-// define the home page route (/product/id =  altijd met id om te weten welk product moet getoond worden)
-router.get("/:productID", (req, res) => {
-  const productID = req.params.productID;
-  res.render("product", { productID });
+
+// define the home page route 
+
+// define the Product route
+router.get('/:productID', (req, res) => {
+  const productId = req.params.productID;
+
+  connection.query('SELECT Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, Product.specificaties FROM Product WHERE productID = ?', [productId], (err, result) => {
+    if (err) {
+      console.error('Fout bij uitvoeren query: ' + err.stack);
+      return;
+    }
+    //console.log(result[0]);
+    res.render('product', { product: result[0] }); 
+  });
 });
+
+
 
 module.exports = router;

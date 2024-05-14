@@ -1,5 +1,7 @@
 const mysql = require("mysql");
-require("dotenv").config();
+const dotenv = require('dotenv)');
+const uuid = require('uuid');
+dotenv.config();
 
 class DBService {
     constructor() {
@@ -20,21 +22,39 @@ class DBService {
         });
     }
 
-    addReservation(productId, userId, reservationDate, callback) {
+    addUitlening(productId, userId, startDatum, reden, callback) {
+        const uitleningID = uuid.v4().substring(0, 9); // Genereer een unieke uitleningID
+    
         this.connection.query(
-            "INSERT INTO Reservations (ProductID, UserID, ReservationDate) VALUES (?, ?, ?)",
-            [productId, userId, reservationDate],
+            "INSERT INTO Uitleningen (UitleningID, ProductID, UserID, StartDatum, Reden) VALUES (?, ?, ?, ?, ?)",
+            [uitleningID, productId, userId, startDatum, reden],
             (err, result) => {
                 if (err) {
-                    console.error('Error adding reservation to database: ', err);
+                    console.error('Error adding uitlening to database: ', err);
                     callback(err, null);
                 } else {
-                    console.log('Reservation added successfully');
+                    console.log('Uitlening added successfully');
                     callback(null, result);
                 }
             }
         );
     }
+
+    getProductAvailability(callback) {
+        this.connection.query(
+            "SELECT ProductID, COUNT(*) AS availability FROM Reservations GROUP BY ProductID",
+            (err, result) => {
+                if (err) {
+                    console.error('Error fetching product availability from database: ', err);
+                    callback(err, null);
+                } else {
+                    console.log('Product availability fetched successfully');
+                    callback(null, result);
+                }
+            }
+        );
+    }
+    
     
 }
 
