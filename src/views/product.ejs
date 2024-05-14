@@ -11,26 +11,25 @@
     <link rel="stylesheet" href="/css/specificatieproduct.css" />
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/components/catalog card/card.css" />
-    <title>EhB MediaLab - </title>
+    <title>EhB MediaLab - <%= product.naam %></title>
   </head>
 
   <body>
-    <ehb-header nobasket></ehb-header>
+    <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-      <diV id="flexbox">
-        <article>
-          <h2 class="page__subtitle"><%= product.naam %></h2>
+      <div id="flexbox">
+        <section>
+          <h2 class="page__title"><%= product.naam %></h2>
           <p class="product__availability">
             Nu beschikbaar <span class="availability-amount"><%= product.aantalBeschikbaar%></span>
           </p>
           <img src="<%= product.afbeelding %>" alt="<%= product.naam %>">
-        </article>
+        </section>
 
-        <article>
-          <h3>Beschrijving en specificatie</h3>
+        <section>
+          <h3>Beschrijving en specificaties</h3>
           <p class="product__description"><%= product.specificaties %></p>
-          <br />
 
           <h3>Specifieke voorwaarden voor uitlening</h3>
           <p>
@@ -39,7 +38,7 @@
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           </p>
 
-          <form action="#" method="post">
+          <div class="reden">
             <br />
             <label for="reden">Selecteer de reden voor uitlening:</label><br />
             <select id="reden" name="reden">
@@ -49,17 +48,13 @@
               <option value="Persoonlijk Gebruik">Persoonlijk Gebruik</option>
               <option value="Andere">Andere...</option>
             </select>
-          </form>
-          <br />
+          </div>
 
-          <div id="Kalender"></div>
-          <br />
-          <button class="btn cta-button--red">Ga terug</button
+          <div id="kalender"></div>
+          <button class="btn secondary-button">Ga terug</button
           ><button class="btn cta-button--blue">In uitleenmandje</button>
-        </article>
-      </diV>
-      <br />
-      <br />
+          </section>
+      </div>
     </main>
 
     <ehb-footer></ehb-footer>
