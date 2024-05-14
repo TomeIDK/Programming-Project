@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/button/button.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./components/filter/filter.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/geschiedenis.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ehb-header></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+      <h1>Mijn Geschiedenis</h1>
+
+      <ul class="history">
+        <li class="history__item history__heading">
+          <span class="history__title">Product</span>
+          <span class="history__title">Datum uitgeleend</span>
+          <span class="history__title">Uitgeleend tot</span>
+          <span class="history__title">Opnieuw Reserveren</span>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from"> 01/01/2024</span>
+          <span class="history__article--date-until"> 01/01/2024</span>
+          
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from"> 01/01/2024</span>
+          <span class="history__article--date-until">01/01/2024 </span>
+
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+        <li class="history__item">
+          <span class="history__article--name">Printer </span>
+          <span class="history__article--date-from">01/01/2024 </span>
+          <span class="history__article--date-until">01/01/2024 </span>
+          
+          <button class="btn secondary-button">Opnieuw reserveren</button>
+        </li>
+      </ul>
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+  </body>
+</html>
