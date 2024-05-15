@@ -18,7 +18,7 @@ class EhbHeader extends HTMLElement {
   render() {
     // Component Logic
     let basket = `
-    <button class="header__cart header__btn">
+    <button id="btn-cart" class="header__cart header__btn">
     <span class="cart__items">1</span>
     <img
       src="/images/backpack.svg"
