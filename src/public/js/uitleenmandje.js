@@ -25,6 +25,8 @@ document.getElementById('lenenBtn').addEventListener('click', function() {
         eindDatum: eindDatum
     };
 
+    console.log('Verzenden reserveringsdata:', reservationData);
+
     // Fetch-aanroep om reservering aan te maken
     fetch('/reserveren', {
         method: 'POST',
@@ -46,6 +48,11 @@ document.getElementById('lenenBtn').addEventListener('click', function() {
         console.error('Fetch fout:', error);
         showPopup('Fout', 'Er is een fout opgetreden bij het maken van de reservering: ' + error.message);
     });
+});
+
+document.getElementById('terugBtn').addEventListener('click', function() {
+    console.log('Terug knop geklikt');
+    window.location.href = '/cataloog'; // Vervang dit door de juiste URL naar de catalogus pagina
 });
 
 function showPopup(title, message) {
