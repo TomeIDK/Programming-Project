@@ -23,40 +23,16 @@ class DBService {
     });
   }
 
-  addUitlening(productId, userId, startDatum, reden, callback) {
-    const uitleningID = uuid.v4().substring(0, 9); // Genereer een unieke uitleningID
-
-    this.connection.query(
-      "INSERT INTO Uitleningen (UitleningID, ProductID, UserID, StartDatum, Reden) VALUES (?, ?, ?, ?, ?)",
-      [uitleningID, productId, userId, startDatum, reden],
-      (err, result) => {
-        if (err) {
-          console.error("Error adding uitlening to database: ", err);
-          callback(err, null);
-        } else {
-          console.log("Uitlening added successfully");
-          callback(null, result);
+  addReservation(userId, artikelId, reden, startDatum, eindDatum) {
+    return new Promise((resolve, reject) => {
+      const query = "INSERT INTO Uitleening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend) VALUES (?, ?, ?, ?, ?, 0, 0, 0)";
+      this.connection.query(query, [userId, artikelId, reden, startDatum, eindDatum], (error, results) => {
+        if (error) {
+          return reject(error);
         }
-      }
-    );
-  }
-
-  getProductAvailability(callback) {
-    this.connection.query(
-      "SELECT ProductID, COUNT(*) AS availability FROM Reservations GROUP BY ProductID",
-      (err, result) => {
-        if (err) {
-          console.error(
-            "Error fetching product availability from database: ",
-            err
-          );
-          callback(err, null);
-        } else {
-          console.log("Product availability fetched successfully");
-          callback(null, result);
-        }
-      }
-    );
+        resolve(results);
+      });
+    });
   }
 
   createBasketItem(uitleenmandjeID, userID, productID, aantal, callback) {

@@ -44,6 +44,7 @@ const catalog = require("./routes/catalog");
 const api = require("./routes/api");
 const product = require("./routes/product");
 const uitleenmandje = require('./routes/uitleenmandje');
+const reserveren = require('./routes/reserveren');
 
 app.use("/login", login);
 app.use("/", login);
@@ -52,54 +53,14 @@ app.use("/cataloog", catalog);
 app.use("/api", api);
 app.use("/product", product);
 app.use("/uitleenmandje", uitleenmandje);
+app.use("/reserveren", reserveren);
 
 // Set up view engine and static files
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 // API routes
-// Get all products
-app.get("/api/products", (req, res) => {
-  connection.query("SELECT * FROM Product", (err, result) => {
-    if (err) {
-      console.error("Error fetching products: ", err);
-      res.status(500).json({ error: "Failed to fetch products" });
-    } else {
-      res.json(result);
-    }
-  });
-});
 
-// Handle reservation
-app.post("/api/uitleningen", (req, res) => {
-  const { productId, userId, startDatum, reden } = req.body;
-  dbService.addUitlening(
-    productId,
-    userId,
-    startDatum,
-    reden,
-    (err, result) => {
-      if (err) {
-        console.error("Error adding uitlening to database: ", err);
-        res.status(500).json({ error: "Failed to add uitlening" });
-      } else {
-        console.log("Uitlening added successfully");
-        res.status(200).json({ message: "Uitlening added successfully" });
-      }
-    }
-  );
-});
-
-// Handle number available
-app.get("/api/products/availability", (req, res) => {
-  dbService.getProductAvailability((err, result) => {
-    if (err) {
-      res.status(500).json({ error: "Failed to fetch product availability" });
-    } else {
-      res.status(200).json(result);
-    }
-  });
-});
 
 // Start the server
 app.listen(port, () => {
