@@ -90,7 +90,7 @@ header img {
     margin-top: 80px;
   }
   
-  .cancel-button, .return-button {
+  .cancel-button, .return-button{
     padding: 10px 1px;
     background-color: #ff4d4d;
     color: #000;
@@ -106,7 +106,34 @@ header img {
   .return-button {
     background-color: #4caf50;
   }
-  
+
+  .back-button {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .back-button button {
+    padding: 10px 40px;
+    background-color: #cccccc;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 30%;
+  }
+
+ .flexbox{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+ }
+  label{
+    font-size: 1.5rem;
+  }
 
 
 
