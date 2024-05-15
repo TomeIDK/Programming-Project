@@ -159,3 +159,30 @@ tagFilter.addEventListener("keyup", () => {
     }
   }
 });
+
+// In Uitleenmandje
+for (let i = 0; i < productCards.length; i++) {
+  let btnAdd = document.getElementById(`btn-add${i}`);
+
+  btnAdd.addEventListener("click", async () => {
+    let productID = btnAdd.getAttribute("data-id");
+
+  try {
+    const response = await fetch("/cataloog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ productID: productID, amount: 1 }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Response:", data);
+    } else {
+      console.error("Request failed with status:", response.status);
+    }
+  } catch (error) {
+    console.error("Request failed:", error);
+  }
+});
+}

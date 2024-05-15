@@ -59,29 +59,30 @@ class DBService {
     );
   }
 
-  createBasketItem(uitleenmandjeID, userID, productID, aantal, callback) {
-    let now = new Date();
-    now = now.toISOString().slice(0, 19).replace("T", " ");
+  createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
+    // let now = new Date();
+    // now = now.toISOString().slice(0, 19).replace("T", " ");
+    // console.log(uitleenmandjeID, userID, productID, amount, now);
     // Insert basket item if no basket exists for user yet
-    if (!uitleenmandjeID) {
+    if (uitleenmandjeID === undefined) {
       this.connection.query(
-        `INSERT INTO Uitleenmandje (userID, productID, aantal, gemaaktOp)
-        VALUES (${userID}, ${productID}, ${aantal}, '${now}')`,
+        `INSERT INTO Uitleenmandje (userID, productID, aantal)
+        VALUES (${userID}, ${productID}, ${amount})`,
         (err, result) => {
           if (err) {
-            console.error("Error creating lending basket: ", err);
+            console.error("Error creating new lending basket: ", err);
             callback(err, null);
           } else {
-            console.log("Lending basket created succesfully");
-            callback(null, result);
+            console.log("Lending basket item created succesfully");
+            callback(null, true);
           }
         }
       );
     } else {
       // Insert basket item if basket already exists for user
       this.connection.query(
-        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal, gemaaktOp)
-        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${aantal}, '${now}')`,
+        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal)
+        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
         (err, result) => {
           if (err) {
             console.error("Error creating lending basket: ", err);
@@ -93,6 +94,24 @@ class DBService {
         }
       );
     }
+  }
+
+  getUserUitleenmandjeID(userID, callback) {
+    this.connection.query(
+      `SELECT UitleenmandjeID FROM Uitleenmandje WHERE userID = ${userID} LIMIT 1`,
+      (err, result) => {
+        if (err) {
+          console.error(
+            "Kan UitleenmandjeID niet ophalen uit database: ",
+            err
+          );
+          callback(err, null);
+        } else {
+          console.log("UitleenmandjeID succesvol opgehaald");
+          callback(null, result);
+        }
+      }
+    );
   }
 }
 

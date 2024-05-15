@@ -4,10 +4,10 @@ const express = require("express");
 const path = require("path");
 const router = express.Router();
 const mysql = require("mysql");
-
+const dbService = require("../dbService");
+const dbServiceInstance = new dbService();
 
 // middleware specific to this router
-
 
 // DB variables
 let tags = [];
@@ -69,6 +69,45 @@ connection.end();
 // Define route handler function and render response with necessary data
 router.get("/", async (req, res) => {
   res.render("cataloog", { tags: tags, products: products });
+});
+
+router.post("/", async (req, res) => {
+  const { productID, amount } = req.body;
+  const { userID, type, email, uitleenmandjeID } = req.session.user;
+  dbServiceInstance.createBasketItem(
+    uitleenmandjeID,
+    userID,
+    productID,
+    amount,
+    (err, result) => {
+      if (err) {
+        return res
+          .status(500)
+          .send("Kan product niet toevoegen aan uitleenmandje");
+      } else if (result === true) {
+        // If user had no basket yet change user's uitleenmandjeID in session
+        dbServiceInstance.getUserUitleenmandjeID(userID, (err, result) => {
+          if (err) {
+            console.error("Error fetching uitleenmandje: ", err);
+            return res.status(500).send("Kan uitleenmandje niet ophalen");
+          } else {
+            if (result && result.length > 0) {
+              console.log("reached");
+              req.session.user.uitleenmandjeID = result[0].UitleenmandjeID;
+              console.log(req.session.user.uitleenmandjeID);
+              res.status(200).send("Product toegevoegd aan uitleenmandje");
+            } else {
+              return res
+                .status(404)
+                .send("Uitleenmandje niet gevonden voor deze gebruiker");
+            }
+          }
+        });
+      } else {
+        res.status(200).send("Product toegevoegd aan uitleenmandje");
+      }
+    }
+  );
 });
 
 module.exports = router;

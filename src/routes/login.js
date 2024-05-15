@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
 
         if (areMatching) {
           const user = {
-            id: userID,
+            userID: userID,
             type: userType,
             email: email,
             uitleenmandjeID: uitleenmandjeID,
