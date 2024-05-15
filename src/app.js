@@ -44,6 +44,7 @@ const catalog = require("./routes/catalog");
 const api = require("./routes/api");
 const product = require("./routes/product");
 const uitleenmandje = require('./routes/uitleenmandje');
+const sessionData = require('./routes/session-data');
 
 app.use("/login", login);
 app.use("/", login);
@@ -52,6 +53,7 @@ app.use("/cataloog", catalog);
 app.use("/api", api);
 app.use("/product", product);
 app.use("/uitleenmandje", uitleenmandje);
+app.use("/session-data", sessionData);
 
 // Set up view engine and static files
 app.set("view engine", "ejs");

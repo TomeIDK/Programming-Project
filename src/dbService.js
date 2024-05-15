@@ -60,11 +60,7 @@ class DBService {
   }
 
   createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
-    // let now = new Date();
-    // now = now.toISOString().slice(0, 19).replace("T", " ");
-    // console.log(uitleenmandjeID, userID, productID, amount, now);
-    // Insert basket item if no basket exists for user yet
-    if (uitleenmandjeID === undefined) {
+    if (uitleenmandjeID === null) {
       this.connection.query(
         `INSERT INTO Uitleenmandje (userID, productID, aantal)
         VALUES (${userID}, ${productID}, ${amount})`,

@@ -73,9 +73,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const { productID, amount } = req.body;
-  const { userID, type, email, uitleenmandjeID } = req.session.user;
+  const { userID, type, email, UitleenmandjeID } = req.session.user;
   dbServiceInstance.createBasketItem(
-    uitleenmandjeID,
+    UitleenmandjeID,
     userID,
     productID,
     amount,
@@ -93,8 +93,8 @@ router.post("/", async (req, res) => {
           } else {
             if (result && result.length > 0) {
               console.log("reached");
-              req.session.user.uitleenmandjeID = result[0].UitleenmandjeID;
-              console.log(req.session.user.uitleenmandjeID);
+              req.session.user.UitleenmandjeID = result[0].UitleenmandjeID;
+              console.log(req.session.user.UitleenmandjeID);
               res.status(200).send("Product toegevoegd aan uitleenmandje");
             } else {
               return res

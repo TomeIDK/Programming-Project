@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
         userType: userType,
         email: userEmail,
         wachtwoord: pass_hash,
-        uitleenmandjeID: uitleenmandjeID,
+        UitleenmandjeID: UitleenmandjeID,
       } = result[0];
 
       bcrypt.compare(pass, pass_hash, (error, areMatching) => {
@@ -54,7 +54,7 @@ router.post("/", (req, res) => {
             userID: userID,
             type: userType,
             email: email,
-            uitleenmandjeID: uitleenmandjeID,
+            UitleenmandjeID: UitleenmandjeID,
           };
           req.session.user = user;
           return res
