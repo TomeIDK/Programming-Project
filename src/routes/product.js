@@ -34,7 +34,7 @@ connection.connect((err) => {
 router.get('/:productID', (req, res) => {
   const productId = req.params.productID;
 
-  connection.query('SELECT Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, Product.specificaties FROM Product WHERE productID = ?', [productId], (err, result) => {
+  connection.query('SELECT Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, Product.specificaties, Product.voorwaarde FROM Product WHERE productID = ?', [productId], (err, result) => {
     if (err) {
       console.error('Fout bij uitvoeren query: ' + err.stack);
       return;

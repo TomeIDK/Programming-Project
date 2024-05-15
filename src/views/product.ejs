@@ -30,13 +30,13 @@
         <article>
           <h3>Beschrijving en specificatie</h3>
           <p class="product__description"><%= product.specificaties %></p>
-          <br />
-
-          <h3>Specifieke voorwaarden voor uitlening</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          
+          <% if( product.voorwaarde){ %>
+            <h3>Specifieke voorwaarden voor uitlening</h3>
+          <p class="product.voorwaarden"> <%=product.voorwaarde %>
+          <% } %>
+          
+            
           </p>
 
           <form action="#" method="post">
