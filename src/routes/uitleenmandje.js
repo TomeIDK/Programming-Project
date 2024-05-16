@@ -15,14 +15,36 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-
-// Define route handler function and render response with necessary data
-router.get("/:uitleenmandjeID", async (req, res) => {
-  res.render("uitleenmandje");
+connection.connect((err)=>{
+  if (err){
+    console.error ("fout bij verbinden met DB: ", err);
+    return;
+  }
+  console.log("verbonden met DB");
 });
-// Route voor het weergeven van het uitleenmandje
-router.get('/', (req, res) => {
-  res.render('uitleenmandje'); // Zorg ervoor dat de naam 'uitleenmandje' overeenkomt met je EJS-bestandsnaam
+
+// Define route handler function and render response with necessary data   WHERE Uitleenmandje.UitleenmandjeID = ?, [UitleenmandjeID],
+router.get("/:uitleenmandjeID", (req, res) => {
+  const UitleenmandjeID = req.params.uitleenmandjeID;
+
+  connection.query
+  (`SELECT Product.productID, Product.afbeelding, Product.naam 
+    FROM Product 
+    LEFT JOIN Uitleenmandje ON Product.productID = Uitleenmandje.productID 
+    WHERE Uitleenmandje.UitleenmandjeID = '${UitleenmandjeID}'`,
+     (err, result) => {
+      console.log("result:", result);
+      if (err) {
+        console.error('Fout bij uitvoeren query: ' + err.stack);
+        
+      } else {  
+       // console.log("product: " , result[0]);
+      res.render("uitleenmandje", { products: result }); 
+      }
+       
+     //const product = result.lenght > 0 ? result[0]: { naam: "Unknown" }; ;
+       
+  }); 
 });
 module.exports = router;
 
