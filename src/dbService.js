@@ -23,65 +23,38 @@ class DBService {
     });
   }
 
-  addUitlening(productId, userId, startDatum, reden, callback) {
-    const uitleningID = uuid.v4().substring(0, 9); // Genereer een unieke uitleningID
-
-    this.connection.query(
-      "INSERT INTO Uitleningen (UitleningID, ProductID, UserID, StartDatum, Reden) VALUES (?, ?, ?, ?, ?)",
-      [uitleningID, productId, userId, startDatum, reden],
-      (err, result) => {
-        if (err) {
-          console.error("Error adding uitlening to database: ", err);
-          callback(err, null);
-        } else {
-          console.log("Uitlening added successfully");
-          callback(null, result);
+  addReservation(userId, artikelId, reden, startDatum, eindDatum) {
+    return new Promise((resolve, reject) => {
+      const query = "INSERT INTO Uitleening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend) VALUES (?, ?, ?, ?, ?, 0, 0, 0)";
+      this.connection.query(query, [userId, artikelId, reden, startDatum, eindDatum], (error, results) => {
+        if (error) {
+          return reject(error);
         }
-      }
-    );
+        resolve(results);
+      });
+    });
   }
 
-  getProductAvailability(callback) {
-    this.connection.query(
-      "SELECT ProductID, COUNT(*) AS availability FROM Reservations GROUP BY ProductID",
-      (err, result) => {
-        if (err) {
-          console.error(
-            "Error fetching product availability from database: ",
-            err
-          );
-          callback(err, null);
-        } else {
-          console.log("Product availability fetched successfully");
-          callback(null, result);
-        }
-      }
-    );
-  }
-
-  createBasketItem(uitleenmandjeID, userID, productID, aantal, callback) {
-    let now = new Date();
-    now = now.toISOString().slice(0, 19).replace("T", " ");
-    // Insert basket item if no basket exists for user yet
-    if (!uitleenmandjeID) {
+  createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
+    if (uitleenmandjeID === null) {
       this.connection.query(
-        `INSERT INTO Uitleenmandje (userID, productID, aantal, gemaaktOp)
-        VALUES (${userID}, ${productID}, ${aantal}, '${now}')`,
+        `INSERT INTO Uitleenmandje (userID, productID, aantal)
+        VALUES (${userID}, ${productID}, ${amount})`,
         (err, result) => {
           if (err) {
-            console.error("Error creating lending basket: ", err);
+            console.error("Error creating new lending basket: ", err);
             callback(err, null);
           } else {
-            console.log("Lending basket created succesfully");
-            callback(null, result);
+            console.log("Lending basket item created succesfully");
+            callback(null, true);
           }
         }
       );
     } else {
       // Insert basket item if basket already exists for user
       this.connection.query(
-        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal, gemaaktOp)
-        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${aantal}, '${now}')`,
+        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal)
+        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
         (err, result) => {
           if (err) {
             console.error("Error creating lending basket: ", err);
@@ -93,6 +66,39 @@ class DBService {
         }
       );
     }
+  }
+
+  getUserUitleenmandjeID(userID, callback) {
+    this.connection.query(
+      `SELECT UitleenmandjeID FROM Uitleenmandje WHERE userID = ${userID} LIMIT 1`,
+      (err, result) => {
+        if (err) {
+          console.error(
+            "Kan UitleenmandjeID niet ophalen uit database: ",
+            err
+          );
+          callback(err, null);
+        } else {
+          console.log("UitleenmandjeID succesvol opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  removeBasketItem(UitleenmandjeID, userID, productID, callback) {
+    this.connection.query(
+      `DELETE FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan item niet verwijderen uit uitleenmandje: ", err);
+          callback(err, null);
+        } else {
+          console.log("Item succesvol verwijdert uit uitleenmandje");
+          callback(null, result);
+        }
+      }
+    )
   }
 }
 

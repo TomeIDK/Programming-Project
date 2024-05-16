@@ -20,6 +20,9 @@ const connection = mysql.createConnection({
 router.get("/:uitleenmandjeID", async (req, res) => {
   res.render("uitleenmandje");
 });
-
+// Route voor het weergeven van het uitleenmandje
+router.get('/', (req, res) => {
+  res.render('uitleenmandje'); // Zorg ervoor dat de naam 'uitleenmandje' overeenkomt met je EJS-bestandsnaam
+});
 module.exports = router;
 
