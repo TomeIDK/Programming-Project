@@ -1,4 +1,3 @@
-const dbService = require('../../dbService');
 const basketItems = document.querySelectorAll(".item-list__item");
 console.log("uitleenmandje.js is geladen");
 
