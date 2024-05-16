@@ -85,6 +85,21 @@ class DBService {
       }
     );
   }
+
+  removeBasketItem(UitleenmandjeID, userID, productID, callback) {
+    this.connection.query(
+      `DELETE FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan item niet verwijderen uit uitleenmandje: ", err);
+          callback(err, null);
+        } else {
+          console.log("Item succesvol verwijdert uit uitleenmandje");
+          callback(null, result);
+        }
+      }
+    )
+  }
 }
 
 module.exports = DBService;
