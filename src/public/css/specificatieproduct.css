@@ -33,7 +33,6 @@ p.product__availability{
 
 .reden{
     padding: 1rem 0;
-    border-top: 1px solid var(--text-muted);
 }
 
 .datepicker{
@@ -51,4 +50,7 @@ button.btn.secondary-button{
     background-color: brown;
     width: 300px;
     height: 200px;
+}
+.btn.aanpassen-button{
+    background-color: orange;
 }
