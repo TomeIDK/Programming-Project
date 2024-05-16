@@ -1,6 +1,5 @@
 const mysql = require("mysql");
 const dotenv = require("dotenv");
-const uuid = require("uuid");
 
 dotenv.config();
 
@@ -21,19 +20,41 @@ class DBService {
       }
       console.log("Connected to database");
     });
+
+    this.connection.on('error', function(err) {
+      console.error('Database error:', err);
+      if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        // Reconnect when connection is lost
+        this.connection.connect((err) => {
+          if (err) {
+            console.error("Error reconnecting to database: " + err.stack);
+          } else {
+            console.log("Reconnected to database");
+          }
+        });
+      } else {
+        throw err;
+      }
+    });
   }
 
-  addReservation(userId, artikelId, reden, startDatum, eindDatum) {
+  addReservation(userID, artikelID, reden, startDatum, eindDatum) {
     return new Promise((resolve, reject) => {
-      const query = "INSERT INTO Uitleening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend) VALUES (?, ?, ?, ?, ?, 0, 0, 0)";
-      this.connection.query(query, [userId, artikelId, reden, startDatum, eindDatum], (error, results) => {
+      const query = `
+        INSERT INTO Uitlening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend)
+        VALUES (?, ?, ?, ?, ?, 0, 0, 1)
+      `;
+      console.log('Uitvoeren query:', query);
+      this.connection.query(query, [userID, artikelID, reden, startDatum, eindDatum], (error, results) => {
         if (error) {
+          console.error('Fout bij uitvoeren query:', error);
           return reject(error);
         }
         resolve(results);
       });
     });
   }
+
 
   createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
     if (uitleenmandjeID === null) {
@@ -115,6 +136,7 @@ class DBService {
       }
     )
   }
+
 }
 
 module.exports = DBService;

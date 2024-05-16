@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-
 const sessionStore = new MySQLStore({
   host: process.env.DB_HOST,
   user: process.env.DB_USERNAME,
@@ -48,25 +47,20 @@ const sessionData = require('./routes/session-data');
 const reserveren = require('./routes/reserveren');
 const getBasketCount = require('./routes/get-basket-count');
 
-
 app.use("/login", login);
 app.use("/", login);
 app.use("/info", info);
 app.use("/cataloog", catalog);
-app.use("/api", api);
+app.use("/api", api); // Zorg ervoor dat dit correct is
 app.use("/product", product);
 app.use("/uitleenmandje", uitleenmandje);
 app.use("/session-data", sessionData);
 app.use("/reserveren", reserveren);
 app.use("/get-basket-count", getBasketCount);
 
-
 // Set up view engine and static files
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-
-// API routes
-
 
 // Start the server
 app.listen(port, () => {
