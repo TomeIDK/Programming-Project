@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="./css/gebruikersbeheer.css">
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ehb-header></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+        <h1>Gebruikersbeheer</h1>
+        <div class="search-bar form">
+            <div class="search-bar__container search-bar__search">
+                <img class="search-bar__icon" src="./images/magnifying-glass.svg" alt="Zoeken" />
+                <input id="search-bar" class="input" type="text" placeholder="Zoeken..." />
+            </div>
+
+            <div class="search-bar__container search-bar__filter" tabindex="0">
+                <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
+                <button id="search-bar-btn-filter" class="search-bar__btn-filter">
+                    <span id="tag-filter-span" class="btn-filter__text">Selecteer Tags</span>
+
+                    <ul id="selected-tags-list" class="btn-filter__selected-tags-list">
+                    </ul>
+
+                    <img class="btn-filter__icon" src="./images/chevron-down.svg" alt="V" />
+                </button>
+                <ul id="tag-filter-list" class="filter__dropdown">
+                    <input id="tag-filter" class="input dropdown__tag-filter" type="search"
+                        placeholder="Voer tags in" />
+                </ul>
+            </div>
+        </div>
+
+        <div class="gebruikersbeheer">
+            <div class=" gebruiker gebruiker1">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker1--voornaam">Peter</span></p>
+                       <p> Naam: <span id="gebruiker1--Naam">File</span></p>
+                        <p>leningen actief: <span id="gebruiker1--leningen">2</span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker2">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker2--voornaam">Ice</span></p>
+                       <p> Naam: <span id="gebruiker2--Naam">Wallow</span></p>
+                        <p>leningen actief: <span id="gebruiker2--leningen"></span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker3">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker3--voornaam">Peter</span></p>
+                       <p> Naam: <span id="gebruiker3--Naam">File</span></p>
+                        <p>leningen actief: <span id="gebruiker3--leningen">2</span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker4">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker4--voornaam">Ice</span></p>
+                       <p> Naam: <span id="gebruiker4--Naam">Wallow</span></p>
+                        <p>leningen actief: <span id="gebruiker4--leningen"></span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker5">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker5--voornaam">Peter</span></p>
+                       <p> Naam: <span id="gebruiker5--Naam">File</span></p>
+                        <p>leningen actief: <span id="gebruiker5--leningen">2</span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker6">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker6--voornaam">Ice</span></p>
+                       <p> Naam: <span id="gebruiker6--Naam">Wallow</span></p>
+                        <p>leningen actief: <span id="gebruiker6--leningen"></span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker7">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker7--voornaam">Peter</span></p>
+                       <p> Naam: <span id="gebruiker7--Naam">File</span></p>
+                        <p>leningen actief: <span id="gebruiker7--leningen">2</span></p> 
+                    
+                </div>
+            </div>
+            <div class=" gebruiker gebruiker8">
+                <img src="./images/user.svg" alt="">
+                <div>
+                    
+                       <p> Voornaam: <span id="gebruiker8--voornaam">Ice</span></p>
+                       <p> Naam: <span id="gebruiker8--Naam">Wallow</span></p>
+                        <p>leningen actief: <span id="gebruiker8--leningen"></span></p> 
+                    
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./components/date-picker/date-picker.js"></script>
+
+
+</body>
+
+</html>
