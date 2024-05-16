@@ -2,6 +2,7 @@ main {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 3rem;
 }
 
 h1 {
@@ -10,7 +11,6 @@ h1 {
 }
 
 .gebruikersbeheer {
-    margin-bottom: 3rem;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
@@ -20,16 +20,13 @@ h1 {
     margin-bottom: 1rem;
     border-radius: 15px;
     gap: 1rem;
-    padding: 15px;
-    width: 100%;
-    background-color: rgb(218, 218, 218);
+    width: 48%;
     display: flex;
-    height: 150px;
-    /* bijvoorbeeld */
+    align-items: center; /* Voeg deze regel toe om items uit te lijnen */
+    height: 200px; /* bijvoorbeeld */
 }
 
 .gebruiker p {
-    margin-bottom: 10px;
     font-size: 20px;
 }
 
@@ -39,6 +36,13 @@ h1 {
     width: auto;
 }
 
-.form {
-    margin-left: 0;
+.gebruiker__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn.secondary-button{
+    background-color: orange;
+    margin-right: 2rem;
 }
