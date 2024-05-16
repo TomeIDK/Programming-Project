@@ -1,6 +1,5 @@
 const mysql = require("mysql");
 const dotenv = require("dotenv");
-const uuid = require("uuid");
 
 dotenv.config();
 
@@ -21,69 +20,39 @@ class DBService {
       }
       console.log("Connected to database");
     });
+
+    this.connection.on('error', function(err) {
+      console.error('Database error:', err);
+      if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        // Reconnect when connection is lost
+        this.connection.connect((err) => {
+          if (err) {
+            console.error("Error reconnecting to database: " + err.stack);
+          } else {
+            console.log("Reconnected to database");
+          }
+        });
+      } else {
+        throw err;
+      }
+    });
   }
 
-  addReservation(userId, artikelId, reden, startDatum, eindDatum) {
+  addReservation(userID, artikelID, reden, startDatum, eindDatum) {
     return new Promise((resolve, reject) => {
-      const query = "INSERT INTO Uitleening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend) VALUES (?, ?, ?, ?, ?, 0, 0, 0)";
-      this.connection.query(query, [userId, artikelId, reden, startDatum, eindDatum], (error, results) => {
+      const query = `
+        INSERT INTO Uitlening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend)
+        VALUES (?, ?, ?, ?, ?, 0, 0, 1)
+      `;
+      console.log('Uitvoeren query:', query);
+      this.connection.query(query, [userID, artikelID, reden, startDatum, eindDatum], (error, results) => {
         if (error) {
+          console.error('Fout bij uitvoeren query:', error);
           return reject(error);
         }
         resolve(results);
       });
     });
-  }
-
-  createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
-    if (uitleenmandjeID === null) {
-      this.connection.query(
-        `INSERT INTO Uitleenmandje (userID, productID, aantal)
-        VALUES (${userID}, ${productID}, ${amount})`,
-        (err, result) => {
-          if (err) {
-            console.error("Error creating new lending basket: ", err);
-            callback(err, null);
-          } else {
-            console.log("Lending basket item created succesfully");
-            callback(null, true);
-          }
-        }
-      );
-    } else {
-      // Insert basket item if basket already exists for user
-      this.connection.query(
-        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal)
-        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
-        (err, result) => {
-          if (err) {
-            console.error("Error creating lending basket: ", err);
-            callback(err, null);
-          } else {
-            console.log("Lending basket created succesfully");
-            callback(null, result);
-          }
-        }
-      );
-    }
-  }
-
-  getUserUitleenmandjeID(userID, callback) {
-    this.connection.query(
-      `SELECT UitleenmandjeID FROM Uitleenmandje WHERE userID = ${userID} LIMIT 1`,
-      (err, result) => {
-        if (err) {
-          console.error(
-            "Kan UitleenmandjeID niet ophalen uit database: ",
-            err
-          );
-          callback(err, null);
-        } else {
-          console.log("UitleenmandjeID succesvol opgehaald");
-          callback(null, result);
-        }
-      }
-    );
   }
 }
 

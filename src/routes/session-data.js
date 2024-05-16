@@ -6,7 +6,10 @@ const mysql = require("mysql");
 
 // Define route handler function and render response with necessary data
 router.get("/", (req, res) => {
-  const sessionData = req.session.user;
+  const sessionData = {
+    userID: req.session.userID || null,
+    UitleenmandjeID: req.session.UitleenmandjeID || null
+  };
   res.json(sessionData);
 });
 

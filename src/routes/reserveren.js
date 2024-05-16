@@ -7,10 +7,15 @@ const dbService = new DBService();
 // Route voor het maken van een reservering
 router.post("/", async (req, res) => {
   try {
-    const { userId, artikelId, reden, startDatum, eindDatum } = req.body;
-    console.log('Ontvangen reserveringsdata:', { userId, artikelId, reden, startDatum, eindDatum });
-    
-    const result = await dbService.addReservation(userId, artikelId, reden, startDatum, eindDatum);
+    const userID = req.session.userID; // Haal userID uit sessie
+    const { artikelID, reden, startDatum, eindDatum } = req.body;
+    console.log('Ontvangen reserveringsdata:', { userID, artikelID, reden, startDatum, eindDatum });
+
+    if (!userID) {
+      return res.status(401).json({ success: false, message: "Niet ingelogd" });
+    }
+
+    const result = await dbService.addReservation(userID, artikelID, reden, startDatum, eindDatum);
     res.status(201).json({ success: true, message: "Reservering succesvol", data: result });
   } catch (error) {
     console.error('Fout bij het maken van de reservering:', error);
