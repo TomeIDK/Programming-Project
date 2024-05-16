@@ -11,9 +11,8 @@ h1 {
 }
 
 .container {
+    border-radius: 5px;
     width: 40%;
-    background-color: #d3d3d3;
-    padding: 20px;
     max-width: 600px;
 }
 .container div {
