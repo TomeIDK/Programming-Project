@@ -25,4 +25,3 @@ router.get('/', (req, res) => {
   res.render('uitleenmandje'); // Zorg ervoor dat de naam 'uitleenmandje' overeenkomt met je EJS-bestandsnaam
 });
 module.exports = router;
-
