@@ -37,26 +37,36 @@
           <span class="reservation__article--date-from"> 01/01/2024</span>
           <span class="reservation__article--date-until"> 01/01/2024</span>
           
-          <button class="btn secondary-button">Annuleer reservatie</button>
+          <button class="btn secondary-button cancel-reservation">Annuleer reservatie</button>
         </li>
         <li class="reservation__item">
           <span class="reservation__article--name">Printer </span>
           <span class="reservation__article--date-from"> 01/01/2024</span>
           <span class="reservation__article--date-until">01/01/2024 </span>
 
-          <button class="btn secondary-button">Annuleer reservatie</button>
+          <button class="btn secondary-button cancel-reservation">Annuleer reservatie</button>
         </li>
         <li class="reservation__item">
           <span class="reservation__article--name">Printer </span>
           <span class="reservation__article--date-from">01/01/2024 </span>
           <span class="reservation__article--date-until">01/01/2024 </span>
           
-          <button class="btn secondary-button">Annuleer reservatie</button>
+          <button class="btn secondary-button cancel-reservation">Annuleer reservatie</button>
         </li>
       </ul>
+
+      <!-- Popup -->
+      <div id="cancelPopup" class="popup">
+        <div class="popup-content">
+          <h2>Ben je zeker dat je je reservering wilt annuleren?</h2>
+          <button class="btn tertiary-button" id="cancelYes">Ja</button>
+          <button class="btn tertiary-button" id="cancelNo">Nee</button>
+        </div>
+      </div>
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./components/filter/filter.js"></script>
+    <script src="./js/reservationPopup.js"></script>
   </body>
 </html>
