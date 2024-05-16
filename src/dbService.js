@@ -60,7 +60,7 @@ class DBService {
             console.error("Error creating lending basket: ", err);
             callback(err, null);
           } else {
-            console.log("Lending basket created succesfully");
+            console.log("Lending basket item added succesfully");
             callback(null, result);
           }
         }
@@ -95,6 +95,21 @@ class DBService {
           callback(err, null);
         } else {
           console.log("Item succesvol verwijdert uit uitleenmandje");
+          callback(null, result);
+        }
+      }
+    )
+  }
+
+  getBasketItemsCount(UitleenmandjeID, userID, callback) {
+    this.connection.query(
+      `SELECT COUNT(*) AS count FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan aantal producten in uitleenmandje niet ophalen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Aantal producten in uitleenmandje opgehaald");
           callback(null, result);
         }
       }
