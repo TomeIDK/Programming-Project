@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const mysql = require("mysql");
+const dbService = require("../dbService");
 
 // middleware specific to this router
 
@@ -45,6 +46,24 @@ router.get("/:uitleenmandjeID", (req, res) => {
      //const product = result.lenght > 0 ? result[0]: { naam: "Unknown" }; ;
        
   }); 
+});
+
+router.post("/delete", (req, res) => {
+  let user = req.session.user;
+  const productID = req.body.productID;
+
+  dbServiceInstance = new dbService();
+  dbServiceInstance.removeBasketItem(user.UitleenmandjeID, user.userID, productID, (err, result) => {
+    if (err) {
+      console.log("failed post");
+      res.status(401).send("Kan product niet uit uitleenmandje verwijderen");
+    } else {
+      console.log("success post");
+
+      res.status(200).send("Product verwijdert uit uitleenmandje");
+    }
+
+  });
 });
 module.exports = router;
 

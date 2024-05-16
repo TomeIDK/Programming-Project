@@ -5,6 +5,7 @@ btnBasket.addEventListener("click", () => {
   fetch("/session-data")
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data.UitleenmandjeID === null) {
         loadScript("/components/toast/toast.js", (script) => {
           console.log(`Script ${script.src} loaded.`);
