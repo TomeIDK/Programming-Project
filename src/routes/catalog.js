@@ -92,7 +92,6 @@ router.post("/", async (req, res) => {
             return res.status(500).send("Kan uitleenmandje niet ophalen");
           } else {
             if (result && result.length > 0) {
-              console.log("reached");
               req.session.user.UitleenmandjeID = result[0].UitleenmandjeID;
               console.log(req.session.user.UitleenmandjeID);
               res.status(200).send("Product toegevoegd aan uitleenmandje");

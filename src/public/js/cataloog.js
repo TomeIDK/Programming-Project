@@ -9,14 +9,16 @@ const tagLabels = Array.from(
   document.getElementsByClassName("dropdown__label")
 );
 const productCards = document.querySelectorAll(".catalog__product");
+// Fetch user's basket items on load
+updateBasketCounter();
 
 // Specs redirection
 for (let i = 0; i < productCards.length; i++) {
-    let btnSpecs = document.getElementById(`btn-specs${i}`);
-    let productId = btnSpecs.getAttribute("data-id");
-    btnSpecs.addEventListener('click', () => {
-        window.location.href = `/product/${productId}`;
-    })
+  let btnSpecs = document.getElementById(`btn-specs${i}`);
+  let productId = btnSpecs.getAttribute("data-id");
+  btnSpecs.addEventListener("click", () => {
+    window.location.href = `/product/${productId}`;
+  });
 }
 
 // Filters
@@ -166,23 +168,58 @@ for (let i = 0; i < productCards.length; i++) {
 
   btnAdd.addEventListener("click", async () => {
     let productID = btnAdd.getAttribute("data-id");
-
-  try {
-    const response = await fetch("/cataloog", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productID: productID, amount: 1 }),
-    });
-    if (response.ok) {
-      const data = await response.json();
-      console.log("Response:", data);
-    } else {
-      console.error("Request failed with status:", response.status);
+    try {
+      const response = await fetch("/cataloog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productID: productID, amount: 1 }),
+      });
+      if (response.ok) {
+        updateBasketCounter();
+        loadScript("/components/toast/toast.js", (script) => {
+          console.log(`Script ${script.src} loaded.`);
+          showToast("Product toegevoegd aan uitleenmandje", true);
+        });
+      } else {
+        console.error("Request failed with status:", response.status);
+        loadScript("/components/toast/toast.js", (script) => {
+          console.log(`Script ${script.src} loaded.`);
+          showToast("Kan product niet toevoegen aan uitleenmandje", false);
+        });
+      }
+    } catch (error) {
+      console.error("Request failed:", error);
+      loadScript("/components/toast/toast.js", (script) => {
+        console.log(`Script ${script.src} loaded.`);
+        showToast("Kan product niet toevoegen aan uitleenmandje", false);
+      });
     }
-  } catch (error) {
-    console.error("Request failed:", error);
-  }
-});
+  });
+}
+
+// Uitleenmandje counter
+function updateBasketCounter() {
+  fetch("/get-basket-count")
+    .then((response) => response.json())
+    .then((data) => {
+      const basketCounter = document.getElementById("header-cart-item-count");
+
+      if (data[0].count == 0) {
+        basketCounter.style.visibility = "hidden";
+        basketCounter.innerText = 0;
+      } else {
+        basketCounter.style.visibility = "visible";
+        basketCounter.innerText = data[0].count;
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+function loadScript(src, cb) {
+  let script = document.createElement("script");
+  script.src = src;
+  script.onload = () => cb(script);
+  document.head.append(script);
 }

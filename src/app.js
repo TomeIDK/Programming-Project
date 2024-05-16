@@ -45,6 +45,7 @@ const product = require("./routes/product");
 const uitleenmandje = require('./routes/uitleenmandje');
 const sessionData = require('./routes/session-data');
 const reserveren = require('./routes/reserveren');
+const getBasketCount = require('./routes/get-basket-count');
 
 app.use("/login", login);
 app.use("/", login);
@@ -55,6 +56,7 @@ app.use("/product", product);
 app.use("/uitleenmandje", uitleenmandje);
 app.use("/session-data", sessionData);
 app.use("/reserveren", reserveren);
+app.use("/get-basket-count", getBasketCount);
 
 // Set up view engine and static files
 app.set("view engine", "ejs");

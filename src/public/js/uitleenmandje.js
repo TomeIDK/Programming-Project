@@ -1,7 +1,10 @@
-console.log('uitleenmandje.js is geladen');
+const dbService = require('../../dbService');
+const basketItems = document.querySelectorAll(".item-list__item");
+console.log("uitleenmandje.js is geladen");
 
-document.getElementById('lenenBtn').addEventListener('click', function() {
-    console.log('Reserveren knop geklikt');
+document.getElementById("lenenBtn").addEventListener("click", function () {
+  console.log("Reserveren knop geklikt");
+
 
     // Haal gegevens op
     const startDatum = document.getElementById('datepicker').value; // Haal startDatum op van datepicker
@@ -83,17 +86,67 @@ document.getElementById('lenenBtn').addEventListener('click', function() {
             console.log(`Script ${script.src} loaded.`);
             showToast('Er is een fout opgetreden bij het maken van de reservering: ' + error.message, false);
         });
+
     });
 });
 
-document.getElementById('terugBtn').addEventListener('click', function() {
-    console.log('Terug knop geklikt');
-    window.location.href = '/cataloog'; // Vervang dit door de juiste URL naar de catalogus pagina
+document.getElementById("terugBtn").addEventListener("click", function () {
+  console.log("Terug knop geklikt");
+  window.location.href = "/cataloog"; // Vervang dit door de juiste URL naar de catalogus pagina
 });
+
+
+function showPopup(title, message) {
+  // Maak popup element aan
+  var popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML =
+    "<h3>" +
+    title +
+    "</h3><p>" +
+    message +
+    '</p><button class="btn cta-button--blue" onclick="closePopup()">Close</button>';
+
+  // Voeg popup toe aan body
+  document.body.appendChild(popup);
+}
+
+function closePopup() {
+  var popup = document.querySelector(".popup");
+  popup.parentNode.removeChild(popup);
+}
+
+// Delete button functionaliteit
+for (let i = 0; i < basketItems.length; i++) {
+  let productID = basketItems[i].getAttribute("data-product-id");  
+  btnDelete = basketItems[i].querySelectorAll(`#btn-delete${i}`);
+  btnDelete.addEventListener("click", async () => {
+    fetch("/session-data")
+    .then((response) => response.json())
+    .then((data) => {
+        dbServiceInstance = new dbService();
+        dbServiceInstance.removeBasketItem(data.UitleenmandjeID, data.userID, productID, (err, result) => {
+            if (err) {
+                loadScript("/components/toast/toast.js", (script) => {
+                    console.log(`Script ${script.src} loaded.`);
+                    showToast("Kan product niet uit uitleenmandje verwijderen", false);
+                  });
+            } else {
+                loadScript("/components/toast/toast.js", (script) => {
+                    console.log(`Script ${script.src} loaded.`);
+                    showToast("Product verwijdert uit uitleenmandje", true);
+                  });
+            }
+        });
+
+    })
+    .catch((error) => console.error("Error:", error));
+  });
 
 function loadScript(src, cb) {
     let script = document.createElement("script");
     script.src = src;
     script.onload = () => cb(script);
     document.head.append(script);
+
 }
