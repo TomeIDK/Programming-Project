@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="./css/gebruiker.css">
+    <link rel="stylesheet" href="./components/basket card/card.css">
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <ehb-header nobasket></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+        <h1>Gebruiker</h1>
+        <div class="gebruiker gebruiker1">
+            <img src="./images/user.svg" alt="">
+            <div class="gebruiker__info">
+                <p>Voornaam: <span id="gebruiker1--voornaam">Peter</span></p>
+                <p>Naam: <span id="gebruiker1--Naam">File</span></p>
+                <p>Leningen actief: <span id="gebruiker1--leningen">2</span></p>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <h2>Reservaties</h2>
+        <br>
+        <ul class="reservaties__list basket__item-list">
+            <li class="reservaties__item item-list__item">
+                <img src="./images/placeholder.svg" class="reservaties__item-image item__image" width="100" alt="Product">
+                <div class="reservaties__item-container item__container">
+                    <h3 class="reservaties__item-title item__title">Canon EOS M50</h3>
+                    <p class="reservaties__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+            <li class="reservaties__item item-list__item">
+                <img src="./images/placeholder.svg" class="reservaties__item-image item__image" width="100" alt="Product">
+                <div class="reservaties__item-container item__container">
+                    <h3 class="reservaties__item-title item__title">Nikon Camera</h3>
+                    <p class="reservaties__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+            <li class="reservaties__item item-list__item">
+                <img src="./images/placeholder.svg" class="reservaties__item-image item__image" width="100" alt="Product">
+                <div class="reservaties__item-container item__container">
+                    <h3 class="reservaties__item-title item__title">Nog een ander product</h3>
+                    <p class="reservaties__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+        </ul>
+        
+        <br>
+        <hr>
+        <br>
+        <h2>Leningen actief</h2>
+        <br>
+        <ul class="leningen__list basket__item-list">
+            <li class="leningen__item leningen-list__item item-list__item">
+                <img src="./images/placeholder.svg" class="leningen__item-image item__image" width="100" alt="Product">
+                <div class="leningen__item-container item__container">
+                    <h3 class="leningen__item-title item__title">Canon EOS M50</h3>
+                    <p class="leningen__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+            <li class="leningen__item leningen-list__item item-list__item">
+                <img src="./images/placeholder.svg" class="leningen__item-image item__image" width="100" alt="Product">
+                <div class="leningen__item-container item__container">
+                    <h3 class="leningen__item-title item__title">Nikon Camera</h3>
+                    <p class="leningen__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+            <li class="leningen__item leningen-list__item item-list__item">
+                <img src="./images/placeholder.svg" class="leningen__item-image item__image" width="100" alt="Product">
+                <div class="leningen__item-container item__container">
+                    <h3 class="leningen__item-title item__title">Nog een ander product</h3>
+                    <p class="leningen__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+                <button class="btn secondary-button">Beheren</button>
+            </li>
+        </ul>
+        
+        <br>
+        <hr>
+        <br>
+        <h2>Historiek</h2>
+        <br>
+        <ul class="historiek__list basket__item-list">
+            <li class="historiek__item item-list__item">
+                <img src="./images/placeholder.svg" class="historiek__item-image item__image" width="100" alt="Product">
+                <div class="historiek__item-container item__container">
+                    <h3 class="historiek__item-title item__title">Canon EOS M50</h3>
+                    <p class="historiek__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+            </li>
+            <li class="historiek__item item-list__item">
+                <img src="./images/placeholder.svg" class="historiek__item-image item__image" width="100" alt="Product">
+                <div class="historiek__item-container item__container">
+                    <h3 class="historiek__item-title item__title">Nikon Camera</h3>
+                    <p class="historiek__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+            </li>
+            <li class="historiek__item item-list__item">
+                <img src="./images/placeholder.svg" class="historiek__item-image item__image" width="100" alt="Product">
+                <div class="historiek__item-container item__container">
+                    <h3 class="historiek__item-title item__title">Nog een ander product</h3>
+                    <p class="historiek__item-quantity item__quantity">Quantity: 1</p>
+                </div>
+            </li>
+        </ul>
+        
+        
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./components/date-picker/date-picker.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+main {
+    margin-top: 50px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    font-size: 25px;
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+}
+
+.geenideehoeikditmoetnoemen {
+    height: auto; /* Dynamically adjust height based on content */
+}
+.geenideehoeikditmoetnoemen img {
+   opacity: 80%;
+}
+
+#block {
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+
+.geenideehoeikditmoetnoemen.gebruikershbeheer {
+    
+    height: auto;
+    
+    width: 70%;
+}
+
+.geenideehoeikditmoetnoemen.catalogusbeheer {
+    height: auto;
+   
+    width: 30%;
+}
+
+#gebruikersbeheer__info {
+    gap: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.gebruikersbeheer__info-item {
+    padding: 15px;
+    background-color: rgb(204, 255, 255);
+    border-radius: 25px;
+    text-align: center;
+    height: 150px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.gebruikersbeheer__info-item img{
+    height: auto;
+    width: 65%;
+}
+.timing {
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    height: 150px; /* Aangepast om de volledige hoogte te behouden */
+}
+.timing h4{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timing img {
+    position: absolute;
+    top: 15px; /* Aanpassing voor positionering */
+    left: 15px; /* Aanpassing voor positionering */
+    width: 20%; /* Pas dit aan indien nodig */
+    margin: 0;
+}
+
+.timing h4 {
+    margin-left: auto; 
+    margin-right: auto;/* Ruimte creëren tussen de afbeelding en de tekst */
+    text-align: center; /* Zorg dat de tekst gecentreerd blijft */
+}
+.timing h1{
+    padding: 0;
+    margin-left: auto;
+    padding-bottom: 25px;
+    margin-right: auto;
+}
+
+/* Specifieke stijlen voor de achtergrondkleuren van de timing-items */
+.optijd {
+    background-color: rgb(196, 255, 196);
+}
+
+.laatstedag {
+    background-color: rgb(255, 255, 181);
+}
+
+.telaat {
+    background-color: rgb(255, 176, 176);
+}
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Minder ruimte tussen de iconen */
+    justify-items: center;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 150px; /* Grotere iconen */
+    height: 150px; /* Grotere iconen */
+    border-radius: 50%;
+    background-color: #e0f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px; /* Minder ruimte onder de iconen */
+    font-size: 50px; /* Grotere iconen */
+    color: #333;
+}
+
+.icon-item p {
+    margin: 0;
+    font-size: 18px; /* Grotere tekst */
+    color: #333;
+}
