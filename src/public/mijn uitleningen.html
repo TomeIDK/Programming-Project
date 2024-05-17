@@ -54,9 +54,22 @@
           <button class="btn secondary-button">Verlenging aanvragen</button>
         </li>
       </ul>
+
+      <!-- Popup -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close" id="close">&times;</span>
+          <h2>Reservatie Verlengd</h2>
+          <p>De persoon dat deze reservatie had gemaakt wordt ingelicht met een mail.</p>
+          <button class="btn tertiary-button" id="confirm">Bevestigen</button>
+        </div>
+      </div>
+
+    
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./components/filter/filter.js"></script>
+    <script src="./js/popup.js"></script>
   </body>
 </html>
