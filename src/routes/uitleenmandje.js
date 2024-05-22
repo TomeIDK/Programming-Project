@@ -40,8 +40,12 @@ router.get("/:uitleenmandjeID", (req, res) => {
         
       } else {  
        // console.log("product: " , result[0]);
-      res.render("uitleenmandje", { products: result }); 
-      }
+      
+
+      const hasProducts = result.length > 0;
+      const pageTitle = hasProducts ? 'Uitleenmandje' : ' geen producten in het uitleenmandje gevonden. '
+      res.render("uitleenmandje", { products: result, pageTitle: pageTitle }); 
+    }
        
      //const product = result.lenght > 0 ? result[0]: { naam: "Unknown" }; ;
        
