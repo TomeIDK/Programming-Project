@@ -59,7 +59,6 @@ GROUP BY Product.productID, Product.naam`,
     products.forEach((product) => {
       product.product_tags = product.product_tags.split(", ");
     });
-    console.log("products:", products);
   }
 );
 
@@ -68,7 +67,6 @@ connection.end();
 
 // Define route handler function and render response with necessary data
 router.get("/", async (req, res) => {
-  console.log("catalog:", req.session.user);
   res.render("cataloog", { tags: tags, products: products });
 });
 
