@@ -23,12 +23,11 @@
       <section class="basket">
         <ul class="basket__item-list">
           <% products.forEach((product, index) => { %>         
-          <li class="item-list__item" data-product-id="<%= product.productID %>"
-              src="<%= product.afbeelding %>"
+          <li class="item-list__item" data-product-id="<%= product.productID %>"/>
+            <img src="/images/<%= product.afbeelding %>"
               class="item__image"
               width="100"
-              alt="<%= product.naam %>"
-            />
+              alt="<%= product.naam %>">
             <div class="item__container">
               <h3 class="item__title"><%= product.naam %></h3>
               <p class="item__quantity">Quantity: 1</p>
