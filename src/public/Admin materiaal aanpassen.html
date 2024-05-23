@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" href="./css/specificatieproduct.css" />
+    <link rel="stylesheet" href="./css/materiaalaanpassen.css" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <title>Document</title>
+    <style>
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <ehb-header></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+        <h1>Materiaal aanpassen</h1>
+        <div class="containersample">
+            <div class="container">
+                <div>
+                    <label for="material-name">Materiaal naam</label>
+                    <input type="text" id="material-name" value="add content via js">
+                </div>
+                <div>
+                    <label for="id-number">ID nr</label>
+                    <input type="text" id="id-number" value="add content via js">
+                </div>
+                <div>
+                    <label for="quantity">Aantal</label>
+                    <input type="text" id="quantity" value="add content via js">
+                </div>
+                <div>
+                    <label for="description" >Beschrijving en specificaties</label>
+                    <textarea id="description">add content via js</textarea>
+                </div>
+                <div class="file-upload-container">
+
+                    <input type="file" id="image-upload" accept="image/*">
+
+                </div>
+                <div>
+                    <label for="extra-conditions">Extra voorwaarden voor uitlening</label>
+                    <textarea id="extra-conditions"
+                    >add content via js</textarea>
+                </div>
+
+                <button class="btn cta-button--red">Terug</button>
+                <button class="btn cta-button--blue">Aanpassen</button>
+                <button class="btn secondary-button" onclick="showSample()">Sample</button>
+
+            </div>
+        </div>
+
+        <!-- Popup voor de sample -->
+        <div class="popup-overlay" id="popup-overlay">
+            <div class="popup-container">
+                <span class="popup-close" onclick="closePopup()">X</span>
+                <div id="flexbox">
+                    <section>
+                        <h2 class="page__title" id="sample-name">Nikon Camera</h2>
+                        <p class="product__availability">
+                            Nu beschikbaar <span class="availability-amount">(4/5)</span>
+                        </p>
+                        <img src="./images/Nikon Camera.jpg" id="sample-image" />
+                    </section>
+
+                    <section>
+                        <h3>Beschrijving en specificatie</h3>
+                        <p id="sample-description">
+                            Canon EOS 2000D EF-S 18-55 mm f/3,5-5,6 III SLR camera kit 24,1 MP
+                            CMOS 6000 x 4000 pixels zwart - digitale camera's (24,1 MP, 6000 x
+                            4000 pixels, CMOS, Full HD, zwart)
+                        </p>
+                        <br />
+
+                        <h3>Specifieke voorwaarden voor uitlening</h3>
+                        <p id="sample-conditions">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+
+                        <div class="reden">
+                            <label for="reden">Selecteer de reden voor uitlening:</label><br />
+                            <select id="reden" name="reden">
+                                <option value="Les">Les</option>
+                                <option value="Eindwerk">Eindwerk</option>
+                                <option value="Project">Project</option>
+                                <option value="Persoonlijk Gebruik">Persoonlijk Gebruik</option>
+                                <option value="Andere">Andere...</option>
+                            </select>
+                        </div>
+
+                        <div id="kalender" class="datepicker"></div>
+                        <button class="btn secondary-button" onclick="closePopup()">Ga terug</button>
+                        <button class="btn cta-button--blue">In uitleenmandje</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./components/date-picker/date-picker.js"></script>
+    <script>
+        function showSample() {
+            var overlay = document.getElementById('popup-overlay');
+            overlay.style.display = 'flex';
+
+            var materialName = document.getElementById('material-name').value;
+            var description = document.getElementById('description').value;
+            var sampleName = document.getElementById('sample-name');
+            var sampleDescription = document.getElementById('sample-description');
+
+            
+            sampleName.textContent = materialName;
+            sampleDescription.textContent = description;
+
+            // Voeg afbeelding toe
+            var imageInput = document.getElementById('image-upload');
+            var sampleImage = document.getElementById('sample-image');
+            if (imageInput.files && imageInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    sampleImage.src = e.target.result;
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            }
+
+            // Voeg specifieke voorwaarden toe
+            var conditions = document.getElementById('extra-conditions').value;
+            var sampleConditions = document.getElementById('sample-conditions');
+            sampleConditions.textContent = conditions;
+        }
+
+        function closePopup() {
+            var overlay = document.getElementById('popup-overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
