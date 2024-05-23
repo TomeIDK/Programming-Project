@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/specificatieproduct.css" />
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/components/catalog card/card.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
     <title>EhB MediaLab - <%= product.naam %></title>
   </head>
 
@@ -22,23 +23,24 @@
         <section>
           <h2 class="page__title"><%= product.naam %></h2>
           <p class="product__availability">
-            Nu beschikbaar <span class="availability-amount"><%= product.aantalBeschikbaar%></span>
+            Nu beschikbaar
+            <span class="availability-amount"
+              ><%= product.aantalBeschikbaar%>/<%= product.aantalBeschikbaar%></span
+            >
           </p>
-          <img src="<%= product.afbeelding %>" alt="<%= product.naam %>">
+          <img
+            src="/images/<%= product.afbeelding %>"
+            alt="<%= product.naam %>"
+          />
         </section>
 
         <section>
           <h3>Beschrijving en specificaties</h3>
           <p class="product__description"><%= product.specificaties %></p>
 
-          
           <% if( product.voorwaarde){ %>
-            <h3>Specifieke voorwaarden voor uitlening</h3>
-          <p class="product.voorwaarden"> <%=product.voorwaarde %>
-          <% } %>
-          
-
-          </p>
+          <h3>Specifieke voorwaarden voor uitlening</h3>
+          <p class="product.voorwaarden"><%=product.voorwaarde %> <% } %></p>
 
           <div class="reden">
             <br />
@@ -52,15 +54,22 @@
             </select>
           </div>
 
-          <div id="kalender"></div>
-          <button class="btn secondary-button">Ga terug</button
-          ><button class="btn cta-button--blue">In uitleenmandje</button>
-          </section>
+          <input
+            id="datepicker"
+            name="datepicker"
+            class="input"
+            placeholder="Kies een datum"
+          />
+          <button id="btn-terug" class="btn secondary-button">Ga terug</button
+          ><button id="btn-add" class="btn cta-button--blue" data-id="<%= product.productID %>">In uitleenmandje</button>
+        </section>
       </div>
     </main>
 
     <ehb-footer></ehb-footer>
     <script src="/js/components.js"></script>
+    <script src="/js/uitleenmandje-datepicker.js"></script>
+    <script src="/js/product.js"></script>
     <script src="/js/default.js"></script>
   </body>
 </html>

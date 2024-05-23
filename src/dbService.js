@@ -117,7 +117,6 @@ class DBService {
           console.error("Kan item niet verwijderen uit uitleenmandje: ", err);
           callback(err, null);
         } else {
-          console.log("success db");
 
           console.log("Item succesvol verwijdert uit uitleenmandje");
           callback(null, result);

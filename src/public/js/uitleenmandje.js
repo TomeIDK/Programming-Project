@@ -1,3 +1,4 @@
+
 const basketItems = document.querySelectorAll(".item-list__item");
 console.log("uitleenmandje.js is geladen");
 
@@ -6,6 +7,7 @@ document.getElementById("lenenBtn").addEventListener("click", function () {
 
   // Haal gegevens op
   const startDatum = document.getElementById("datepicker").value; // Haal startDatum op van datepicker
+
 
   // Controleer of de startDatum is ingevuld
   if (!startDatum) {
@@ -85,6 +87,7 @@ document.getElementById("lenenBtn").addEventListener("click", function () {
         }
       });
     })
+
     .catch((error) => {
       console.error("Fetch fout:", error);
       loadScript("/components/toast/toast.js", (script) => {
@@ -95,13 +98,15 @@ document.getElementById("lenenBtn").addEventListener("click", function () {
           false
         );
       });
+
     });
 });
 
-document.getElementById("terugBtn").addEventListener("click", function () {
-  console.log("Terug knop geklikt");
-  window.location.href = "/cataloog"; // Vervang dit door de juiste URL naar de catalogus pagina
+document.getElementById('terugBtn').addEventListener('click', function() {
+    console.log('Terug knop geklikt');
+    window.location.href = '/cataloog'; // Vervang dit door de juiste URL naar de catalogus pagina
 });
+
 
 function showPopup(title, message) {
   // Maak popup element aan
@@ -161,4 +166,5 @@ function loadScript(src, cb) {
   script.src = src;
   script.onload = () => cb(script);
   document.head.append(script);
+
 }

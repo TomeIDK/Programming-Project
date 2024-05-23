@@ -62,7 +62,6 @@ router.post("/delete", (req, res) => {
       console.log("failed post");
       res.status(401).send("Kan product niet uit uitleenmandje verwijderen");
     } else {
-      console.log("success post");
 
       res.status(200).send("Product verwijdert uit uitleenmandje");
     }
@@ -70,4 +69,3 @@ router.post("/delete", (req, res) => {
   });
 });
 module.exports = router;
-
