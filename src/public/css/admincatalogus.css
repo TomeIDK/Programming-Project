@@ -20,6 +20,7 @@ h3 {
 }
 
 #block {
+    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
     
@@ -30,13 +31,13 @@ h3 {
     
     height: auto;
     
-    width: 70%;
+    width: 67%;
 }
 
 .geenideehoeikditmoetnoemen.catalogusbeheer {
     height: auto;
    
-    width: 30%;
+    width: 27%;
 }
 
 #gebruikersbeheer__info {
@@ -45,7 +46,9 @@ h3 {
     width: 100%;
     justify-content: space-between;
 }
-.gebruikersbeheer__info-item {
+.gebruikersbeheer__info-item  {
+    text-decoration: none;
+    color: black;
     padding: 15px;
     background-color: rgb(204, 255, 255);
     border-radius: 25px;
