@@ -35,10 +35,30 @@ btnReserveren.addEventListener("click", () => {
   };
 
   // POST request to add reservation
+  fetch("/reserveren", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ reservationData }),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      loadScript("/components/toast/toast.js", (script) => {
+        console.log(`Script ${script.src} loaded.`);
+        showToast("Reservatie geslaagd", true);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      loadScript("/components/toast/toast.js", (script) => {
+        console.log(`Script ${script.src} loaded.`);
+        showToast("Uw reservatie kon niet aangemaakt worden", false);
+      });
+    });
 });
 
 document.getElementById("terugBtn").addEventListener("click", function () {
-  console.log("Terug knop geklikt");
   window.location.href = "/cataloog"; // Vervang dit door de juiste URL naar de catalogus pagina
 });
 
