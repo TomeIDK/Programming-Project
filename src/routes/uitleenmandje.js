@@ -34,7 +34,6 @@ router.get("/:uitleenmandjeID", (req, res) => {
     LEFT JOIN Uitleenmandje ON Product.productID = Uitleenmandje.productID 
     WHERE Uitleenmandje.UitleenmandjeID = '${UitleenmandjeID}'`,
      (err, result) => {
-      console.log("result:", result);
       if (err) {
         console.error('Fout bij uitvoeren query: ' + err.stack);
         
