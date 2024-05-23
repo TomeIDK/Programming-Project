@@ -29,7 +29,7 @@ router.get("/:uitleenmandjeID", (req, res) => {
   const UitleenmandjeID = req.params.uitleenmandjeID;
 
   connection.query
-  (`SELECT Product.productID, Product.afbeelding, Product.naam 
+  (`SELECT Product.productID, Product.afbeelding, Product.naam, Uitleenmandje.aantal
     FROM Product 
     LEFT JOIN Uitleenmandje ON Product.productID = Uitleenmandje.productID 
     WHERE Uitleenmandje.UitleenmandjeID = '${UitleenmandjeID}'`,
