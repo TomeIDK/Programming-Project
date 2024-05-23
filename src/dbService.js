@@ -148,10 +148,36 @@ class DBService {
   }
 
   // Get all article ID's of specific product
-  getArticleIdsByProductId(productID, callback) {}
+  getArticlesByProductId(productID, callback) {
+    this.connection.query(
+      `SELECT artikelID FROM Artikel WHERE productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+        console.error("Kan artikelen niet ophalen: ", err);
+        callback(err, null);
+        } else {
+          console.log("Artikelen opgehaald");
+          callback(null, result);
+        }
+      }
+    )
+  }
 
   // Get all article ID's that are unavailable during chosen date range
-  getAvailableArticle(productArticles, startDatum, eindDatum, callback) {}
+  getUnavailableArticles(startDatum, eindDatum, callback) {
+    this.connection.query(
+      `SELECT artikelID FROM Uitlening WHERE startDatum <= '${startDatum}' AND eindDatum >= '${eindDatum}'`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan onbeschikbare artikelen niet ophalen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Onbeschikbare artikelen opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
 }
 
 module.exports = DBService;
