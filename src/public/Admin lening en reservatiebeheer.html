@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./components/button/button.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/default.css">
+  <link rel="stylesheet" href="./components/filter/filter.css">
+  <link rel="stylesheet" href="./css/specificatieproduct.css">
+  <link rel="stylesheet" href="./components/catalog card/card.css">
+  <title>Product Lening Beheer</title>
+</head>
+<body>
+  <ehb-header></ehb-header>
+  <hamburger-menu></hamburger-menu>
+  <main>
+    <h1 id="title"></h1>
+    <div id="flexbox">
+      <section>
+        <h2 class="page__title">Nikon Camera</h2>
+        <p class="product__availability"></p>
+        <!-- Afbeelding van het product -->
+        <img src="./images/Nikon Camera.jpg" />
+      </section>
+
+      <section id="content-section">
+        <!-- Dynamisch gegenereerde inhoud zal hier verschijnen -->
+      </section>
+    </div>
+  </main>
+  <ehb-footer></ehb-footer>
+  <script src="./js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to switch content based on input
+      function switchContent(input) {
+        const contentSection = document.getElementById('content-section');
+
+        if (input === 'reservatie') {
+          title.innerHTML='Resrevatie beheer'
+
+          contentSection.innerHTML = `
+            <h3>Reservatie Beheer</h3>
+            <!-- Voeg hier de HTML-inhoud toe voor reservatiebeheer -->
+            <p>Startdatum reservatie: 2024-05-16</p>
+            <p>Einddatum reservatie: 2024-05-20</p>
+            <form id="reservatie-form">
+              <br>
+              <button class="btn cta-button--red">Annuleren</button>
+              <button class="btn cta-button--blue">Verlengen</button>
+
+              <!-- Voeg hier verdere HTML-inhoud toe voor reservatiebeheer -->
+            </form>
+          `;
+        } else if (input === 'lening') {
+          title.innerHTML='Lening beheer'
+          contentSection.innerHTML = `
+            <h3>Lening Beheer</h3>
+            <p>Startdatum lening: 2024-05-16</p>
+            <p>Einddatum lening: 2024-05-20</p>
+            <form id="lening-form">
+              <!-- Voeg hier de HTML-inhoud toe voor leningbeheer -->
+              <br>
+              <button id="lening-annuleren" class="btn cta-button--red">Annuleren</button>
+              <button id="lening-verlengen" class="btn secondary-button">Verlengen</button><br>
+              <br>
+              <label for="schade">Heeft dit product schade opgelopen bij deze lening?</label><br>
+              <input type="radio" id="schade-ja" name="schade" value="Ja">
+              <label for="schade-ja">Ja</label><br>
+              <input type="radio" id="schade-nee" name="schade" value="Nee">
+              <label for="schade-nee">Nee</label><br>
+              <label for="extra-commentaar">Extra commentaar schade:</label><br>
+              <textarea id="extra-commentaar" name="extra-commentaar" rows="4" cols="50"></textarea><br>
+              <br>
+              <button type="submit" class="btn cta-button--blue">Opslaan</button>
+            </form>
+          `;
+        }
+      }
+
+      // Simulatie van input (bijv. "reservatie" of "lening")
+      let input = 'lening'; // Wijzig dit naar "lening" voor leningbeheer
+
+      // Schakel de inhoud op basis van de input
+      switchContent(input);
+    });
+  </script>
+</body>
+</html>
