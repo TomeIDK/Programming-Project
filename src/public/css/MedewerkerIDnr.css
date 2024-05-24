@@ -1,0 +1,54 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 4rem;  
+    margin-bottom: 4rem;  
+}
+
+.id-section {
+    margin-top: 7rem;  
+    margin-bottom: 4rem;  
+}
+
+.id-section label {
+    display: block;
+    margin-bottom: 1rem;  
+    font-weight: bold;
+}
+
+.id-section input {
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.button-group {
+    margin-top: 10rem;  
+    margin-bottom: 7rem; 
+}
+
+.button-group button {
+    display: inline-block;
+    margin: 0 2rem;  
+    padding: 0.5rem 1rem;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.terug-button {
+    background-color: #ccc;
+}
+
+.submit-button {
+    background-color: #ccc;
+}
