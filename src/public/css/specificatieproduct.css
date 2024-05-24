@@ -11,6 +11,10 @@ main {
     display: flex;
     gap: 7rem;
 }
+h1{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
 h3{
     font-size: 1.2rem;
     
