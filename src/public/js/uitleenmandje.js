@@ -6,7 +6,7 @@ basketItems.forEach((item) =>
   products.push(item.getAttribute("data-product-id"))
 );
 
-btnReserveren.addEventListener("click", () => {
+btnReserveren.addEventListener("click", async () => {
   // Haal gegevens op
   const startDatum = document.getElementById("datepicker").value;
   const reden = "test reden";
@@ -35,7 +35,7 @@ btnReserveren.addEventListener("click", () => {
   };
 
   // POST request to add reservation
-  fetch("/reserveren", {
+  await fetch("/reserveren", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,6 +56,7 @@ btnReserveren.addEventListener("click", () => {
         showToast("Uw reservatie kon niet aangemaakt worden", false);
       });
     });
+    location.reload(true);
 });
 
 document.getElementById("terugBtn").addEventListener("click", function () {

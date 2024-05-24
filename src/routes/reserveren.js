@@ -60,6 +60,19 @@ const addReservationPromise = (
   });
 };
 
+// Promise wrapper for addReservation function
+const removeProductFromUserBasket = (userID, productID) => {
+  return new Promise((resolve, reject) => {
+    dbServiceInstance.removeProductFromUserBasket(userID, productID, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
 // Route voor het maken van een reservering
 router.post("/", async (req, res) => {
   try {
@@ -106,6 +119,7 @@ router.post("/", async (req, res) => {
             startDatum,
             eindDatum
           );
+          await removeProductFromUserBasket(req.session.user.userID, productID);
         } else {
           res
             .status(404)
@@ -121,6 +135,7 @@ router.post("/", async (req, res) => {
         );
       }
     }
+    res.status(200).send("Reservatie geslaagd");
   } catch (error) {
     console.error("Fout bij het maken van de reservering:", error);
     res.status(500).send("Kan reservering niet maken");

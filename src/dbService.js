@@ -56,32 +56,34 @@ class DBService {
 
   createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
     this.connection.query(
-        `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
-        (err, result) => {
-            if (err) {
-                console.error("Error checking if item exists in basket: ", err);
-                callback(err, null);
-            } else {  
-               if (result.length > 0) {
-                 const currentQuantity = result[0].aantal;
-                 const newQuantity = currentQuantity + amount;
-                 this.connection.query(
-                 `UPDATE Uitleenmandje SET aantal = ${newQuantity} WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
-                   (updateErr, updateResult) => {
-                     if (updateErr) {
-                      console.error("Error updating basket item quantity: ", updateErr);
-                      callback(updateErr, null);
-                    } else {
-                      console.log("Basket item quantity updated successfully");
-                      callback(null, updateResult);
-                        }
-                      }
-                    );
-                 } else {
-                    
+      `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Error checking if item exists in basket: ", err);
+          callback(err, null);
+        } else {
+          if (result.length > 0) {
+            const currentQuantity = result[0].aantal;
+            const newQuantity = currentQuantity + amount;
             this.connection.query(
-            `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal) VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
-            (insertErr, insertResult) => {
+              `UPDATE Uitleenmandje SET aantal = ${newQuantity} WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+              (updateErr, updateResult) => {
+                if (updateErr) {
+                  console.error(
+                    "Error updating basket item quantity: ",
+                    updateErr
+                  );
+                  callback(updateErr, null);
+                } else {
+                  console.log("Basket item quantity updated successfully");
+                  callback(null, updateResult);
+                }
+              }
+            );
+          } else {
+            this.connection.query(
+              `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal) VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
+              (insertErr, insertResult) => {
                 if (insertErr) {
                   console.error("Error creating new basket item: ", insertErr);
                   callback(insertErr, null);
@@ -153,26 +155,42 @@ class DBService {
       `SELECT artikelID FROM Artikel WHERE productID = ${productID}`,
       (err, result) => {
         if (err) {
-        console.error("Kan artikelen niet ophalen: ", err);
-        callback(err, null);
+          console.error("Kan artikelen niet ophalen: ", err);
+          callback(err, null);
         } else {
           console.log("Artikelen opgehaald");
           callback(null, result);
         }
       }
-    )
+    );
   }
 
   // Get all article ID's that are unavailable during chosen date range
   getUnavailableArticles(startDatum, eindDatum, callback) {
     this.connection.query(
-      `SELECT artikelID FROM Uitlening WHERE startDatum <= '${startDatum}' AND eindDatum >= '${eindDatum}'`,
+      `SELECT artikelID FROM Uitlening WHERE startDatum <= '${startDatum}' AND eindDatum >= '${startDatum}'`,
       (err, result) => {
         if (err) {
           console.error("Kan onbeschikbare artikelen niet ophalen: ", err);
           callback(err, null);
         } else {
-          console.log("Onbeschikbare artikelen opgehaald");
+          console.log("Onbeschikbare artikelen opgehaald: ", result);
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  // Get all article ID's that are unavailable during chosen date range
+  removeProductFromUserBasket(userID, productID, callback) {
+    this.connection.query(
+      `DELETE FROM Uitleenmandje WHERE userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan uitleenmandje niet legen of is al leeg: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleenmandje van user leeggemaakt");
           callback(null, result);
         }
       }
