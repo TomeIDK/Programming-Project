@@ -1,6 +1,16 @@
 const basketItems = document.querySelectorAll(".item-list__item");
 let products = [];
 const btnReserveren = document.getElementById("btn-reserveren");
+const dropdownReden = document.getElementById("reden");
+const otherReasonInput = document.getElementById(`otherReason`);
+
+dropdownReden.addEventListener("change", () => {
+  if (dropdownReden.value === "Andere") {
+    otherReasonInput.style.display = "block";
+  } else {
+    otherReasonInput.style.display = "none";
+  }
+});
 
 basketItems.forEach((item) =>
   products.push(item.getAttribute("data-product-id"))
@@ -56,32 +66,12 @@ btnReserveren.addEventListener("click", async () => {
         showToast("Uw reservatie kon niet aangemaakt worden", false);
       });
     });
-    location.reload(true);
+  location.reload(true);
 });
 
 document.getElementById("terugBtn").addEventListener("click", function () {
   window.location.href = "/cataloog"; // Vervang dit door de juiste URL naar de catalogus pagina
 });
-
-function showPopup(title, message) {
-  // Maak popup element aan
-  var popup = document.createElement("div");
-  popup.className = "popup";
-  popup.innerHTML =
-    "<h3>" +
-    title +
-    "</h3><p>" +
-    message +
-    '</p><button class="btn cta-button--blue" onclick="closePopup()">Close</button>';
-
-  // Voeg popup toe aan body
-  document.body.appendChild(popup);
-}
-
-function closePopup() {
-  var popup = document.querySelector(".popup");
-  popup.parentNode.removeChild(popup);
-}
 
 // Delete button functionaliteit
 for (let i = 0; i < basketItems.length; i++) {
