@@ -11,12 +11,7 @@ body {
 }
 
 
-header img {
-    height: 50px;
-}
-
-
-.title {
+h2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,137 +23,23 @@ header img {
 
 }
 
-.subtitle {
+h3 {
     font-size: 2rem;
-    margin: 30px 20px 20px; 
     text-align: left;
-    padding-left: 20px;
 }
-
-.form-group {
-    margin: 100px 20px 10px; 
-    padding-left: 20px;
+.flexbox{
+    gap: 4rem;
+    display: flex;
+    margin-bottom: 3rem;
+    
 }
-
 .paragraph {
     font-size: 1.5rem;
     margin: 0 0 5px; 
     text-align: left;
 }
 
-.input-field {
-    width: calc(100% - 40px); 
-    max-width: 400px; 
-    padding: 10px; 
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.right-flex{
+margin-left: 10rem;
+margin-right: 0;
 }
-
-.small-input-field {
-    width: calc(50% - 40px); 
-    max-width: 200px; 
-    padding: 5px; 
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.checkbox-field {
-    margin-left: 10px;
-    transform: scale(1.5);
-
-}
-
-.beschadigd input[type="text"] {
-    display: block;
-    margin-top: 10px;
-}
-
-.input-helper {
-    font-size: 0.8rem; /* Kleinere lettergrootte voor de helper-tekst */
-    position: absolute;
-    bottom: -20px;
-    left: 20px;
-    color: #999;
-}
-
-.button-group {
-    display: flex;
-    margin-top: 80px;
-  }
-  
-  .cancel-button, .return-button{
-    padding: 10px 1px;
-    background-color: #ff4d4d;
-    color: #000;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
-    text-decoration: none;
-    width: 20%;
-  }
-  
-  .return-button {
-    background-color: #4caf50;
-  }
-
-  .back-button {
-    margin-top: 70px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .back-button button {
-    padding: 10px 40px;
-    background-color: #cccccc;
-    color: #000;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-align: center;
-    text-decoration: none;
-    width: 30%;
-  }
-
- .flexbox{
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
- }
-  label{
-    font-size: 1.5rem;
-  }
-
-
-  .back-button {
-    margin-top: 70px;
-    display: flex;
-    justify-content: center;
-}
-
-.back-button a {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #cccccc;
-    color: #000;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    text-decoration: none;
-}
-
-.back-button a i {
-    margin-right: 5px;
-}
-
-
-
-
