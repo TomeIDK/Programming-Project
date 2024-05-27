@@ -1,5 +1,19 @@
 # Programming-Project
 
+## Team
+
+### Scrum Master
+Cedric Pas  
+### Database Admin
+Soulaymane Tahri
+### Backend Lead
+Giles Synaeve
+### Frontend Lead
+Milad Nesim
+### Team
+Adrien Göksel  
+Nehad Tabbakhe  
+
 ## Stack
 HTML  
 CSS  
