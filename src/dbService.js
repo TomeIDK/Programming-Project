@@ -38,58 +38,65 @@ class DBService {
     });
   }
 
-  addReservation(userID, artikelID, reden, startDatum, eindDatum) {
-    return new Promise((resolve, reject) => {
-      const query = `
-        INSERT INTO Uitlening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, isBeschadigd, isUitgeleend)
-        VALUES (?, ?, ?, ?, ?, 0, 0, 1)
-      `;
-      console.log("Uitvoeren query:", query);
-      this.connection.query(
-        query,
-        [userID, artikelID, reden, startDatum, eindDatum],
-        (error, results) => {
-          if (error) {
-            console.error("Fout bij uitvoeren query:", error);
-            return reject(error);
-          }
-          resolve(results);
+  addReservation(userID, artikelID, reden, startDatum, eindDatum, callback) {
+    this.connection.query(
+      `INSERT INTO Uitlening (userID, artikelID, reden, startDatum, eindDatum, isVerlengd, inleverDatum, isBeschadigd, isUitgeleend)
+      VALUES (${userID}, ${artikelID}, '${reden}', '${startDatum}', '${eindDatum}', 0, null, 0, 0)`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan reservatie niet toevoegen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Reservatie succesvol toegevoegd");
+          callback(null, result);
         }
-      );
-    });
+      }
+    );
   }
 
   createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
-    if (uitleenmandjeID === null) {
-      this.connection.query(
-        `INSERT INTO Uitleenmandje (userID, productID, aantal)
-        VALUES (${userID}, ${productID}, ${amount})`,
-        (err, result) => {
-          if (err) {
-            console.error("Error creating new lending basket: ", err);
-            callback(err, null);
+    this.connection.query(
+      `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Error checking if item exists in basket: ", err);
+          callback(err, null);
+        } else {
+          if (result.length > 0) {
+            const currentQuantity = result[0].aantal;
+            const newQuantity = currentQuantity + amount;
+            this.connection.query(
+              `UPDATE Uitleenmandje SET aantal = ${newQuantity} WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+              (updateErr, updateResult) => {
+                if (updateErr) {
+                  console.error(
+                    "Error updating basket item quantity: ",
+                    updateErr
+                  );
+                  callback(updateErr, null);
+                } else {
+                  console.log("Basket item quantity updated successfully");
+                  callback(null, updateResult);
+                }
+              }
+            );
           } else {
-            console.log("Lending basket item created succesfully");
-            callback(null, true);
+            this.connection.query(
+              `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal) VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
+              (insertErr, insertResult) => {
+                if (insertErr) {
+                  console.error("Error creating new basket item: ", insertErr);
+                  callback(insertErr, null);
+                } else {
+                  console.log("New basket item created successfully");
+                  callback(null, insertResult);
+                }
+              }
+            );
           }
         }
-      );
-    } else {
-      // Insert basket item if basket already exists for user
-      this.connection.query(
-        `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal)
-        VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
-        (err, result) => {
-          if (err) {
-            console.error("Error creating lending basket: ", err);
-            callback(err, null);
-          } else {
-            console.log("Lending basket item added succesfully");
-            callback(null, result);
-          }
-        }
-      );
-    }
+      }
+    );
   }
 
   getUserUitleenmandjeID(userID, callback) {
@@ -117,7 +124,6 @@ class DBService {
           console.error("Kan item niet verwijderen uit uitleenmandje: ", err);
           callback(err, null);
         } else {
-
           console.log("Item succesvol verwijdert uit uitleenmandje");
           callback(null, result);
         }
@@ -137,6 +143,54 @@ class DBService {
           callback(err, null);
         } else {
           console.log("Aantal producten in uitleenmandje opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  // Get all article ID's of specific product
+  getArticlesByProductId(productID, callback) {
+    this.connection.query(
+      `SELECT artikelID FROM Artikel WHERE productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan artikelen niet ophalen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Artikelen opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  // Get all article ID's that are unavailable during chosen date range
+  getUnavailableArticles(startDatum, eindDatum, callback) {
+    this.connection.query(
+      `SELECT artikelID FROM Uitlening WHERE startDatum <= '${startDatum}' AND eindDatum >= '${startDatum}'`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan onbeschikbare artikelen niet ophalen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Onbeschikbare artikelen opgehaald: ", result);
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  // Get all article ID's that are unavailable during chosen date range
+  removeProductFromUserBasket(userID, productID, callback) {
+    this.connection.query(
+      `DELETE FROM Uitleenmandje WHERE userID = ${userID} AND productID = ${productID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan uitleenmandje niet legen of is al leeg: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleenmandje van user leeggemaakt");
           callback(null, result);
         }
       }

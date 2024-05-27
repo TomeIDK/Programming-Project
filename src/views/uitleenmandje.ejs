@@ -22,19 +22,24 @@
       <h1 class="page__title">Uitleenmandje</h1>
       <section class="basket">
         <ul class="basket__item-list">
-          <% products.forEach((product, index) => { %>         
-          <li class="item-list__item" data-product-id="<%= product.productID %>"/>
-            <img src="/images/<%= product.afbeelding %>"
-              class="item__image"
-              width="100"
-              alt="<%= product.naam %>">
-            <div class="item__container">
-              <h3 class="item__title"><%= product.naam %></h3>
-              <p class="item__quantity">Quantity: 1</p>
-            </div>
-            <button id="btn-delete<%= index %>" class="btn tertiary-button" >Verwijder</button>
-          </li>
-          <% }) %>
+          <% if (products.length === 0) { %>
+            <p>Er zijn geen producten in je uitleenmandje.</p>
+          <% } else { %>
+            <% products.forEach((product, index) => { %>         
+            <li class="item-list__item" data-product-id="<%= product.productID %>"
+                src="<%= product.afbeelding %>"
+                class="item__image"
+                width="100"
+                alt="<%= product.naam %>"
+              />
+              <div class="item__container">
+                <h3 class="item__title"><%= product.naam %></h3>
+                <p class="item__quantity"> Aantal: <%= product.aantal %></p>
+              </div>
+              <button id="btn-delete<%= index %>" class="btn tertiary-button" >Verwijder</button>
+            </li>
+            <% }) %>
+          <% } %>
         </ul>
 
         <div class="grid-aside">
@@ -44,7 +49,7 @@
           </div>
           <div class="buttons-container">
             <button id="terugBtn" class="btn secondary-button">Terug</button>
-            <button id="lenenBtn" class="btn cta-button--blue">
+            <button id="btn-reserveren" class="btn cta-button--blue">
               Reserveren
             </button>
           </div>

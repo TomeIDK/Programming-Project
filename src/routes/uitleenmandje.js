@@ -29,19 +29,22 @@ router.get("/:uitleenmandjeID", (req, res) => {
   const UitleenmandjeID = req.params.uitleenmandjeID;
 
   connection.query
-  (`SELECT Product.productID, Product.afbeelding, Product.naam 
+  (`SELECT Product.productID, Product.afbeelding, Product.naam, Uitleenmandje.aantal
     FROM Product 
     LEFT JOIN Uitleenmandje ON Product.productID = Uitleenmandje.productID 
     WHERE Uitleenmandje.UitleenmandjeID = '${UitleenmandjeID}'`,
      (err, result) => {
-      console.log("result:", result);
       if (err) {
         console.error('Fout bij uitvoeren query: ' + err.stack);
         
       } else {  
        // console.log("product: " , result[0]);
-      res.render("uitleenmandje", { products: result }); 
-      }
+      
+
+      const hasProducts = result.length > 0;
+      const pageTitle = hasProducts ? 'Uitleenmandje' : ' geen producten in het uitleenmandje gevonden. '
+      res.render("uitleenmandje", { products: result, pageTitle: pageTitle }); 
+    }
        
      //const product = result.lenght > 0 ? result[0]: { naam: "Unknown" }; ;
        
