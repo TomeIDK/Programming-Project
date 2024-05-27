@@ -38,6 +38,7 @@ const dbService = new DBService();
 
 // Routes
 const login = require('./routes/login');
+const logout = require ("./routes/logout");
 const info = require("./routes/info");
 const catalog = require("./routes/catalog");
 const api = require("./routes/api");
@@ -51,9 +52,10 @@ const admin = require ("./routes/admin");
 
 app.use("/login", login);
 app.use("/", login);
+app.use("/logout", logout);
 app.use("/info", info);
 app.use("/cataloog", catalog);
-app.use("/api", api); // Zorg ervoor dat dit correct is
+app.use("/api", api);
 app.use("/product", product);
 app.use("/uitleenmandje", uitleenmandje);
 app.use("/session-data", sessionData);

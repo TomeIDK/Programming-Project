@@ -106,7 +106,7 @@ class HamburgerMenu extends HTMLElement {
       </div>
 
       <div class="nav-menu__section">
-        <button class="nav-menu__button nav-menu__logout nav-menu__item">
+        <button id="btn-logout" class="nav-menu__button nav-menu__logout nav-menu__item">
           <img src="/images/logout.svg" alt="Uitloggen" /> Uitloggen
         </button>
       </div>
