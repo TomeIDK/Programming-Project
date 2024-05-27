@@ -15,9 +15,8 @@ h3 {
 .geenideehoeikditmoetnoemen {
     height: auto; /* Dynamically adjust height based on content */
 }
-
 .geenideehoeikditmoetnoemen img {
-    opacity: 80%;
+   opacity: 80%;
 }
 
 #block {
@@ -43,7 +42,7 @@ h3 {
     justify-content: space-between;
 }
 
-.gebruikersbeheer__info-item {
+.gebruikersbeheer__info-item  {
     text-decoration: none;
     color: black;
     padding: 15px;
@@ -58,97 +57,109 @@ h3 {
     justify-content: center;
     position: relative;
 }
-
 .gebruikersbeheer__info-item img {
     height: auto;
     width: 65%;
 }
-
 .timing {
     text-align: center;
     justify-content: center;
     align-items: flex-start;
-    height: 150px; /* Aangepast om uitlijning te corrigeren */
-    width: 20%;
-}
-
-.catalogusbeheer img {
-    width: 40%;
-    height: 70%;
-}
-
-.icon-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.icon-grid a {
-    text-decoration: none;
-    color: black;
-}
-
-.icon-grid a img {
-    height: 70%;
-    width: 70%;
-}
-
-.icon-grid div {
-    padding: 15px;
-    background-color: rgb(204, 255, 255);
-    border-radius: 25px;
-    text-align: center;
     height: 150px;
-    width: 48%;
-    margin-bottom: 10px;
+}
+.timing h4 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.timing img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 20%;
+    margin: 0;
+}
+.timing h4 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.timing h1 {
+    padding: 0;
+    margin-left: auto;
+    padding-bottom: 25px;
+    margin-right: auto;
+}
+
+/* Specifieke stijlen voor de achtergrondkleuren van de timing-items */
+.optijd {
+    background-color: rgb(196, 255, 196);
+}
+
+.laatstedag {
+    background-color: rgb(255, 255, 181);
+}
+
+.telaat {
+    background-color: rgb(255, 176, 176);
+}
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+.icon-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-/* Nieuwe CSS voor de Materiaal in gebruik sectie */
+.icon {
+    width: 100px; /* Adjusted size */
+    height: 100px; /* Adjusted size */
+    border-radius: 50%;
+    background-color: #e0f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 40px; /* Adjusted size */
+    color: #333;
+}
+
+.icon-item p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
 .materiaalingebruik {
     width: 100%;
+    margin-top: 30px;
     padding: 20px;
-    background-color: #f0f8ff;
-    margin-top: 20px;
-}
-
-.materiaalingebruik h3 {
-    font-size: 25px;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid black;
-    padding-bottom: 0.5rem;
+    background-color: #e0f0ff;
+    border-radius: 10px;
 }
 
 #materiaal__info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .materiaal__info-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background-color: #e0f0ff;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.materiaal__info-item span {
-    font-size: 16px;
-    margin-right: 10px;
+    align-items: center;
+    padding: 10px 0;
 }
 
 .progress-bar {
-    flex-grow: 1;
+    width: 70%;
     height: 10px;
     background-color: #d3d3d3;
     border-radius: 5px;
+    overflow: hidden;
     margin: 0 10px;
-    position: relative;
 }
 
 .progress {
@@ -157,14 +168,21 @@ h3 {
     border-radius: 5px;
 }
 
-#returnMaterial {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    font-size: 16px;
+.button {
+    display: inline-block; /* Change to inline-block to fit content */
+    margin: 10px auto; /* Adjust margins for better spacing */
+    padding: 8px 16px; /* Adjust padding for a smaller button */
+    font-size: 14px; /* Adjust font size for a smaller button */
     color: #fff;
     background-color: #32cd32;
     border: none;
     border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
     cursor: pointer;
+    transition: background-color 0.3s; /* Add transition for better UX */
+}
+
+.button:hover {
+    background-color: #28a428; /* Slightly darker green on hover */
 }
