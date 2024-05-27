@@ -136,4 +136,29 @@ header img {
   }
 
 
+  .back-button {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.back-button a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #cccccc;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.back-button a i {
+    margin-right: 5px;
+}
+
+
+
 
