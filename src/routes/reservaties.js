@@ -27,7 +27,8 @@ router.get("/", (req, res) => {
   connection.query(
     `SELECT U.uitleningID, U.startDatum, U.eindDatum, P.naam AS productNaam
          FROM Uitlening U
-         JOIN Product P ON U.artikelID = P.productID
+         JOIN Artikel A ON U.artikelID = A.artikelID
+         JOIN Product P ON A.productID = P.productID
          WHERE U.userID = ?`,
     [userID],
     (error, results) => {
@@ -36,21 +37,16 @@ router.get("/", (req, res) => {
         res
           .status(500)
           .send(
-            "Er is een fout opgetreden bij het ophalen van de reserveringen."
+            "Er is een fout opgetreden bij het ophalen van de reservaties."
           );
         return;
       }
-
-      console.log("Reservations fetched from database:", results);
-
       res.render("reservaties", { reservations: results });
     }
   );
 });
 
 router.delete("/", (req, res) => {
-    console.log("uitleningid: ", req.body.uitleningID);
-    console.log(req.body);
   dbServiceInstance.cancelReservation(req.body.uitleningID, (error, result) => {
     if (error) {
       console.error("Kan reservatie niet annuleren: ", error);
