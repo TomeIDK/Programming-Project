@@ -47,6 +47,7 @@ const sessionData = require('./routes/session-data');
 const reserveren = require('./routes/reserveren');
 const getBasketCount = require('./routes/get-basket-count');
 const reservations = require ("./routes/reservaties");
+const admin = require ("./routes/admin");
 
 app.use("/login", login);
 app.use("/", login);
@@ -59,6 +60,8 @@ app.use("/session-data", sessionData);
 app.use("/reserveren", reserveren);
 app.use("/get-basket-count", getBasketCount);
 app.use("/reservaties", reservations);
+app.use("/admin", reservations);
+
 // Set up view engine and static files
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
