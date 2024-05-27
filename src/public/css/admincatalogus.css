@@ -23,20 +23,15 @@ h3 {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-    
-    
 }
 
 .geenideehoeikditmoetnoemen.gebruikershbeheer {
-    
     height: auto;
-    
     width: 67%;
 }
 
 .geenideehoeikditmoetnoemen.catalogusbeheer {
     height: auto;
-   
     width: 27%;
 }
 
@@ -46,6 +41,7 @@ h3 {
     width: 100%;
     justify-content: space-between;
 }
+
 .gebruikersbeheer__info-item  {
     text-decoration: none;
     color: black;
@@ -61,7 +57,7 @@ h3 {
     justify-content: center;
     position: relative;
 }
-.gebruikersbeheer__info-item img{
+.gebruikersbeheer__info-item img {
     height: auto;
     width: 65%;
 }
@@ -69,27 +65,25 @@ h3 {
     text-align: center;
     justify-content: center;
     align-items: flex-start;
-    height: 150px; /* Aangepast om de volledige hoogte te behouden */
+    height: 150px;
 }
-.timing h4{
+.timing h4 {
     margin-left: auto;
     margin-right: auto;
 }
-
 .timing img {
     position: absolute;
-    top: 15px; /* Aanpassing voor positionering */
-    left: 15px; /* Aanpassing voor positionering */
-    width: 20%; /* Pas dit aan indien nodig */
+    top: 15px;
+    left: 15px;
+    width: 20%;
     margin: 0;
 }
-
 .timing h4 {
-    margin-left: auto; 
-    margin-right: auto;/* Ruimte creëren tussen de afbeelding en de tekst */
-    text-align: center; /* Zorg dat de tekst gecentreerd blijft */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
-.timing h1{
+.timing h1 {
     padding: 0;
     margin-left: auto;
     padding-bottom: 25px;
@@ -111,7 +105,7 @@ h3 {
 .icon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px; /* Minder ruimte tussen de iconen */
+    gap: 10px;
     justify-items: center;
 }
 
@@ -122,20 +116,73 @@ h3 {
 }
 
 .icon {
-    width: 150px; /* Grotere iconen */
-    height: 150px; /* Grotere iconen */
+    width: 100px; /* Adjusted size */
+    height: 100px; /* Adjusted size */
     border-radius: 50%;
     background-color: #e0f0ff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px; /* Minder ruimte onder de iconen */
-    font-size: 50px; /* Grotere iconen */
+    margin-bottom: 5px;
+    font-size: 40px; /* Adjusted size */
     color: #333;
 }
 
 .icon-item p {
     margin: 0;
-    font-size: 18px; /* Grotere tekst */
+    font-size: 18px;
     color: #333;
+}
+
+.materiaalingebruik {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e0f0ff;
+    border-radius: 10px;
+}
+
+#materiaal__info {
+    margin-bottom: 20px;
+}
+
+.materiaal__info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.progress-bar {
+    width: 70%;
+    height: 10px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #ff69b4;
+    border-radius: 5px;
+}
+
+.button {
+    display: inline-block; /* Change to inline-block to fit content */
+    margin: 10px auto; /* Adjust margins for better spacing */
+    padding: 8px 16px; /* Adjust padding for a smaller button */
+    font-size: 14px; /* Adjust font size for a smaller button */
+    color: #fff;
+    background-color: #32cd32;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition for better UX */
+}
+
+.button:hover {
+    background-color: #28a428; /* Slightly darker green on hover */
 }
