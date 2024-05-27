@@ -1,10 +1,10 @@
 btnLogin = document.getElementById("btn-login");
 
 btnLogin.addEventListener("click", async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("password").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
 
   try {
     const response = await fetch("/login", {
@@ -16,8 +16,11 @@ btnLogin.addEventListener("click", async (event) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("Response:", data);
-      window.location.href = "/cataloog";
+      if (data.user.type === "Admin") {
+        window.location.href = "/admin/dashboard";
+      } else {
+        window.location.href = "/cataloog";
+      }
     } else {
       console.error("Request failed with status:", response.status);
     }
