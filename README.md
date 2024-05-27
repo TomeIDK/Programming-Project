@@ -11,8 +11,8 @@ Giles Synaeve
 ### Frontend Lead
 Milad Nesim
 ### Team
-Adrien Göksel
-Nehad Tabbakhe
+Adrien Göksel  
+Nehad Tabbakhe  
 
 ## Stack
 HTML  
