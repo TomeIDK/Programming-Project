@@ -11,6 +11,10 @@ main {
     display: flex;
     gap: 7rem;
 }
+h1{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
 h3{
     font-size: 1.2rem;
     
@@ -36,7 +40,6 @@ p.product__availability{
     margin-top: .5rem;
 
     padding: 1rem 0;
-    border-top: 1px solid var(--text-muted);
 }
 
 .datepicker{
@@ -54,4 +57,7 @@ button.btn.secondary-button{
     background-color: brown;
     width: 300px;
     height: 200px;
+}
+.btn.aanpassen-button{
+    background-color: orange;
 }

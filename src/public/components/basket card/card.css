@@ -38,10 +38,13 @@
 }
 
 .item__image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
   aspect-ratio: 1 / 1;
   border-radius: 0.5rem;
   overflow: hidden;
-  object-fit: cover;
+  
 }
 
 .item__container {
