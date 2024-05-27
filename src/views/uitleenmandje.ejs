@@ -12,7 +12,6 @@
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
     <title>EhB MediaLab - Uitleenmandje</title>
-
 </head>
 <body>
     <ehb-header></ehb-header>
@@ -23,7 +22,7 @@
       <section class="basket">
         <ul class="basket__item-list">
           <% products.forEach((product, index) => { %>         
-          <li class="item-list__item" data-product-id="<%= product.productID %>"/>
+          <li class="item-list__item" data-product-id="<%= product.productID %>">
             <img src="/images/<%= product.afbeelding %>"
               class="item__image"
               width="100"
@@ -31,6 +30,17 @@
             <div class="item__container">
               <h3 class="item__title"><%= product.naam %></h3>
               <p class="item__quantity">Quantity: 1</p>
+              <div class="reden">
+                <label for="reden<%= index %>">Selecteer de reden voor uitlening:</label><br />
+                <select id="reden<%= index %>" name="reden" onchange="toggleOtherReason(<%= index %>)">
+                  <option value="Les">Les</option>
+                  <option value="Eindwerk">Eindwerk</option>
+                  <option value="Project">Project</option>
+                  <option value="Persoonlijk Gebruik">Persoonlijk Gebruik</option>
+                  <option value="Andere">Andere...</option>
+                </select>
+                <input type="text" id="otherReason<%= index %>" name="otherReason" placeholder="Voer de reden in" style="display:none; margin-top:10px;"/>
+              </div>
             </div>
             <button id="btn-delete<%= index %>" class="btn tertiary-button" >Verwijder</button>
           </li>
@@ -56,6 +66,16 @@
     <script src="/js/uitleenmandje-datepicker.js"></script>
     <script src="/js/default.js"></script>
     <script src="/js/uitleenmandje.js"></script>
+    <script>
+      function toggleOtherReason(index) {
+        const selectElement = document.getElementById(`reden${index}`);
+        const otherReasonInput = document.getElementById(`otherReason${index}`);
+        if (selectElement.value === 'Andere') {
+          otherReasonInput.style.display = 'block';
+        } else {
+          otherReasonInput.style.display = 'none';
+        }
+      }
+    </script>
 </body>
-
 </html>

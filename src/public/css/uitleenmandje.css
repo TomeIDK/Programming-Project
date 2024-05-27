@@ -43,3 +43,14 @@ main {
   height: 500px;
   width: 500px;
 }
+
+.reden{
+
+  margin-top: .5rem;
+
+  padding: 1rem 0;
+}
+
+label{
+  font-weight: bolder;
+}
