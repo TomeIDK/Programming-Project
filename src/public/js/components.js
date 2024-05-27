@@ -1,5 +1,3 @@
-// TODO: Remove this link
-// https://medium.com/tunaiku-tech/create-your-first-web-component-with-vanilla-javascript-af93cbf3a70f
 
 // Header Component
 class EhbHeader extends HTMLElement {
@@ -36,7 +34,7 @@ class EhbHeader extends HTMLElement {
     this.innerHTML = `
       <header class="header">
       <div class="header__container">
-        <a href="#">
+        <a href="/cataloog">
           <img
             src="/images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
@@ -99,7 +97,7 @@ class HamburgerMenu extends HTMLElement {
             <a href="#" class="nav-menu__link">Mijn Uitleningen</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Mijn Reservaties</a>
+            <a href="/reservaties" class="nav-menu__link">Mijn Reservaties</a>
           </li>
           <li class="nav-menu__item">
             <a href="#" class="nav-menu__link">Uitleengeschiedenis</a>

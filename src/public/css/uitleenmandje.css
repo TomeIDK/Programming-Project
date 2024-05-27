@@ -1,4 +1,3 @@
-
 html,
 body {
   height: 100%;
@@ -29,7 +28,7 @@ main {
   align-self: flex-end;
 }
 
-.datepicker-container{
+.datepicker-container {
   display: flex;
   flex-direction: column;
 }
@@ -38,8 +37,21 @@ main {
   font-weight: 600;
 }
 
-.item-image{
+.item-image {
   display: none;
   height: 500px;
   width: 500px;
+}
+
+.reden {
+  margin-top: 0.5rem;
+  padding: 1rem 0;
+}
+
+label {
+  font-weight: bolder;
+}
+
+#otherReason{
+  display: none;
 }
