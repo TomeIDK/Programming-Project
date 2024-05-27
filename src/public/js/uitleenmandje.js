@@ -1,112 +1,67 @@
-
 const basketItems = document.querySelectorAll(".item-list__item");
-console.log("uitleenmandje.js is geladen");
+let products = [];
+const btnReserveren = document.getElementById("btn-reserveren");
 
-document.getElementById("lenenBtn").addEventListener("click", function () {
-  console.log("Reserveren knop geklikt");
+basketItems.forEach((item) =>
+  products.push(item.getAttribute("data-product-id"))
+);
 
+btnReserveren.addEventListener("click", async () => {
   // Haal gegevens op
-  const startDatum = document.getElementById("datepicker").value; // Haal startDatum op van datepicker
+  const startDatum = document.getElementById("datepicker").value;
+  const reden = "test reden";
 
-
-  // Controleer of de startDatum is ingevuld
+  // Validate gegevens
   if (!startDatum) {
     loadScript("/components/toast/toast.js", (script) => {
       console.log(`Script ${script.src} loaded.`);
-      showToast("Selecteer een startdatum.", false);
+      showToast("Selecteer een startdatum voor de reservatie.", false);
     });
     return;
   }
 
-  // Parse de startDatum
-  const startDate = new Date(startDatum.split("/").reverse().join("-")); // Maak een Date object van de startDatum
-  if (isNaN(startDate)) {
+  if (!reden) {
     loadScript("/components/toast/toast.js", (script) => {
       console.log(`Script ${script.src} loaded.`);
-      showToast("Ongeldige startdatum.", false);
+      showToast("Kies een reden voor uw reservatie", false);
     });
     return;
   }
 
-  // Bereken eindDatum als startDatum + 7 dagen
-  const eindDatum = new Date(startDate);
-  eindDatum.setDate(startDate.getDate() + 7);
-  const eindDatumFormatted = eindDatum.toISOString().split("T")[0]; // Formatteer eindDatum naar YYYY-MM-DD
+  const reservationData = {
+    products: products,
+    reden: reden,
+    startDatum: startDatum,
+  };
 
-  // Haal userID en andere benodigde gegevens op uit de sessie via de server
-  fetch("/session-data")
-    .then((response) => response.json())
+  // POST request to add reservation
+  await fetch("/reserveren", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ reservationData }),
+  })
+    .then((response) => response.text())
     .then((data) => {
-      if (!data.userID || !data.artikelID || !data.reden) {
-        loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
-          showToast("Niet ingelogd of onvolledige gegevens", false);
-        });
-        return;
-      }
-      const userID = data.userID;
-      const artikelID = data.artikelID; // Zorg ervoor dat artikelID in de sessie aanwezig is
-      const reden = data.reden; // Zorg ervoor dat reden in de sessie aanwezig is
-
-      // Data object
-      const reservationData = {
-        userID: userID,
-        artikelID: artikelID,
-        reden: reden,
-        startDatum: startDatum.split("/").reverse().join("-"), // Formatteer startDatum naar YYYY-MM-DD
-        eindDatum: eindDatumFormatted,
-      };
-
-      console.log("Verzenden reserveringsdata:", reservationData);
-
-      // Fetch-aanroep om reservering aan te maken
-      return fetch("/reserveren", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reservationData),
-      });
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Reservering resultaat:", data);
       loadScript("/components/toast/toast.js", (script) => {
         console.log(`Script ${script.src} loaded.`);
-        if (data.success) {
-          showToast(
-            "Je reservatie is gelukt. Er wordt een e-mail gestuurd naar ... met de bevestigingsdetails.",
-            true
-          );
-        } else {
-          showToast(
-            "Er is een fout opgetreden bij het maken van de reservering: " +
-              data.message,
-            false
-          );
-        }
+        showToast("Reservatie geslaagd", true);
       });
     })
-
     .catch((error) => {
-      console.error("Fetch fout:", error);
+      console.error("Error:", error);
       loadScript("/components/toast/toast.js", (script) => {
         console.log(`Script ${script.src} loaded.`);
-        showToast(
-          "Er is een fout opgetreden bij het maken van de reservering: " +
-            error.message,
-          false
-        );
+        showToast("Uw reservatie kon niet aangemaakt worden", false);
       });
-
     });
+    location.reload(true);
 });
 
-document.getElementById('terugBtn').addEventListener('click', function() {
-    console.log('Terug knop geklikt');
-    window.location.href = '/cataloog'; // Vervang dit door de juiste URL naar de catalogus pagina
+document.getElementById("terugBtn").addEventListener("click", function () {
+  window.location.href = "/cataloog"; // Vervang dit door de juiste URL naar de catalogus pagina
 });
-
 
 function showPopup(title, message) {
   // Maak popup element aan
@@ -166,5 +121,4 @@ function loadScript(src, cb) {
   script.src = src;
   script.onload = () => cb(script);
   document.head.append(script);
-
 }

@@ -57,9 +57,7 @@ router.post("/", (req, res) => {
             UitleenmandjeID: UitleenmandjeID,
           };
           req.session.user = user;
-          return res
-            .status(200)
-            .json({ message: "Login successful" });
+          return res.status(200).json({ message: "Login successful", user: req.session.user });
         } else {
           return res.status(401).send("Invalid email or password");
         }

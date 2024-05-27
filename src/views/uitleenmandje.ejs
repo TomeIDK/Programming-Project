@@ -21,6 +21,9 @@
       <h1 class="page__title">Uitleenmandje</h1>
       <section class="basket">
         <ul class="basket__item-list">
+          <% if (products.length === 0) { %>
+            <p>Er zijn geen producten in je uitleenmandje.</p>
+          <% } else { %>
           <% products.forEach((product, index) => { %>         
           <li class="item-list__item" data-product-id="<%= product.productID %>">
             <img src="/images/<%= product.afbeelding %>"
@@ -45,6 +48,7 @@
             <button id="btn-delete<%= index %>" class="btn tertiary-button" >Verwijder</button>
           </li>
           <% }) %>
+          <% } %>
         </ul>
 
         <div class="grid-aside">
@@ -54,7 +58,7 @@
           </div>
           <div class="buttons-container">
             <button id="terugBtn" class="btn secondary-button">Terug</button>
-            <button id="lenenBtn" class="btn cta-button--blue">
+            <button id="btn-reserveren" class="btn cta-button--blue">
               Reserveren
             </button>
           </div>
