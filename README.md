@@ -55,4 +55,7 @@ https://stackoverflow.com/questions/14218725/working-with-sessions-in-express-js
 https://expressjs.com/en/resources/middleware/session.html  
 https://cesare.substack.com/p/how-to-implement-a-logout-method  
 https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests  
+https://stackoverflow.com/questions/6545379/can-we-directly-remove-nodes-from-a-nodelist  
+https://chatgpt.com/share/6a59ee8e-542a-491e-bb0e-773033131250  
+https://chatgpt.com/share/231e65d3-e7e7-487a-865f-364bfe00c9e9  
 
