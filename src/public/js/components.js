@@ -32,11 +32,10 @@ class EhbHeader extends HTMLElement {
     }
 
     // Component
-    if (this.returnhomepage !== null){
+    if (!'this.returnhomepage'){
       this.innerHTML = `
       <header class="header">
       <div class="header__container">
-        <a href="/admin/dashboard">
           <img
             src="/images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
@@ -59,7 +58,6 @@ class EhbHeader extends HTMLElement {
       this.innerHTML = `
       <header class="header">
       <div class="header__container">
-        <a href="/cataloog">
           <img
             src="/images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
@@ -122,7 +120,7 @@ class HamburgerMenu extends HTMLElement {
             <a href="/admin/retourbeheer" class="nav-menu__link">retourbeheer</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Meer catalogusbeheer</a>
+            <a href="#" class="nav-menu__link">catalogusbeheer</a>
           </li>
           <li class="nav-menu__item">
             <a href="#" class="nav-menu__link">gebruikersbeheer</a>
