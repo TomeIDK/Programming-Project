@@ -1,30 +1,57 @@
+html,
+body {
+  height: 100%;
+}
+
 main {
-    margin-top: 50px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-h2{
-    font-size: 45px;
-    margin-bottom: 10px;
-    color: var(--secondary-400);
+.grid-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2.5rem;
+  width: fit-content;
+  height: 100%;
 }
 
-button.btn.cta-button--red{
-    margin-right: 5px;
+.buttons-container {
+  display: flex;
+  gap: 0.875rem;
+  align-self: flex-end;
 }
 
-#kalender{
-  
-    background-color: brown;
-    width: 300px;
-    height: 200px;
-    margin-bottom: 10px;
+.datepicker-container {
+  display: flex;
+  flex-direction: column;
 }
-.btn.secondary-button {
-    color: var(--text);
-    background-color: transparent;
-    border: 1px solid #666666;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
+
+.label {
+  font-weight: 600;
+}
+
+.item-image {
+  display: none;
+  height: 500px;
+  width: 500px;
+}
+
+.reden {
+  margin-top: 0.5rem;
+  padding: 1rem 0;
+}
+
+label {
+  font-weight: bolder;
+}
+
+#otherReason{
+  display: none;
+}

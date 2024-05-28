@@ -18,59 +18,73 @@
 
     <hamburger-menu></hamburger-menu>
     <main>
-        <div class="title">
-            <h1>Medewerker</h1>
-        </div>
-        <div class="subtitle">
-            <h2>Retourbeheer</h2>
-        </div>
-        <div class="form-group">
-            <div class="paragraph">Naam lener</div>
-            <input type="text" id="naam-lener" class="input-field" placeholder="">
-        </div>
 
+        <h2>Medewerker</h2>
+        <br>
+
+        <h3>Retourbeheer</h3>
+<br>
+        <div class="paragraph">Naam lener</div>
+        <input type="text" id="naam-lener" class="input-field" placeholder="">
+        <br><br>
         <div class="form-group">
             <div class="paragraph">ID nr</div>
             <input type="text" id="id-nr" class="small-input-field" placeholder="">
         </div>
+        <br>
+
         <div class="flexbox">
-            <div class="form-group">
+            <div>
                 <div class="paragraph">Naam materiaal</div>
                 <input type="text" id="nom-materiel" class="input-field" placeholder="">
+                <br>
+                <br>
+                <div class="paragraph">
+                    <label class="paragraph" for="beschadigd" class="checkbox-label">Beschadigd</label>
+                    <input type="checkbox" id="beschadigd" class="checkbox-field">
+                </div>
+                
+                <input type="text" id="beschadigd-reason" class="input-field" placeholder="Reden beschadiging" disabled>
+
             </div>
 
-            <div class="form-group geleend-van-right">
+            <div class="right-flex">
+
                 <div class="paragraph">Geleend van:</div>
                 <input type="date" id="geleend-van" class="input-field" placeholder="Geleend van">
-            </div>
-            <div class="form-group beschadigd">
-                <label for="beschadigd" class="checkbox-label">Beschadigd</label>
-                <input type="checkbox" id="beschadigd" class="checkbox-field">
-                <input type="text" id="beschadigd-reason" class="input-field" placeholder="">
-            </div>
-
-            <div class="form-group geleend-tot-right">
+                <br>
+                <br>
                 <div class="paragraph">Geleend tot:</div>
                 <input type="date" id="geleend-tot" class="input-field" placeholder="Geleend tot">
             </div>
-        
-
-            
         </div>
 
-        <div class="button-group">
-            <button class="cancel-button">Annuleren</button>
-            <button class="return-button">Terugbrengen</button>
-        </div>
-
-        <div class="back-button">
-            <button class="back-button">Terug</button>
-        </div>
-
+        <div class="buttons-container">
+        <button class="btn cta-button--red">Annuleren</button>
+        <button class="btn cta-button--blue">Terugbrengen</button>
+</div>
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./components/filter/filter.js"></script>
+    <script>
+        function togglebeschadigd() {
+            const beschadigd = document.getElementById('beschadigd');
+            const beschadigdReason = document.getElementById('beschadigd-reason');
+            if (beschadigd.checked) {
+                beschadigdReason.disabled = false;
+            } else {
+                beschadigdReason.disabled = true;
+            }
+        }
+
+        document.getElementById('beschadigd').addEventListener('change', togglebeschadigd);
+
+        // Zorg ervoor dat de reden input uitgeschakeld is bij het laden van de pagina
+        document.addEventListener('DOMContentLoaded', (event) => {
+            togglebeschadigd();
+        });
+    </script>
 </body>
 
 </html>

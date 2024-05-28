@@ -1,109 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./components/button/button.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" href="./css/uitleenmandje.css">
-    <link rel="stylesheet" href="./components/basket card/card.css">
-    <title>Document</title>
-    <style>
-        /* Style for the popup */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css" />
+    <link rel="stylesheet" type="text/css" href="./css/uitleenmandje.css" />
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css" />
+    <link rel="stylesheet" type="text/css" href="./components/basket card/card.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <title>EhB MediaLab - Uitleenmandje</title>
 </head>
-
 <body>
     <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-        <h2>Uitleenmadje</h2>
-        <div id="kalender"></div>
+        <h1 class="page__title">Uitleenmandje</h1>
         <section class="basket">
             <ul class="basket__item-list">
-                <div class="item-list__item">
-                    <img
-                        src="./images/placeholder.svg"
-                        class="item__image"
-                        width="100"
-                        alt="Product"
-                    />
+                <li class="item-list__item">
+                    <img src="/images/placeholder.svg" class="item__image" width="100" alt="Product" />
                     <div class="item__container">
                         <h3 class="item__title">Canon EOS M50</h3>
                         <p class="item__quantity">Quantity: 1</p>
                     </div>
                     <button class="btn tertiary-button">Verwijder</button>
-                </div>
-                <li class="item-list__item">
-                    <img
-                        src="./images/placeholder.svg"
-                        class="item__image"
-                        width="100"
-                        alt="Product"
-                    />
-                    <div class="item__container">
-                        <h3 class="item__title">Nikon Camera</h3>
-                        <p class="item__quantity">Quantity: 1</p>
-                    </div>
-                    <button class="btn tertiary-button">Verwijder</button>
-                </li>
-                <li class="item-list__item">
-                    <img
-                        src="./images/placeholder.svg"
-                        class="item__image"
-                        width="100"
-                        alt="Product"
-                    />
-                    <div class="item__container">
-                        <h3 class="item__title">Nog een ander product</h3>
-                        <p class="item__quantity">Quantity: 1</p>
-                    </div>
-                    <button class="btn tertiary-button">Verwijder</button>
                 </li>
             </ul>
+            <div class="grid-aside">
+                <div class="datepicker-container">
+                    <label class="label" for="datepicker">Reserveren vanaf</label>
+                    <input id="datepicker" name="datepicker" class="input" placeholder="Kies een datum" />
+                </div>
+                <div class="buttons-container">
+                    <button class="btn secondary-button">Terug</button>
+                    <button id="lenenBtn" class="btn cta-button--blue">Reserveren</button>
+                </div>
+            </div>
         </section>
-        <br>
-        
-        <!-- Buttons -->
-        <a href="cataloog.html" class="btn secondary-button">Ga terug</a>
-        <button id="lenenBtn" class="btn cta-button--blue">Lenen</button>
     </main>
-
     <ehb-footer></ehb-footer>
-    <script src="./js/components.js"></script>
-    <script>
-        // JavaScript to show popup when "Lenen" button is clicked
-        document.getElementById('lenenBtn').addEventListener('click', function() {
-            // Create popup element
-            var popup = document.createElement('div');
-            popup.className = 'popup';
-            popup.innerHTML = '<h3>Reservatie geslaagd</h3><p>Je reservatie is gelukt er wordt een   e-mail gestuurd naar ... met de bevestigings details </p> <p>Op te halen op: ../../.... Terug te brengen op: ../../.... </p> <p> Product: ........ product ID: ........ ........</p><button class="btn cta-button--blue" onclick="closePopup()">Close</button>';
-            
-            // Append popup to body
-            document.body.appendChild(popup);
-        });
-
-        // Function to close the popup
-        function closePopup() {
-            var popup = document.querySelector('.popup');
-            popup.parentNode.removeChild(popup);
-        }
-    </script>
+    <script src="/js/components.js"></script>
+    <script src="/js/uitleenmandje-datepicker.js"></script>
+    <script src="/js/uitleenmandje.js"></script>
 </body>
-
 </html>

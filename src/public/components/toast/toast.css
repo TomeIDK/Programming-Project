@@ -1,6 +1,3 @@
-@import url("/src/css/default.css");
-@import url("/src/css/reset.css");
-
 .toast-container{
     position: fixed;
     top: 1.25rem;
