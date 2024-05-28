@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="./css/admincatalogus.css">
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ehb-header nobasket></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+        <h1>Dahboard Admin</h1>
+        <div id="block">
+            <div class="geenideehoeikditmoetnoemen gebruikershbeheer">
+                <h3>Gebruikershbeheer</h3>
+                <div id="gebruikersbeheer__info">
+
+                    
+                        <a class="gebruikersbeheer__info-item" href="gebruikershbeheer.html">
+                            <img src="./images/group-icon.svg" alt="">
+
+                            <h4>Gebruikers</h4>
+                        </a>
+                        <a class="gebruikersbeheer__info-item" href="geschiedenis.html">
+
+                        <img src="./images/geschiedenis-icon.svg" alt="">
+
+                        <h4>Uitleengeshiedenis</h4>
+                    </a>
+                    <a class="gebruikersbeheer__info-item timing optijd" href="uitleningen.html">
+                        <img src="./images/group-icon.svg" alt="">
+                        <h1 class="gebruikersbeheer__info--optijd">8</h1>
+
+                        <h4>Op tijd</h4>
+                    </a>
+                    <a class="gebruikersbeheer__info-item timing laatstedag" href="uitleningen.html">
+                        <img src="./images/group-icon.svg" alt="">
+                        <h1 class="gebruikersbeheer__info--aantallaatstedag">4</h1>
+                        <h4>Laatste dag</h4>
+                    </a>
+                    <a class="gebruikersbeheer__info-item timing telaat" href="uitleningen.html">
+                        <img src="./images/group-icon.svg" alt="">
+                        <h1 class="gebruikersbeheer__info--aantaltelaat">4</h1>
+                        <h4>Te laat</h4>
+                    </a>
+                </div>
+                
+
+            </div>
+            <div class="geenideehoeikditmoetnoemen catalogusbeheer">
+                <h3>Catalogusbeheer</h3>
+                <div class="icon-grid">
+                    <div class="icon-item">
+                        <div class="icon"><img src="./images/catalogus icon.svg" class="fas fa-search"></img></div>
+                        <a href="Admin catalogus.html"><h4>Catalogus</h4></a>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon"><img src="./images/reservaties.svg"  class="fas fa-calendar-alt"></img></div>
+                        <a href="gebruikershbeheer.html"><h4>Reservaties</h4></a>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon"><img src="./images/Filters.svg" class="fas fa-filter"></img></div>
+                        <a href="Admin catalogus.html"><h4>Filters aanpassen</h4></a>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon"><img src="./images/Materiaal.svg" class="fas fa-box"></img></div>
+                        <a href="Admin materiaal toevoegen.html"><h4>Materiaal toevoegen</h4></a>
+                    </div>
+                </div>
+            </div>
+            <div class="geenideehoeikditmoetnoemen materiaalingebruik">
+                <h3>Materiaal in gebruik</h3>
+                <div id="materiaal__info">
+                    <div class="materiaal__info-item">
+                        <span>Sony Camera</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%;"></div>
+                        </div>
+                        <span>5/5</span>
+                    </div>
+                    <div class="materiaal__info-item">
+                        <span>Shure Mic</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                        <span>4/5</span>
+                    </div>
+                    <div class="materiaal__info-item">
+                        <span>Nikon Camera</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%;"></div>
+                        </div>
+                        <span>2/5</span>
+                    </div>
+                    <div class="materiaal__info-item">
+                        <span>Motion-capture suit</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 20%;"></div>
+                        </div>
+                        <span>1/5</span>
+                    </div>
+                    <div class="materiaal__info-item">
+                        <span>SubZero mic</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%;"></div>
+                        </div>
+                        <span>0/5</span>
+                    </div>
+                </div>
+                <a href="MedewerkerIDnr.html" id="returnMaterial" class="button">Return Material</a>
+            </div>
+        </div>
+
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./components/date-picker/date-picker.js"></script>
+
+
+</body>
+
+</html>

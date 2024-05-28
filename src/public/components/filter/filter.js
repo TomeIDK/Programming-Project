@@ -4,6 +4,8 @@ const tagList = document.getElementById("tag-filter-list");
 const btnFilter = document.getElementById("search-bar-btn-filter");
 const selectedTagsList = document.getElementById("selected-tags-list");
 const tagFilterSpan = document.getElementById("tag-filter-span");
+const tagCheckboxes = document.getElementsByClassName("dropdown__checkbox");
+const tagLabels = Array.from(document.getElementsByClassName("dropdown__label"));
 
 // Horizontal scroll via scroll wheel on selected tags list
 selectedTagsList.addEventListener("wheel", function (e) {
@@ -14,41 +16,21 @@ selectedTagsList.addEventListener("wheel", function (e) {
 
 // (Test) Values
 let li = tagList.getElementsByTagName("li");
-let tags = ["vr", "video", "camera", "beeld", "greenscreen", "placeholder", "long word", "another long word"];
 let selectedTags = [];
 const testList = document.getElementById("test");
 const testListItems = testList.querySelectorAll("li");
 
-// Create checkbox option for each tag and add to dropdown
-tags.forEach((tag) => {
-  let filterItem = document.createElement("li");
-  filterItem.classList.add("filter-list__item");
-
-  let cbItem = document.createElement("input");
-  cbItem.type = "checkbox";
-  cbItem.classList.add("dropdown__checkbox");
-
-  let customCb = document.createElement("span");
-  customCb.classList.add("dropdown__checkmark");
-
-  let cbLabel = document.createElement("label");
-  cbLabel.innerText = tag;
-  cbLabel.classList.add("dropdown__label");
-
-  cbLabel.appendChild(cbItem);
-  cbLabel.appendChild(customCb);
-  filterItem.appendChild(cbLabel);
-  tagList.appendChild(filterItem);
-
-  cbItem.addEventListener("change", () => {
-    if (cbItem.checked) {
-      addTag(tag);
+  for (let i = 0; i < tagCheckboxes.length; i++) {
+  tagCheckboxes[i].addEventListener("change", () => {
+    if (tagCheckboxes[i].checked) {
+      addTag(tagLabels[i].innerText);
     } else {
-      removeTag(tag);
+      removeTag(tagLabels[i].innerText);
     }
     updateTags();
   });
-});
+}
+// });
 
 // Add tag to filter array
 function addTag(tag) {

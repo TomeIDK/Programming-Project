@@ -1,0 +1,48 @@
+main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.gebruikersbeheer {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gebruiker {
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    gap: 1rem;
+    width: 48%;
+    display: flex;
+    align-items: center; /* Voeg deze regel toe om items uit te lijnen */
+    height: 200px; /* bijvoorbeeld */
+}
+
+.gebruiker p {
+    font-size: 20px;
+}
+
+.gebruiker img {
+    opacity: 80%;
+    height: 100%;
+    width: auto;
+}
+
+.gebruiker__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn.secondary-button{
+    background-color: orange;
+    margin-right: 2rem;
+}

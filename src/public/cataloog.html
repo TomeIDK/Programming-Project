@@ -4,44 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="components/button/button.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/default.css">
-    <link rel="stylesheet" type="text/css" href="components/filter/filter.css">
-    <link rel="stylesheet" type="text/css" href="css/catalogus.css">
-    <link rel="stylesheet" type="text/css" href="components/date-picker/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css">
+    <link rel="stylesheet" type="text/css" href="./css/catalogus.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <ehb-header nobasket></ehb-header>
+    <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
-        <div id="searchbar__Date">
-            <!--Search bar-->
-            <div class="search-bar form">
-                <div class="search-bar__container search-bar__search">
-                    <img class="search-bar__icon" src="./images/magnifying-glass.svg" alt="Zoeken" />
+        <div class="search-bar form">
+            <div class="search-bar__container search-bar__search">
+                <img class="search-bar__icon" src="./images/magnifying-glass.svg" alt="Zoeken" />
+                <input id="search-bar" class="input" type="text" placeholder="Zoeken..." />
+            </div>
 
-                    <input id="search-bar" class="input" type="text" placeholder="Zoeken...">
-                    <datalist id="Filters">
-                        <option value="camera 1"></option>
-                        <option value="camera 20"></option>
-                        <option value="capibara 1"></option>
-                    </datalist>
-                </div>
-                <div class="search-bar__container search-bar__filter">
-                    <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
-                  
-                    <input id="tag-filter" class="input" type="search" placeholder="Filter..." />
-                    <input class="datepicker" type="date" placeholder="Kies een datum">
-                </div>
-            </div>       
+            <div class="search-bar__container search-bar__filter" tabindex="0">
+                <img class="search-bar__icon" src="./images/filter.svg" alt="Filters" />
+                <button id="search-bar-btn-filter" class="search-bar__btn-filter">
+                    <span id="tag-filter-span" class="btn-filter__text">Selecteer Tags</span>
+
+                    <ul id="selected-tags-list" class="btn-filter__selected-tags-list">
+                    </ul>
+
+                    <img class="btn-filter__icon" src="./images/chevron-down.svg" alt="V" />
+                </button>
+                <ul id="tag-filter-list" class="filter__dropdown">
+                    <input id="tag-filter" class="input dropdown__tag-filter" type="search"
+                        placeholder="Voer tags in" />
+                </ul>
+            </div>
         </div>
-        <!-- https:/air-datepicker.com/docs -->
-        <script src=".//components/filter/filter.js"></script>
-        <!-- Catalog -->
+
+        <input id="datepicker" class="input" placeholder="Kies een datum">
+
+
+        <!-- Test List => Remove When Implemented -->
+        <ul id="test" class="test">
+            <li>VR</li>
+            <li>Video</li>
+            <li>Camera</li>
+            <li>Beeld</li>
+          </ul>
+
         <div class="catalog">
-            <!-- Available Product Card -->
             <div class="catalog__product">
                 <img class="product__image" src="./images/placeholder.svg" alt="Product" />
 
@@ -59,9 +71,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -83,9 +93,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -107,9 +115,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -131,9 +137,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -155,9 +159,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -179,9 +181,7 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue">In uitleenmandje</button>
                     </div>
                 </div>
@@ -189,7 +189,6 @@
             <!-- Unavailable Product Card -->
             <div class="catalog__product">
                 <img class="product__image" src="./images/placeholder.svg" alt="Product" />
-
                 <div class="product__content">
                     <h3 class="product__title">Product Titel</h3>
 
@@ -202,21 +201,21 @@
                     </p>
 
                     <div>
-                        <a href="#">
-                            <button class="btn secondary-button">Specificaties</button>
-                        </a>
+                        <a href="specificatie product.html" class="btn secondary-button">Specificaties</a>
                         <button class="btn cta-button--blue disabled">
                             In uitleenmandje
                         </button>
                     </div>
                 </div>
             </div>
-
         </div>
-
+   
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./components/date-picker/date-picker.js"></script>
+    
 
 </body>
 

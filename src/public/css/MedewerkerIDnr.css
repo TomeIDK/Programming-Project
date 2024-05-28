@@ -1,0 +1,43 @@
+main {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 4rem;  
+    margin-bottom: 2rem;  
+}
+
+.id-section {
+    margin-bottom: 2rem;  
+}
+
+.id-section input {
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+.button-group {
+    margin-top: 3rem;  
+    margin-bottom: 10rem; 
+}
+
+.button-group a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-group a:hover {
+    background-color: #45a049;
+}

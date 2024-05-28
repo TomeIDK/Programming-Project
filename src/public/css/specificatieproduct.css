@@ -1,10 +1,9 @@
-
-
 main {
     margin-top: 50px;
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 3rem;
 }
 
 
@@ -12,34 +11,53 @@ main {
     display: flex;
     gap: 7rem;
 }
+h1{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
 h3{
     font-size: 1.2rem;
-    color:var(--primary-400);
+    
 }
 h2.page__subtitle{
     font-size: 3rem;
 
 }
 
-article img{
-    width: 100%;
+section img{
+    width: 80%;
 }
-#flexbox article:first-child {
+#flexbox section:first-child {
     
-    flex: 0 0 35%; /* Hierdoor wordt het eerste article 35% van de breedte */
+    flex: 0 0 35%; /* Hierdoor wordt het eerste section 35% van de breedte */
 }
 p.product__availability{
     margin-bottom: 2rem;
 }
+
+.reden{
+
+    margin-top: .5rem;
+
+    padding: 1rem 0;
+}
+
+.datepicker{
+    margin: 1rem 0 2rem 0;
+}
+
 label{
     font-weight: bolder;
 }
-button.btn.cta-button--red{
+button.btn.secondary-button{
     margin-right: 5px;
 }
 
-#Kalender{
+#kalender{
     background-color: brown;
     width: 300px;
     height: 200px;
+}
+.btn.aanpassen-button{
+    background-color: orange;
 }
