@@ -50,6 +50,7 @@
 </head>
 
 <body>
+    <!-- HTML Content -->
     <ehb-header></ehb-header>
     <hamburger-menu></hamburger-menu>
     <main>
@@ -85,7 +86,7 @@
                 </div>
 
                 <a href="Admin homepage.html"><button class="btn cta-button--red">Terug</button></a>
-                <button class="btn cta-button--blue">Toevoegen</button>
+                <button class="btn cta-button--blue" onclick="showConfirmation()">Toevoegen</button>
                 <button class="btn secondary-button" onclick="showSample()">Sample</button>
 
             </div>
@@ -139,6 +140,17 @@
             </div>
         </div>
 
+        <!-- Popup voor de bevestiging -->
+        <div class="popup-overlay" id="confirmation-overlay">
+            <div class="popup-container">
+                <span class="popup-close" onclick="closeConfirmation()">X</span>
+                <p>Bent u zeker dat u dit nieuwe materiaal wilt toevoegen?</p>
+                <div>
+                    <a href="Admin catalogus.html"><button class="btn cta-button--blue" onclick="confirmAddMaterial()">Ja</button></a>
+                    <button class="btn secondary-button" onclick="cancelAddMaterial()">Nee</button>
+                </div>
+            </div>
+        </div>
     </main>
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
@@ -179,7 +191,27 @@
             var overlay = document.getElementById('popup-overlay');
             overlay.style.display = 'none';
         }
+
+        function showConfirmation() {
+            var confirmationOverlay = document.getElementById('confirmation-overlay');
+            confirmationOverlay.style.display = 'flex';
+        }
+
+        function closeConfirmation() {
+            var confirmationOverlay = document.getElementById('confirmation-overlay');
+            confirmationOverlay.style.display = 'none';
+        }
+
+        function confirmAddMaterial() {
+            // Hier kun je de logica toevoegen om het materiaal toe te voegen aan de database of ergens anders.
+            closeConfirmation();
+        }
+
+        function cancelAddMaterial() {
+            closeConfirmation();
+        }
     </script>
 </body>
 
 </html>
+
