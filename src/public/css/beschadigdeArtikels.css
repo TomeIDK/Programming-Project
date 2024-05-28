@@ -25,7 +25,7 @@ h1 {
 
 .lending__item {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     list-style: none;
     border-bottom: 1px solid #000000;
