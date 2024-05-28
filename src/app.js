@@ -49,7 +49,6 @@ const reserveren = require('./routes/reserveren');
 const getBasketCount = require('./routes/get-basket-count');
 const reservations = require ("./routes/reservaties");
 const admin = require ("./routes/admin");
-const retourbeheer = require ("./routes/retourbeheer");
 
 
 
@@ -66,7 +65,6 @@ app.use("/reserveren", reserveren);
 app.use("/get-basket-count", getBasketCount);
 app.use("/reservaties", reservations);
 app.use("/admin", admin);
-app.use("/retourbeheer", retourbeheer);
 
 
 
