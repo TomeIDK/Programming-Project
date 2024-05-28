@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('confirmYes').addEventListener('click', function () {
         document.getElementById('confirmModal').style.display = 'none';
-        alert('Reservering geannuleerd.'); 
+        window.location.href = 'bevestiging annuleren.html';
     });
 
     document.getElementById('confirmNo').addEventListener('click', function () {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('confirmYesVerlengen').addEventListener('click', function () {
         document.getElementById('confirmModalVerlengen').style.display = 'none';
-        alert('Lening verlengd.'); 
+        window.location.href = 'bevestiging verlengen.html';
     });
 
     document.getElementById('confirmNoVerlengen').addEventListener('click', function () {
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    let input = 'lening'; 
+    let input = 'lening'; // Pas dit aan afhankelijk van wat je wilt testen ('reservatie' of 'lening')
 
     switchContent(input);
 });
