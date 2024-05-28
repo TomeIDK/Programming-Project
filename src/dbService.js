@@ -232,6 +232,22 @@ class DBService {
       }
     );
   }
+
+  // Cancel a reservation
+  cancelReservation(uitleningID, callback) {
+    this.connection.query(
+      `DELETE FROM Uitlening WHERE uitleningID = ${uitleningID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Kan reservatie niet annuleren: ", err);
+          callback(err, null);
+        } else {
+          console.log("Reservatie geannuleerd");
+          callback(null, result);
+        }
+      }
+    );
+  }
 }
 
 module.exports = DBService;
