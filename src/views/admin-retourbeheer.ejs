@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css" />
+    <link rel="stylesheet" type="text/css" href="./css/MedewerkerIDnr.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ehb-header></ehb-header>
+    <hamburger-menu></hamburger-menu>
+    <main>
+      <h1>Medewerker</h1>
+      <div class="id-section">
+        <label for="id-input">ID nr</label>
+        <input type="text" id="id-input" />
+      </div>
+      <div class="product-info">
+        <% product.forEach(item => { %>
+            <div class="product-info">
+                <img id="product-image" src="<%= item.afbeelding %>" alt="Product Image" />
+                <p id="product-name"><%= item.naam %></p>
+            </div>
+        <% }) %>
+      </div>
+      <div class="button-group">
+        <button class="terug-button">Terug</button>
+        <button class="submit-button" onclick="fetchData()">Submit</button>
+      </div>
+      <div id="results">
+        <!-- Hier komt de lijst met resultaten -->
+      </div>
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./js/reservationPopup.js"></script>
+    <script src="./js/fetchData.js"></script>
+    <script src="/src/routes/retourbeheer.js"></script>
+  </body>
+</html>
