@@ -31,7 +31,7 @@
           <img src="/images/<%= product.afbeelding %>" class="item__image" width="100" alt="<%= product.naam %>">
           <div class="item__container">
             <h3 class="item__title"><%= product.naam %></h3>
-            <p class="item__quantity">Quantity: 1</p>
+            <p class="item__quantity">Quantity: <%= product.aantal %></p>
           </div>
           <button id="btn-delete<%= index %>" class="btn tertiary-button">Verwijder</button>
         </li>

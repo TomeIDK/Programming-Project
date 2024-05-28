@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./components/button/button.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./components/filter/filter.css" />
+    <link rel="stylesheet" type="text/css" href="./css/beschadigdeArtikels.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ehb-header>
+    </ehb-header>
+
+    <hamburger-menu></hamburger-menu>
+
+    <main>
+        <h1>Beschadigde artikels</h1>
+
+        <ul class="lending">
+          <li class="lending__item lending__heading">
+            <span class="lending__title">Product</span>
+            <span class="lending__title">Naam gebruiker</span>
+            <span class="lending__title">Datum uitgeleend</span>
+            <span class="lending__title">Uitgeleend tot</span>
+            <span class="lending__title">Herstelling</span>
+          </li>
+          <li class="lending__item">
+            <span class="lending__article--name">Printer </span>
+            <span class="lending__title">Cedric Pas</span>
+            <span class="lending__article--date-from"> 01/01/2024</span>
+            <span class="lending__article--date-until"> 01/01/2024</span>
+            
+            <button class="btn secondary-button">Herstellen</button>
+          </li>
+          <li class="lending__item">
+            <span class="lending__article--name">Printer </span>
+            <span class="lending__title">Cedric Pas</span>
+
+            <span class="lending__article--date-from"> 01/01/2024</span>
+            <span class="lending__article--date-until">01/01/2024 </span>
+  
+            <button class="btn secondary-button">Herstellen</button>
+          </li>
+          <li class="lending__item">
+            <span class="lending__article--name">Printer </span>
+            <span class="lending__title">Cedric Pas</span>
+
+            <span class="lending__article--date-from">01/01/2024 </span>
+            <span class="lending__article--date-until">01/01/2024 </span>
+            
+            <button class="btn secondary-button">Herstellen</button>
+          </li>
+        </ul>
+  
+        <button class="btn cta-button--blue" onclick="history.back()">Terug</button>
+    </main>
+
+    <ehb-footer></ehb-footer>
+    <script src="./js/components.js"></script>
+    <script src="./components/filter/filter.js"></script>
+    <script src="./js/beschadigdeArtikels.js"></script>
+</body>
+</html>
