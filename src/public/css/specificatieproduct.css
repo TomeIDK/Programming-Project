@@ -29,7 +29,7 @@ section img{
 }
 #flexbox section:first-child {
     
-    flex: 0 0 35%; /* Hierdoor wordt het eerste section 35% van de breedte */
+    flex: 0 0 35%; 
 }
 p.product__availability{
     margin-bottom: 2rem;
@@ -60,4 +60,47 @@ button.btn.secondary-button{
 }
 .btn.aanpassen-button{
     background-color: orange;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; 
+    text-align: center; 
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    margin-top: 20px; 
+}
+
+.modal-buttons .btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: black; 
+    background-color: #e0e0e0; 
+    border: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+}
+
+.modal-buttons .btn:hover {
+    background-color: #d0d0d0; 
 }
