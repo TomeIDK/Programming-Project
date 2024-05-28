@@ -21,7 +21,7 @@ connection.connect((err)=>{
     console.error ("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB");
+  console.log("verbonden met DB: uitleenmandje.js ");
 });
 
 // Define route handler function and render response with necessary data   WHERE Uitleenmandje.UitleenmandjeID = ?, [UitleenmandjeID],
@@ -38,7 +38,8 @@ router.get("/:uitleenmandjeID", (req, res) => {
         console.error('Fout bij uitvoeren query: ' + err.stack);
         
       } else {  
-       // console.log("product: " , result[0]);
+        res.render('retourbeheer', { resultaten: data, product: { afbeelding: productAfbeelding, naam: productNaam } });
+       
       
 
       const hasProducts = result.length > 0;
