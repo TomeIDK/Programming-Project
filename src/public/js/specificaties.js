@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to switch content based on input
     function switchContent(input) {
       const contentSection = document.getElementById('content-section');
 
@@ -40,9 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Simulatie van input (bijv. "reservatie" of "lening")
-    let input = 'lening'; // Wijzig dit naar "lening" voor leningbeheer
+    let input = 'lening'; 
 
-    // Schakel de inhoud op basis van de input
     switchContent(input);
   });

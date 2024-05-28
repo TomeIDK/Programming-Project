@@ -34,34 +34,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 </form>
             `;
         }
+
+        addEventListeners();
     }
 
-    let input = 'lening';
-    switchContent(input);
-
-    // Voeg hier de event listener voor de Annuleren-knop toe
-    document.addEventListener('click', function (event) {
-        if (event.target.matches('#lening-annuleren') || event.target.matches('#reservatie-annuleren')) {
-            event.preventDefault();
-            document.getElementById('confirmModalAnnuleren').style.display = 'block';
-        } else if (event.target.matches('#lening-verlengen')) {
-            event.preventDefault();
-            document.getElementById('confirmModalVerlengen').style.display = 'block';
+    function addEventListeners() {
+        const annulerenButton = document.querySelector('#reservatie-annuleren') || document.querySelector('#lening-annuleren');
+        if (annulerenButton) {
+            annulerenButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.getElementById('confirmModal').style.display = 'block';
+            });
         }
+
+        const verlengenButton = document.querySelector('#lening-verlengen');
+        if (verlengenButton) {
+            verlengenButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.getElementById('confirmModalVerlengen').style.display = 'block';
+            });
+        }
+    }
+
+    document.getElementById('confirmYes').addEventListener('click', function () {
+        document.getElementById('confirmModal').style.display = 'none';
+        alert('Reservering geannuleerd.'); 
     });
 
-    document.getElementById('confirmYesAnnuleren').addEventListener('click', function () {
-        document.getElementById('confirmModalAnnuleren').style.display = 'none';
-        alert('Reservering geannuleerd.'); // Vervang dit met de daadwerkelijke annuleringslogica
-    });
-
-    document.getElementById('confirmNoAnnuleren').addEventListener('click', function () {
-        document.getElementById('confirmModalAnnuleren').style.display = 'none';
+    document.getElementById('confirmNo').addEventListener('click', function () {
+        document.getElementById('confirmModal').style.display = 'none';
     });
 
     document.getElementById('confirmYesVerlengen').addEventListener('click', function () {
         document.getElementById('confirmModalVerlengen').style.display = 'none';
-        alert('Lening verlengd.'); // Vervang dit met de daadwerkelijke verlengingslogica
+        alert('Lening verlengd.'); 
     });
 
     document.getElementById('confirmNoVerlengen').addEventListener('click', function () {
@@ -69,10 +75,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.onclick = function (event) {
-        if (event.target === document.getElementById('confirmModalAnnuleren')) {
-            document.getElementById('confirmModalAnnuleren').style.display = 'none';
+        if (event.target === document.getElementById('confirmModal')) {
+            document.getElementById('confirmModal').style.display = 'none';
         } else if (event.target === document.getElementById('confirmModalVerlengen')) {
             document.getElementById('confirmModalVerlengen').style.display = 'none';
         }
     }
+
+    let input = 'lening'; 
+
+    switchContent(input);
 });
