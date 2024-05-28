@@ -22,8 +22,8 @@ h1 {
     gap: 1rem;
     width: 48%;
     display: flex;
-    align-items: center; /* Voeg deze regel toe om items uit te lijnen */
-    height: 200px; /* bijvoorbeeld */
+    align-items: center; 
+    height: 200px; 
 }
 
 .gebruiker p {
