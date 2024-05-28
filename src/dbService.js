@@ -196,6 +196,42 @@ class DBService {
       }
     );
   }
+
+  getProductByArticleId(artikelID, callback) {
+    this.connection.query(
+      `SELECT Product.afbeelding, Product.naam, Product.productID
+      FROM Product
+      JOIN Artikel ON Product.productID = Artikel.productID
+      WHERE Artikel.artikelID = ${artikelID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Error fetching product data: ", err);
+          callback(err, null);
+        } else {
+          console.log("Product data opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  getUitleningenByArticleId(artikelID, callback) {
+    this.connection.query(
+      `SELECT uitleningID, startDatum, eindDatum, User.voornaam, User.naam
+      FROM Uitlening
+      JOIN User ON Uitlening.userID = User.userID
+      WHERE artikelID = ${artikelID}`,
+      (err, result) => {
+        if (err) {
+          console.error("error fetching uitleningen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleningen succesvol opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
 }
 
 module.exports = DBService;
