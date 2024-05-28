@@ -51,10 +51,33 @@ function displayProductData(data) {
 
   productInfo.appendChild(productImg);
   productInfo.appendChild(productNaam);
-  main.appendChild(productInfo);
+  document.getElementById("flexbox").appendChild(productInfo);
 }
 
 function displayUitleningen(data) {
+  let heading =document.createElement("li");
+  let headingId = document.createElement("span");
+  headingId.innerText = "ID";
+  headingId.classList.add("heading");
+  let headingUserNaam = document.createElement("span");
+  headingUserNaam.innerText = "Gebruiker";
+  headingUserNaam.classList.add("heading");
+  let headingStartDatum = document.createElement("span");
+  headingStartDatum.innerText = "Start Datum";
+  headingStartDatum.classList.add("heading");
+  let headingEindDatum = document.createElement("span");
+  headingEindDatum.innerText = "Eind Datum";
+  headingEindDatum.classList.add("heading");
+  let headingTerugbrengen = document.createElement("span");
+  headingTerugbrengen.innerText = "Terugbrengen";
+  headingTerugbrengen.classList.add("heading");
+ 
+  heading.appendChild(headingId);
+  heading.appendChild(headingUserNaam);
+  heading.appendChild(headingStartDatum);
+  heading.appendChild(headingEindDatum);
+  heading.appendChild(headingTerugbrengen);
+
   if (document.getElementById("uitleningen-lijst")) {
     let previousUitleningenLijst = document.getElementById("uitleningen-lijst");
     previousUitleningenLijst.remove();
@@ -63,27 +86,31 @@ function displayUitleningen(data) {
   uitleningenLijst.id = "uitleningen-lijst";
 
   let uitleningenLijstUl = document.createElement("ul");
-
+uitleningenLijstUl.appendChild(heading);
   for (let i = 0; i < data.uitleningen.length; i++) {
     let uitlening = document.createElement("li");
 
     let uitleningId = document.createElement("span");
     uitleningId.innerText = data.uitleningen[i].uitleningID;
+    uitleningId.classList.add("uitlening-id");
 
     let uitleningUserNaam = document.createElement("span");
     uitleningUserNaam.innerText =
       data.uitleningen[i].naam + " " + data.uitleningen[i].voornaam;
+      uitleningUserNaam.classList.add("uitlening-gebruiker");
 
     let uitleningStartDatum = document.createElement("span");
     uitleningStartDatum.innerText = data.uitleningen[i].startDatum;
+    uitleningStartDatum.classList.add("uitlening-start-datum");
 
     let uitleningEindDatum = document.createElement("span");
     uitleningEindDatum.innerText = data.uitleningen[i].eindDatum;
+    uitleningEindDatum.classList.add("uitlening-eind-datum");
 
     let uitleningTerugbrengen = document.createElement("button");
     uitleningTerugbrengen.id = `btn-terugbrengen${i}`;
     uitleningTerugbrengen.classList.add("btn");
-    uitleningTerugbrengen.classList.add("tertiary-button");
+    uitleningTerugbrengen.classList.add("secondary-button");
     uitleningTerugbrengen.innerText = "Terugbrengen";
 
     uitleningTerugbrengen.addEventListener("click", () => {
@@ -95,9 +122,12 @@ function displayUitleningen(data) {
     uitlening.appendChild(uitleningStartDatum);
     uitlening.appendChild(uitleningEindDatum);
     uitlening.appendChild(uitleningTerugbrengen);
+    
+   
     uitleningenLijstUl.appendChild(uitlening);
   }
-
+  
   uitleningenLijst.appendChild(uitleningenLijstUl);
-  main.appendChild(uitleningenLijst);
+
+  document.getElementById("flexbox").appendChild(uitleningenLijst);
 }

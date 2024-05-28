@@ -2,6 +2,7 @@ main {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 3rem;
 }
 
 h1 {
@@ -41,3 +42,41 @@ h1 {
 .button-group a:hover {
     background-color: #45a049;
 }
+#flexbox{
+    display: flex;
+    gap: 2rem;
+}
+
+.product-info{
+    border-right: 2px solid black;
+    padding: 2rem;
+    width: 30%;
+}
+.product-info img{
+    width: 100%;
+}
+#uitleningen-lijst ul  {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    font-weight: bold;
+}
+
+#uitleningen-lijst ul li{
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    list-style: none;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+    padding: 1rem ;
+    margin-right: 1rem;
+}
+
