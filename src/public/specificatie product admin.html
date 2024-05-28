@@ -11,52 +11,41 @@
     <link rel="stylesheet" href="./css/specificatieproduct.css" />
     <link rel="stylesheet" href="./components/catalog card/card.css" />
     <style>
-        .overlay {
+        .popup {
             display: none;
             position: fixed;
-            top: 0;
+            z-index: 1;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 10000;
+            border: 1px solid #888;
+            width: 80%;
         }
 
-        .modal p {
-            margin-bottom: 20px;
+        .popup-content button {
+            margin: 10px;
         }
 
-        .modal-buttons {
-            display: flex;
-            justify-content: space-between;
+        .popup-content #cancelYes {
+            background-color: green;
+            border: 1px solid black;
+            padding: 10px;
+            color: white;
         }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .secondary-button {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .cta-button--blue {
-            background-color: #007bff;
+        .popup-content #cancelNo {
+            background-color: red;
+            border: 1px solid black;
+            padding: 10px;
             color: white;
         }
     </style>
@@ -107,15 +96,13 @@
                 <button class="btn cta-button--red" id="verwijderenBtn">Verwijderen</button>
                 <button class="btn aanpassen-button">Geshiedenis</button>
 
-                <!-- Pop-up overlay en modal -->
-                <div class="overlay" id="overlay">
-                    <div class="modal">
-                        <p>Bent u zeker dat u het wilt verwijderen?</p>
-                        <div class="modal-buttons">
-                            <button class="btn secondary-button" id="neeBtn">Nee</button>
-                            <a href="bevestiging_verwijderen.html" class="btn cta-button--blue">Ja</a>
-                        </div>
-                    </div>
+                <!-- Popup -->
+                <div id="cancelPopup" class="popup">
+                  <div class="popup-content">
+                    <h2>Bent u zeker dat u het wilt verwijderen?</h2>
+                    <button class="btn tertiary-button" id="cancelYes">Ja</button>
+                    <button class="btn tertiary-button" id="cancelNo">Nee</button>
+                  </div>
                 </div>
 
             </section>
@@ -125,16 +112,5 @@
     <ehb-footer></ehb-footer>
     <script src="./js/components.js"></script>
     <script src="./js/materiaal aanpassen.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("verwijderenBtn").addEventListener("click", function() {
-                document.getElementById("overlay").style.display = "block";
-            });
-
-            document.getElementById("neeBtn").addEventListener("click", function() {
-                document.getElementById("overlay").style.display = "none";
-            });
-        });
-    </script>
 </body>
 </html>
