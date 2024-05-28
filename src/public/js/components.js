@@ -84,11 +84,13 @@ class EhbHeader extends HTMLElement {
 // Hamburger-menu Component
 class HamburgerMenu extends HTMLElement {
   constructor() {
+    
     super();
     this.admin = "";
   }
 
   connectedCallback() {
+    this.admin = this.getAttribute("admin");
     this.admin = this.getAttribute("admin");
     this.render();
   }
@@ -190,6 +192,7 @@ class HamburgerMenu extends HTMLElement {
 class EhbFooter extends HTMLElement {
   constructor() {
     super();
+    
   }
 
   connectedCallback() {
@@ -198,6 +201,7 @@ class EhbFooter extends HTMLElement {
 
   render() {
     // Component
+    
     this.innerHTML = `
     <footer class="footer">
       <div class="footer__container">
