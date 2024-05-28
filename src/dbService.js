@@ -54,46 +54,71 @@ class DBService {
     );
   }
 
-  createBasketItem(uitleenmandjeID, userID, productID, amount, callback) {
+  createBasketItem(UitleenmandjeID, userID, productID, amount, callback) {
+    // Check if Uitleenmandje already exists
     this.connection.query(
-      `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+      `SELECT UitleenmandjeID FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID}`,
       (err, result) => {
         if (err) {
-          console.error("Error checking if item exists in basket: ", err);
+          console.error("Query encountered an error: ", err);
           callback(err, null);
+        } else if (result.length <= 0) {
+          // If Uitleenmandje was not found create a new uileenmandje for user
+          this.connection.query(
+            `INSERT INTO Uitleenmandje (userID, productID, aantal) VALUES (${userID}, ${productID}, 1)`,
+            (insertErr, insertResult) => {
+              if (insertErr) {
+                console.error("Error creating new basket: ", insertErr);
+                callback(insertErr, null);
+              } else {
+                console.log("New basket created successfully");
+                callback(null, true);
+              }
+            }
+          );
         } else {
-          if (result.length > 0) {
-            const currentQuantity = result[0].aantal;
-            const newQuantity = currentQuantity + amount;
-            this.connection.query(
-              `UPDATE Uitleenmandje SET aantal = ${newQuantity} WHERE UitleenmandjeID = ${uitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
-              (updateErr, updateResult) => {
-                if (updateErr) {
-                  console.error(
-                    "Error updating basket item quantity: ",
-                    updateErr
-                  );
-                  callback(updateErr, null);
-                } else {
-                  console.log("Basket item quantity updated successfully");
-                  callback(null, updateResult);
-                }
+          // If User already has an Uitleenmandje check if product is already in Uitleenmandje
+          this.connection.query(
+            `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+            (selectErr, selectResult) => {
+              if (selectErr) {
+                console.error("Error checking if item exists in basket: ", selectErr);
+                callback(selectErr, null);
+              } else if (selectResult.length > 0) {
+                // If product already exists in Uitleenmandje increase aantal by 1
+                let currentQuantity = selectResult[0].aantal + 1;
+                this.connection.query(
+                  `UPDATE Uitleenmandje SET aantal = ${currentQuantity} WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+                  (updateErr, updateResult) => {
+                    if (updateErr) {
+                      console.error(
+                        "Error updating basket item quantity: ",
+                        updateErr
+                      );
+                      callback(updateErr, null);
+                    } else {
+                      console.log("Basket item quantity updated successfully");
+                      callback(null, updateResult);
+                    }
+                  }
+                );
+              } else {
+                // If product does not yet exist in Uitleenmandje, add it
+                this.connection.query(
+                  `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal) VALUES (${UitleenmandjeID}, ${userID}, ${productID}, 1)`,
+                  (insertErr, insertResult) => {
+                    if (insertErr) {
+                      console.error("Error adding item to basket: ", insertErr);
+                      callback(insertErr, null);
+                    } else {
+                      console.log("Item added to basket succesfully");
+                      callback(null, insertResult);
+                    }
+                  }
+                );
               }
-            );
-          } else {
-            this.connection.query(
-              `INSERT INTO Uitleenmandje (UitleenmandjeID, userID, productID, aantal) VALUES (${uitleenmandjeID}, ${userID}, ${productID}, ${amount})`,
-              (insertErr, insertResult) => {
-                if (insertErr) {
-                  console.error("Error creating new basket item: ", insertErr);
-                  callback(insertErr, null);
-                } else {
-                  console.log("New basket item created successfully");
-                  callback(null, insertResult);
-                }
-              }
-            );
-          }
+            }
+          );
         }
       }
     );
