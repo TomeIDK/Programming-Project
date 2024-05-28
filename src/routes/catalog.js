@@ -73,6 +73,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const { productID, amount } = req.body;
   const { userID, type, email, UitleenmandjeID } = req.session.user;
+  console.log("UitleenmandjeID: ", UitleenmandjeID);
   dbServiceInstance.createBasketItem(
     UitleenmandjeID,
     userID,
