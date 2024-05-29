@@ -1,14 +1,15 @@
-
 // Header Component
 class EhbHeader extends HTMLElement {
   constructor() {
     super();
 
     this.basket = "";
+    this.returnhomepage = "";
   }
 
   connectedCallback() {
     this.basket = this.getAttribute("nobasket");
+    this.returnhomepage = this.getAttribute('admin-homepage');
 
     this.render();
   }
@@ -31,10 +32,10 @@ class EhbHeader extends HTMLElement {
     }
 
     // Component
-    this.innerHTML = `
+    if (!'this.returnhomepage'){
+      this.innerHTML = `
       <header class="header">
       <div class="header__container">
-        <a href="/cataloog">
           <img
             src="/images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
@@ -53,16 +54,44 @@ class EhbHeader extends HTMLElement {
       </div>
     </header>
   `;
+    }else{
+      this.innerHTML = `
+      <header class="header">
+      <div class="header__container">
+          <img
+            src="/images/ehblogo.svg"
+            alt="Erasmushogeschool Brussel"
+          />
+        </a>
+        <div class="header__wrapper">
+          ${basket}
+          <button id="hamburger-menu" class="header__hamburger-menu header__btn">
+            <img
+              src="/images/hamburger-menu.svg"
+              width="32px"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+  `;
+    }
+    
   }
 }
 
 // Hamburger-menu Component
 class HamburgerMenu extends HTMLElement {
   constructor() {
+    
     super();
+    this.admin = "";
   }
 
   connectedCallback() {
+    this.admin = this.getAttribute("admin");
+    this.admin = this.getAttribute("admin");
     this.render();
   }
 
@@ -72,7 +101,46 @@ class HamburgerMenu extends HTMLElement {
     this.classList = "nav-menu hidden";
 
     // Component
-    this.innerHTML = `
+
+    if (this.admin !== null) {
+      this.innerHTML = `
+      <div class="nav-menu__section">
+        <a href="/admin/dashboard" class="nav-menu__link">
+          <img
+            src="/images/ehblogo-notext.png"
+            width="32"
+            alt="Erasmushogeschool Brussel"
+          />
+        </a>
+        <button id="nav-close" class="nav-menu__button">
+          <img src="/images/x-mark.svg" width="24" alt="X" />
+        </button>
+      </div>
+      <div class="nav-menu__section">
+        <ul class="nav-menu__list">
+          <li class="nav-menu__item">
+            <a href="/admin/retourbeheer" class="nav-menu__link">retourbeheer</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="#" class="nav-menu__link">catalogusbeheer</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="#" class="nav-menu__link">gebruikersbeheer</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="#" class="nav-menu__link">statistieken</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-menu__section">
+        <button id="btn-logout" class="nav-menu__button nav-menu__logout nav-menu__item">
+          <img src="/images/logout.svg" alt="Uitloggen" /> Uitloggen
+        </button>
+      </div>
+  `;
+    } else {
+      this.innerHTML = `
       <div class="nav-menu__section">
         <a href="#" class="nav-menu__link">
           <img
@@ -111,6 +179,8 @@ class HamburgerMenu extends HTMLElement {
         </button>
       </div>
   `;
+    }
+
 
     // Load component functionality
     loadScript("/components/custom/header/hamburger-menu.js", (script) => {
@@ -122,6 +192,7 @@ class HamburgerMenu extends HTMLElement {
 class EhbFooter extends HTMLElement {
   constructor() {
     super();
+    
   }
 
   connectedCallback() {
@@ -130,6 +201,7 @@ class EhbFooter extends HTMLElement {
 
   render() {
     // Component
+    
     this.innerHTML = `
     <footer class="footer">
       <div class="footer__container">
