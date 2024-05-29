@@ -1,0 +1,33 @@
+#content-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .cta-button--red {
+    background-color: coral;
+    color: white;
+  }
+  
+  .secondary-button {
+    background-color: lightgreen;
+    color: black;
+  }
+  
+  .terug-button {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
