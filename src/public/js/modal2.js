@@ -54,6 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('confirmModalVerlengen').style.display = 'block';
             });
         }
+
+        // Event listener voor de nieuwe "Terug" knop
+        const terugButton = document.querySelector('.btn.terug');
+        if (terugButton) {
+            terugButton.addEventListener('click', function () {
+                window.history.back();
+            });
+        }
     }
 
     document.getElementById('confirmYes').addEventListener('click', function () {
