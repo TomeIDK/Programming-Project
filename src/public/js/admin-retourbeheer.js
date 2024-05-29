@@ -1,5 +1,10 @@
 const btnSearch = document.getElementById("btn-search-article");
+const btnTerug = document.getElementById("btn-terug");
 const main = document.getElementById("main");
+
+btnTerug.addEventListener("click", () => {
+  window.location.href = "/admin/dashboard";
+})
 
 btnSearch.addEventListener("click", async () => {
   const artikelID = document.getElementById("id-input").value;
@@ -57,7 +62,7 @@ function displayProductData(data) {
 function displayUitleningen(data) {
   let heading =document.createElement("li");
   let headingId = document.createElement("span");
-  headingId.innerText = "ID";
+  headingId.innerText = "Uitlening ID";
   headingId.classList.add("heading");
   let headingUserNaam = document.createElement("span");
   headingUserNaam.innerText = "Gebruiker";
