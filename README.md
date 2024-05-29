@@ -1,6 +1,23 @@
 # Programming-Project
 
 ## How To Install
+1. Make sure you are in the repository's **root** directory. This should contain the src directory.
+2. Open your terminal and use the command ``npm install``.
+3. Ensure all packages are installed correctly and don't give any errors.
+4. Change to the /src directory using ``cd ./src``.
+5. Make a **.env** file in the /src directory.
+6. Add the following fields to the **.env** file:
+   ``
+DB_HOST=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
+PORT=
+SECRET=
+   ``
+7. Add the corresponding values to each variable.
+8. Save the **.env** file and close it.
+9. Go back to your terminal and start the application using ``node app``.
 
 ## Team
 
