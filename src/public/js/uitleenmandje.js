@@ -20,7 +20,13 @@ basketItems.forEach((item) =>
 btnReserveren.addEventListener("click", async () => {
   // Haal gegevens op
   const startDatum = document.getElementById("datepicker").value;
-  const reden = "test reden";
+  let reden;
+  // Get reden from page
+  if (dropdownReden.value === "Andere") {
+    reden = otherReasonInput.value;
+  } else {
+    reden = dropdownReden.value;
+  }
 
   // Validate gegevens
   if (!startDatum) {
