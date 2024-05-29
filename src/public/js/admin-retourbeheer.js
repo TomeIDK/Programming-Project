@@ -99,13 +99,13 @@ uitleningenLijstUl.appendChild(heading);
       data.uitleningen[i].naam + " " + data.uitleningen[i].voornaam;
       uitleningUserNaam.classList.add("uitlening-gebruiker");
 
-    let uitleningStartDatum = document.createElement("span");
-    uitleningStartDatum.innerText = data.uitleningen[i].startDatum;
-    uitleningStartDatum.classList.add("uitlening-start-datum");
-
-    let uitleningEindDatum = document.createElement("span");
-    uitleningEindDatum.innerText = data.uitleningen[i].eindDatum;
-    uitleningEindDatum.classList.add("uitlening-eind-datum");
+      let uitleningStartDatum = document.createElement("span");
+      uitleningStartDatum.innerText = formatDate(data.uitleningen[i].startDatum);
+      uitleningStartDatum.classList.add("uitlening-start-datum");
+      
+      let uitleningEindDatum = document.createElement("span");
+      uitleningEindDatum.innerText = formatDate(data.uitleningen[i].eindDatum);
+      uitleningEindDatum.classList.add("uitlening-eind-datum");
 
     let uitleningTerugbrengen = document.createElement("button");
     uitleningTerugbrengen.id = `btn-terugbrengen${i}`;
@@ -130,4 +130,12 @@ uitleningenLijstUl.appendChild(heading);
   uitleningenLijst.appendChild(uitleningenLijstUl);
 
   document.getElementById("flexbox").appendChild(uitleningenLijst);
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
 }
