@@ -82,3 +82,7 @@ https://chatgpt.com/share/b36b9cc9-1717-4a94-a40d-634d2789c95a
 https://chatgpt.com/share/08c5d1f9-7f03-4d5b-9b76-152a3388d378  
 https://chatgpt.com/share/271a00b8-7131-4b37-b0ee-ff8c45d8414a  
 https://stackoverflow.com/questions/20083807/javascript-date-to-sql-date-object  
+https://chatgpt.com/share/e5cc00d4-4fc5-48f4-a4d3-24722bd60e76  
+https://chatgpt.com/share/1891adaf-901c-4a48-a034-d6ef39e41845  
+https://netspecialist.nl/html-en-css/505-modals-maken-met-html-en-css.html#:~:text=Modals%20zijn%20een%20soort%20van,je%20een%20modal%20hebt%20gekoppeld.   
+https://chatgpt.com/share/540f0919-a2e3-41dc-abb3-265434cb4f25  
