@@ -82,7 +82,10 @@ class DBService {
             `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
             (selectErr, selectResult) => {
               if (selectErr) {
-                console.error("Error checking if item exists in basket: ", selectErr);
+                console.error(
+                  "Error checking if item exists in basket: ",
+                  selectErr
+                );
                 callback(selectErr, null);
               } else if (selectResult.length > 0) {
                 // If product already exists in Uitleenmandje increase aantal by 1
@@ -268,6 +271,54 @@ class DBService {
           callback(err, null);
         } else {
           console.log("Reservatie geannuleerd");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  getUitlening(uitleningID, callback) {
+    this.connection.query(
+      `SELECT uitleningID, artikelID, startDatum, eindDatum, User.voornaam, User.naam
+      FROM Uitlening
+      JOIN User ON Uitlening.userID = User.userID
+      WHERE uitleningID = ${uitleningID}`,
+      (err, result) => {
+        if (err) {
+          console.error("error fetching uitleningen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleningen succesvol opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
+
+  returnUitlening(uitleningID, isBeschadigd, callback) {
+    // Get today's date
+    const today = new Date();
+
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    const formattedDate = `${year}-${month}-${day}`;
+    console.log(formattedDate);
+    console.log(isBeschadigd);
+    console.log(uitleningID);
+
+    this.connection.query(
+      `UPDATE Uitlening SET inleverDatum = '${formattedDate}', isBeschadigd = ${isBeschadigd} WHERE uitleningID = ${uitleningID}`,
+      (err, result) => {
+        if (err) {
+          console.error("Error updating uitlening: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleningen succesvol geupdatet");
           callback(null, result);
         }
       }

@@ -73,6 +73,33 @@ router.get("/retourbeheer", (req, res) => {
   res.render("admin-retourbeheer");
 });
 
+router.get("/retourbeheer/:uitleningID", async (req, res) => {
+  const dbServiceInstance = new dbService();
+  let data;
+  let product;
+  dbServiceInstance.getUitlening(req.params.uitleningID, (error, result) => {
+    if (error) {
+      console.error("Fout bij uitvoeren query: " + err.stack);
+      return;
+    } else {
+      data = result[0];
+      dbServiceInstance.getProductByArticleId(data.artikelID, (err, results) => {
+        if (err) {
+          console.error("Fout bij uitvoeren query: " + err.stack);
+          return;
+        } else {
+          product = results[0];
+          console.log(data);
+          console.log(product);
+          res.render("admin-retourbeheer-uitlening", { data: data, product: product });
+        }
+      });
+    }
+  });
+
+});
+
+// POST Request for when Admin searches for an Uitlening by artikelID on /admin/retourbeheer
 router.post("/retourbeheer", (req, res) => {
   const dbServiceInstance = new dbService();
   let artikelID;
@@ -102,8 +129,17 @@ router.post("/retourbeheer", (req, res) => {
   });
 });
 
-router.get("/retourbeheer/:UitleningID", (req, res) => {
-  res.render("admin-retourbeheer-uitlening", {});
+router.post("/retourbeheer/:uitleningID", async (req, res) => {
+  const dbServiceInstance = new dbService();
+
+  dbServiceInstance.returnUitlening(req.params.uitleningID, req.body.isBeschadigd, (error, result) => {
+    if (error) {
+      console.error("Fout bij uitvoeren query: " + error.stack);
+      res.status(400).send("Kan uitlening niet terugbrengen");
+    } else {
+      res.status(200).send("Uitlening teruggebracht");
+    }
+  });
 });
 
 module.exports = router;
