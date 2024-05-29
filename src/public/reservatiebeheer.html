@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./components/button/button.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/default.css">
+  <link rel="stylesheet" href="./components/filter/filter.css">
+  <link rel="stylesheet" href="./css/specificatieproduct.css">
+  <link rel="stylesheet" href="./components/catalog card/card.css">
+  <title>Product Lening Beheer</title>
+</head>
+<body>
+  <ehb-header></ehb-header>
+  <hamburger-menu></hamburger-menu>
+  <main>
+    <div id="flexbox">
+      <section>
+        <h2 class="page__title">Nikon Camera</h2>
+        <p class="product__availability"></p>
+        <img src="./images/Nikon Camera.jpg" />
+      </section>
+
+      <section id="content-section">
+      </section>
+    </div>
+  </main>
+  <ehb-footer></ehb-footer>
+
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p>Ben je zeker dat je je reservering wilt annuleren?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes" class="btn">Ja</button>
+        <button id="confirmNo" class="btn">Nee</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirmModalVerlengen" class="modal">
+    <div class="modal-content">
+      <p>Ben je zeker dat je de lening wilt verlengen?</p>
+      <div class="modal-buttons">
+        <button id="confirmYesVerlengen" class="btn">Ja</button>
+        <button id="confirmNoVerlengen" class="btn">Nee</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/components.js"></script>
+  <script src="./js/specificaties.js"></script>
+  <script src="./js/modal2.js"></script>
+</body>
+</html>
