@@ -3,6 +3,7 @@ let products = [];
 const btnReserveren = document.getElementById("btn-reserveren");
 const dropdownReden = document.getElementById("reden");
 const otherReasonInput = document.getElementById(`otherReason`);
+updateBasketCounter();
 
 dropdownReden.addEventListener("change", () => {
   if (dropdownReden.value === "Andere") {
@@ -19,7 +20,13 @@ basketItems.forEach((item) =>
 btnReserveren.addEventListener("click", async () => {
   // Haal gegevens op
   const startDatum = document.getElementById("datepicker").value;
-  const reden = "test reden";
+  let reden;
+  // Get reden from page
+  if (dropdownReden.value === "Andere") {
+    reden = otherReasonInput.value;
+  } else {
+    reden = dropdownReden.value;
+  }
 
   // Validate gegevens
   if (!startDatum) {
@@ -91,6 +98,7 @@ for (let i = 0; i < basketItems.length; i++) {
       })
       .then((data) => {
         basketItems[i].remove();
+        updateBasketCounter();
         loadScript("/components/toast/toast.js", (script) => {
           console.log(`Script ${script.src} loaded.`);
           showToast("Product verwijdert uit uitleenmandje", true);
@@ -104,6 +112,23 @@ for (let i = 0; i < basketItems.length; i++) {
         });
       });
   });
+}
+
+function updateBasketCounter() {
+  fetch("/get-basket-count")
+    .then((response) => response.json())
+    .then((data) => {
+      const basketCounter = document.getElementById("header-cart-item-count");
+
+      if (data[0].count == 0) {
+        basketCounter.style.visibility = "hidden";
+        basketCounter.innerText = 0;
+      } else {
+        basketCounter.style.visibility = "visible";
+        basketCounter.innerText = data[0].count;
+      }
+    })
+    .catch((error) => console.error("Error:", error));
 }
 
 function loadScript(src, cb) {

@@ -1,5 +1,7 @@
 const reservations = document.querySelectorAll(".reservation__line");
 
+updateBasketCounter();
+
 reservations.forEach((reservation, index) => {
   const btnCancel = reservation.querySelectorAll(`#btn-cancel${index}`)[0];
   const uitleningID = reservation.getAttribute("data-id");
@@ -36,6 +38,23 @@ reservations.forEach((reservation, index) => {
     }
   });
 });
+
+function updateBasketCounter() {
+  fetch("/get-basket-count")
+    .then((response) => response.json())
+    .then((data) => {
+      const basketCounter = document.getElementById("header-cart-item-count");
+
+      if (data[0].count == 0) {
+        basketCounter.style.visibility = "hidden";
+        basketCounter.innerText = 0;
+      } else {
+        basketCounter.style.visibility = "visible";
+        basketCounter.innerText = data[0].count;
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
 
 function loadScript(src, cb) {
   let script = document.createElement("script");
