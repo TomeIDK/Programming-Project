@@ -20,6 +20,15 @@
 9. Go back to your terminal and start the application using ``node app``.
 10. Open your favourite browser and enter ``localhost:3000`` in the address bar.
 
+
+## Problem
+Het huidige uitleningssysteem van het MediaLab is allesbehalve gebruiksvriendelijk en efficiënt. Het beheer van uitleningen en het bijhouden van beschikbare middelen vereisen veel manuele handelingen, wat leidt tot fouten en vertragingen.
+
+## Solution
+De vernoemde problemen maakten duidelijk dat het MediaLab een digitaal uitleningssysteem nodig had, en daarom kregen wij de opdracht om dit te ontwikkelen. 
+
+Om een efficiënt en gebruiksvriendelijk uitleningssysteem te ontwikkelen, begonnen we met het oplijsten van user stories voor de behoeften van medewerkers en studenten. Daarna ontwierpen we een visueel prototype met Figma en gebruikten Trello om de ontwikkeling te plannen en te volgen. Door regelmatig te werken in sprints konden we snel feedback verwerken en voortgang boeken.
+
 ## Team
 
 ### Scrum Master
