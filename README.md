@@ -18,6 +18,7 @@
 7. Add the corresponding values to each variable.
 8. Save the **.env** file and close it.
 9. Go back to your terminal and start the application using ``node app``.
+10. Open your favourite browser and enter ``localhost:3000`` in the address bar.
 
 ## Team
 
