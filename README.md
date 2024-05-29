@@ -31,7 +31,7 @@ EJS
 ![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)
 ![GeeksForGeeks](https://img.shields.io/badge/GeeksforGeeks-gray?style=for-the-badge&logo=geeksforgeeks&logoColor=35914c)
 ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)
-![YouTube Music](https://img.shields.io/badge/YouTube_Music-FF0000?style=for-the-badge&logo=youtube-music&logoColor=white)  
+![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)  
 https://chatgpt.com/share/919d99f2-8891-4470-b7fb-5beb33f69ca0  
 https://chatgpt.com/share/84848a32-574d-4f3e-a5e1-8c64a3ea396b  
 https://chatgpt.com/share/a5127808-3411-415d-9d70-16a620af7771  
