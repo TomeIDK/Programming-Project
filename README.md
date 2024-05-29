@@ -1,6 +1,33 @@
 # Programming-Project
 
 ## How To Install
+1. Make sure you are in the repository's **root** directory. This should contain the src directory.
+2. Open your terminal and use the command ``npm install``.
+3. Ensure all packages are installed correctly and don't give any errors.
+4. Change to the /src directory using ``cd ./src``.
+5. Make a **.env** file in the /src directory.
+6. Add the following fields to the **.env** file:  
+   ```
+    DB_HOST=
+    DB_USERNAME=
+    DB_PASSWORD=
+    DB_DATABASE=
+    PORT=
+    SECRET=
+   ```
+7. Add the corresponding values to each variable.
+8. Save the **.env** file and close it.
+9. Go back to your terminal and start the application using ``node app``.
+10. Open your favourite browser and enter ``localhost:3000`` in the address bar.
+
+
+## Problem
+Het huidige uitleningssysteem van het MediaLab is allesbehalve gebruiksvriendelijk en efficiënt. Het beheer van uitleningen en het bijhouden van beschikbare middelen vereisen veel manuele handelingen, wat leidt tot fouten en vertragingen.
+
+## Solution
+De vernoemde problemen maakten duidelijk dat het MediaLab een digitaal uitleningssysteem nodig had, en daarom kregen wij de opdracht om dit te ontwikkelen. 
+
+Om een efficiënt en gebruiksvriendelijk uitleningssysteem te ontwikkelen, begonnen we met het oplijsten van user stories voor de behoeften van medewerkers en studenten. Daarna ontwierpen we een visueel prototype met Figma en gebruikten Trello om de ontwikkeling te plannen en te volgen. Door regelmatig te werken in sprints konden we snel feedback verwerken en voortgang boeken.
 
 ## Team
 
