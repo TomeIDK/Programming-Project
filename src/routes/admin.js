@@ -134,7 +134,7 @@ router.post("/retourbeheer/:uitleningID", async (req, res) => {
 
   dbServiceInstance.returnUitlening(req.params.uitleningID, req.body.isBeschadigd, (error, result) => {
     if (error) {
-      console.error("Fout bij uitvoeren query: " + err.stack);
+      console.error("Fout bij uitvoeren query: " + error.stack);
       res.status(400).send("Kan uitlening niet terugbrengen");
     } else {
       res.status(200).send("Uitlening teruggebracht");

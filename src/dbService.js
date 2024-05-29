@@ -309,10 +309,10 @@ class DBService {
     const formattedDate = `${year}-${month}-${day}`;
     console.log(formattedDate);
     console.log(isBeschadigd);
+    console.log(uitleningID);
 
     this.connection.query(
-      `UPDATE Uitlening SET inleverDatum = ?, isBeschadigd = ? WHERE uitleningID = ?`,
-      [formattedDate, isBeschadigd, uitleningID],
+      `UPDATE Uitlening SET inleverDatum = '${formattedDate}', isBeschadigd = ${isBeschadigd} WHERE uitleningID = ${uitleningID}`,
       (err, result) => {
         if (err) {
           console.error("Error updating uitlening: ", err);

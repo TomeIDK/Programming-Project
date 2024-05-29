@@ -25,7 +25,7 @@ btnTerugbrengen.addEventListener("click", async () => {
   }
 
   try {
-    const response = await fetch("/admin/retourbeheer/:uitleningID", {
+    const response = await fetch(`/admin/retourbeheer/${uitleningID}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
