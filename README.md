@@ -76,3 +76,9 @@ https://chatgpt.com/share/b2e5dbd5-ead1-4cb5-af9f-fa60865654f1
 https://chatgpt.com/share/650a9380-9afe-4c5d-8e9e-70c7bb523e54  
 https://chatgpt.com/share/5439ae75-5949-4520-a438-efa183167159  
 https://stackoverflow.com/questions/71580995/how-to-add-a-filter-search-bar-in-js  
+https://chatgpt.com/share/6a59ee8e-542a-491e-bb0e-773033131250  
+https://chatgpt.com/share/231e65d3-e7e7-487a-865f-364bfe00c9e9  
+https://chatgpt.com/share/b36b9cc9-1717-4a94-a40d-634d2789c95a  
+https://chatgpt.com/share/08c5d1f9-7f03-4d5b-9b76-152a3388d378  
+https://chatgpt.com/share/271a00b8-7131-4b37-b0ee-ff8c45d8414a  
+https://stackoverflow.com/questions/20083807/javascript-date-to-sql-date-object  
