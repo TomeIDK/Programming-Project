@@ -13,6 +13,7 @@ isBeschadigd.addEventListener("change", () => {
   }
 });
 
+
 btnTerug.addEventListener("click", () => {
   window.location.href = "/admin/retourbeheer";
 });

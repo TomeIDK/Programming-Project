@@ -27,6 +27,11 @@ h3 {
     font-size: 2rem;
     text-align: left;
 }
+#block{
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
 .flexbox{
     gap: 4rem;
     display: flex;
@@ -34,9 +39,15 @@ h3 {
     
 }
 .paragraph {
-    font-size: 1.5rem;
+    font-weight: 550;
+    font-size: 1.6rem;
     margin: 0 0 5px; 
     text-align: left;
+}
+.input-field{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
 }
 
 .right-flex{
@@ -49,5 +60,7 @@ margin-right: 0;
 }
 
 #beschadigd-reason{
+    padding: 0.2rem;
+    font-size: 1rem;
     display: none;
 }
