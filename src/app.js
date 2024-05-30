@@ -48,6 +48,7 @@ const sessionData = require('./routes/session-data');
 const reserveren = require('./routes/reserveren');
 const getBasketCount = require('./routes/get-basket-count');
 const reservations = require ("./routes/reservaties");
+const mijnUitleengeschiedenis = require("./routes/mijn-uitleengeschiedenis");
 const admin = require ("./routes/admin");
 
 
@@ -64,6 +65,7 @@ app.use("/session-data", sessionData);
 app.use("/reserveren", reserveren);
 app.use("/get-basket-count", getBasketCount);
 app.use("/reservaties", reservations);
+app.use("/mijn-uitleengeschiedenis", mijnUitleengeschiedenis);
 app.use("/admin", admin);
 
 
