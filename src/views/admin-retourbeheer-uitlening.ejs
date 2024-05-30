@@ -20,14 +20,15 @@
   <main>
 
     <h2>Medewerker</h2>
+    
 
     <h3>Retourbeheer</h3>
-    
+    <div id="block">
     <div class="paragraph">Naam lener</div>
     <p id="naam-lener" class="input-field"><%= data.voornaam + " " + data.naam %></p>
     <div class="form-group">
       <div class="paragraph">ID nr</div>
-      <p" id="id-nr" class="small-input-field"><%= data.uitleningID %></p>
+      <p id="id-nr" class="input-field"><%= data.uitleningID %></p>
     </div>
     
 
@@ -59,6 +60,7 @@
       <button id="btn-terug" class="btn secondary-button">Terug</button>
       <button id="btn-terugbrengen" class="btn cta-button--blue">Terugbrengen</button>
     </div>
+  </div>
   </main>
   <ehb-footer></ehb-footer>
   <script src="/js/components.js"></script>
@@ -67,3 +69,4 @@
 </body>
 
 </html>
+

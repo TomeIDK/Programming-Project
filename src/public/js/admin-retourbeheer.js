@@ -4,21 +4,23 @@ const main = document.getElementById("main");
 
 btnTerug.addEventListener("click", () => {
   window.location.href = "/admin/dashboard";
-})
+});
 
 btnSearch.addEventListener("click", async () => {
   const artikelID = document.getElementById("id-input").value;
 
-  if (artikelID == null) {
-    console.log(artikelID);
+  if (!artikelID) {
+    console.log("Artikel ID is required");
+    return;
   }
+
   try {
     const response = await fetch("/admin/retourbeheer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ artikelID: artikelID }),
+      body: JSON.stringify({ artikelID }),
     });
 
     const data = await response.json();
@@ -26,8 +28,6 @@ btnSearch.addEventListener("click", async () => {
     if (response.ok) {
       displayProductData(data);
       displayUitleningen(data);
-
-
     } else {
       console.error("Failed to fetch article data:", data);
     }
@@ -37,16 +37,24 @@ btnSearch.addEventListener("click", async () => {
 });
 
 function displayProductData(data) {
-  if (document.getElementById("product-info")) {
-    let previousProductInfo = document.getElementById("product-info");
-    previousProductInfo.remove();
+  if (!data.product) {
+    console.error("No product data found");
+    return;
   }
+
+  let flexbox = document.getElementById("flexbox");
+  if (!flexbox) {
+    flexbox = document.createElement("div");
+    flexbox.id = "flexbox";
+    main.appendChild(flexbox);
+  } else {
+    flexbox.innerHTML = ""; // Clear previous content
+  }
+
   let productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
-  productInfo.id = "product-info";
 
   let productImg = document.createElement("img");
-  productImg.id = "product-image";
   productImg.src = `/images/${data.product.afbeelding}`;
   productImg.alt = data.product.naam;
   productImg.width = 100;
@@ -56,11 +64,24 @@ function displayProductData(data) {
 
   productInfo.appendChild(productImg);
   productInfo.appendChild(productNaam);
-  document.getElementById("flexbox").appendChild(productInfo);
+  flexbox.appendChild(productInfo);
 }
 
 function displayUitleningen(data) {
-  let heading =document.createElement("li");
+  if (!data.uitleningen || data.uitleningen.length === 0) {
+    console.error("No uitleningen data found");
+    return;
+  }
+
+  let flexbox = document.getElementById("flexbox");
+  if (!flexbox) {
+    flexbox = document.createElement("div");
+    flexbox.id = "flexbox";
+    main.appendChild(flexbox);
+  }
+
+  let heading = document.createElement("li");
+
   let headingId = document.createElement("span");
   headingId.innerText = "Uitlening ID";
   headingId.classList.add("heading");
@@ -76,7 +97,7 @@ function displayUitleningen(data) {
   let headingTerugbrengen = document.createElement("span");
   headingTerugbrengen.innerText = "Terugbrengen";
   headingTerugbrengen.classList.add("heading");
- 
+
   heading.appendChild(headingId);
   heading.appendChild(headingUserNaam);
   heading.appendChild(headingStartDatum);
@@ -87,11 +108,12 @@ function displayUitleningen(data) {
     let previousUitleningenLijst = document.getElementById("uitleningen-lijst");
     previousUitleningenLijst.remove();
   }
+
   let uitleningenLijst = document.createElement("div");
   uitleningenLijst.id = "uitleningen-lijst";
 
   let uitleningenLijstUl = document.createElement("ul");
-uitleningenLijstUl.appendChild(heading);
+  uitleningenLijstUl.appendChild(heading);
   for (let i = 0; i < data.uitleningen.length; i++) {
     let uitlening = document.createElement("li");
 
@@ -102,24 +124,23 @@ uitleningenLijstUl.appendChild(heading);
     let uitleningUserNaam = document.createElement("span");
     uitleningUserNaam.innerText =
       data.uitleningen[i].naam + " " + data.uitleningen[i].voornaam;
-      uitleningUserNaam.classList.add("uitlening-gebruiker");
+    uitleningUserNaam.classList.add("uitlening-gebruiker");
 
-      let uitleningStartDatum = document.createElement("span");
-      uitleningStartDatum.innerText = formatDate(data.uitleningen[i].startDatum);
-      uitleningStartDatum.classList.add("uitlening-start-datum");
-      
-      let uitleningEindDatum = document.createElement("span");
-      uitleningEindDatum.innerText = formatDate(data.uitleningen[i].eindDatum);
-      uitleningEindDatum.classList.add("uitlening-eind-datum");
+    let uitleningStartDatum = document.createElement("span");
+    uitleningStartDatum.innerText = formatDate(data.uitleningen[i].startDatum);
+    uitleningStartDatum.classList.add("uitlening-start-datum");
+
+    let uitleningEindDatum = document.createElement("span");
+    uitleningEindDatum.innerText = formatDate(data.uitleningen[i].eindDatum);
+    uitleningEindDatum.classList.add("uitlening-eind-datum");
 
     let uitleningTerugbrengen = document.createElement("button");
     uitleningTerugbrengen.id = `btn-terugbrengen${i}`;
-    uitleningTerugbrengen.classList.add("btn");
-    uitleningTerugbrengen.classList.add("secondary-button");
+    uitleningTerugbrengen.classList.add("btn", "secondary-button");
     uitleningTerugbrengen.innerText = "Terugbrengen";
 
     uitleningTerugbrengen.addEventListener("click", () => {
-        window.location.href = `/admin/retourbeheer/${uitleningId.innerText}`;
+      window.location.href = `/admin/retourbeheer/${uitleningId.innerText}`;
     });
 
     uitlening.appendChild(uitleningId);
@@ -127,14 +148,12 @@ uitleningenLijstUl.appendChild(heading);
     uitlening.appendChild(uitleningStartDatum);
     uitlening.appendChild(uitleningEindDatum);
     uitlening.appendChild(uitleningTerugbrengen);
-    
-   
+
     uitleningenLijstUl.appendChild(uitlening);
   }
-  
-  uitleningenLijst.appendChild(uitleningenLijstUl);
 
-  document.getElementById("flexbox").appendChild(uitleningenLijst);
+  uitleningenLijst.appendChild(uitleningenLijstUl);
+  flexbox.appendChild(uitleningenLijst);
 }
 
 function formatDate(dateString) {
@@ -144,3 +163,4 @@ function formatDate(dateString) {
   const year = date.getFullYear();
   return `${day}-${month}-${year}`;
 }
+
