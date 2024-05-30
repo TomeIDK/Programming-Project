@@ -1,13 +1,15 @@
 # Programming-Project
 
 ## How To Install
-1. Make sure you are in the repository's **root** directory. This should contain the src directory.
-2. Open your terminal and use the command ``npm install``.
-3. Ensure all packages are installed correctly and don't give any errors.
-4. Change to the /src directory using ``cd ./src``.
-5. Make a **.env** file in the /src directory.
-6. Ensure this file's **exact** name is ``.env``.
-7. Add the following fields to the **.env** file:  
+1. Clone the repository to your local machine.
+2. Open VSCode and open the cloned repository.
+3. Open up a terminal in VSCode and make sure you are in the repository's **root** directory. This should contain the src directory.
+4. After ensuring you are in the repository's root directory, execute the following command in your VSCode terminal ``npm install``.
+5. Ensure all packages are installed correctly and don't give any errors.
+6. Change to the /src directory using ``cd ./src``.
+7. Make a **.env** file in the /src directory.
+8. Ensure this file's **exact** name is ``.env``.
+9. Add the following fields to the **.env** file:  
    ```
     DB_HOST=
     DB_USERNAME=
@@ -16,10 +18,10 @@
     PORT=
     SECRET=
    ```
-8. Add the corresponding values to each variable.
-9. Save the **.env** file and close it.
-10. Go back to your terminal and start the application using ``node app``.
-11. Open your favourite browser and enter ``localhost:3000`` in the address bar.
+10. Add the corresponding values to each variable.
+11. Save the **.env** file and close it.
+12. Go back to your terminal and start the application using ``node app``.
+13. Open your favourite browser and enter ``localhost:3000`` in the address bar.
 
 
 ## Problem
