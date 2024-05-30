@@ -11,6 +11,7 @@ const picker = new easepick.create({
     css: [
         "https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.css"
     ],
+    lang: 'nl-NL',
     zIndex: 110,
     format: "DD/MM/YYYY",
     header: "Kies een datum",
@@ -23,4 +24,12 @@ const picker = new easepick.create({
     plugins: [
         "LockPlugin"
     ]
-})
+});
+
+// Returns date object of selected date in DD/MM/YYYY format
+function getSelectedDate() {
+    let pickerDate = new Date();
+    pickerDate = picker.getDate();
+    let selectedDate = `${pickerDate.getDate()}/${pickerDate.getMonth()}/${pickerDate.getFullYear()}`;
+    console.log(selectedDate);
+}
