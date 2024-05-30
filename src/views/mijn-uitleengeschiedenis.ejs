@@ -30,8 +30,8 @@
       <li class="reservation__item reservation__line">
         <span class="reservation__article--name"><%= reservation.uitleningID %></span>
         <span class="reservation__article--name"><%= reservation.productNaam %></span>
-        <span class="reservation__article--date-from"> <%= new Date(reservation.beginDatum).toLocaleDateString() %></span>
-        <span class="reservation__article--date-until"><%= new Date(reservation.inleverDatum).toLocaleDateString() %></span>
+        <span class="reservation__article--date-from"> <%= reservation.startDatum.toLocaleDateString("nl-NL").split("-").join("/") %></span>
+        <span class="reservation__article--date-until"><%= reservation.inleverDatum.toLocaleDateString("nl-NL").split("-").join("/") %></span>
       </li>
       <% }) %>
     </ul>
