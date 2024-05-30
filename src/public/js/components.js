@@ -4,13 +4,10 @@ class EhbHeader extends HTMLElement {
     super();
 
     this.basket = "";
-    this.returnhomepage = "";
   }
 
   connectedCallback() {
     this.basket = this.getAttribute("nobasket");
-    this.returnhomepage = this.getAttribute('admin-homepage');
-
     this.render();
   }
 
@@ -27,20 +24,18 @@ class EhbHeader extends HTMLElement {
   </button>
     `;
 
-    if (this.basket !== null){
+    if (this.basket !== null) {
       basket = "";
     }
 
     // Component
-    if (!'this.returnhomepage'){
-      this.innerHTML = `
+    this.innerHTML = `
       <header class="header">
       <div class="header__container">
           <img
             src="/images/ehblogo.svg"
             alt="Erasmushogeschool Brussel"
           />
-        </a>
         <div class="header__wrapper">
           ${basket}
           <button id="hamburger-menu" class="header__hamburger-menu header__btn">
@@ -54,43 +49,17 @@ class EhbHeader extends HTMLElement {
       </div>
     </header>
   `;
-    }else{
-      this.innerHTML = `
-      <header class="header">
-      <div class="header__container">
-          <img
-            src="/images/ehblogo.svg"
-            alt="Erasmushogeschool Brussel"
-          />
-        </a>
-        <div class="header__wrapper">
-          ${basket}
-          <button id="hamburger-menu" class="header__hamburger-menu header__btn">
-            <img
-              src="/images/hamburger-menu.svg"
-              width="32px"
-              alt=""
-            />
-          </button>
-        </div>
-      </div>
-    </header>
-  `;
-    }
-    
   }
 }
 
 // Hamburger-menu Component
 class HamburgerMenu extends HTMLElement {
   constructor() {
-    
     super();
     this.admin = "";
   }
 
   connectedCallback() {
-    this.admin = this.getAttribute("admin");
     this.admin = this.getAttribute("admin");
     this.render();
   }
@@ -119,16 +88,10 @@ class HamburgerMenu extends HTMLElement {
       <div class="nav-menu__section">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <a href="/admin/retourbeheer" class="nav-menu__link">retourbeheer</a>
+            <a href="/admin/dashboard" class="nav-menu__link">Dashboard</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">catalogusbeheer</a>
-          </li>
-          <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">gebruikersbeheer</a>
-          </li>
-          <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">statistieken</a>
+            <a href="/admin/retourbeheer" class="nav-menu__link">Retourbeheer</a>
           </li>
         </ul>
       </div>
@@ -181,7 +144,6 @@ class HamburgerMenu extends HTMLElement {
   `;
     }
 
-
     // Load component functionality
     loadScript("/components/custom/header/hamburger-menu.js", (script) => {
       console.log(`Script ${script.src} loaded.`);
@@ -192,7 +154,6 @@ class HamburgerMenu extends HTMLElement {
 class EhbFooter extends HTMLElement {
   constructor() {
     super();
-    
   }
 
   connectedCallback() {
@@ -201,7 +162,7 @@ class EhbFooter extends HTMLElement {
 
   render() {
     // Component
-    
+
     this.innerHTML = `
     <footer class="footer">
       <div class="footer__container">
