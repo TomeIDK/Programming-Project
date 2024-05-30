@@ -6,7 +6,8 @@
 3. Ensure all packages are installed correctly and don't give any errors.
 4. Change to the /src directory using ``cd ./src``.
 5. Make a **.env** file in the /src directory.
-6. Add the following fields to the **.env** file:  
+6. Ensure this file's **exact** name is ``.env``.
+7. Add the following fields to the **.env** file:  
    ```
     DB_HOST=
     DB_USERNAME=
@@ -15,10 +16,10 @@
     PORT=
     SECRET=
    ```
-7. Add the corresponding values to each variable.
-8. Save the **.env** file and close it.
-9. Go back to your terminal and start the application using ``node app``.
-10. Open your favourite browser and enter ``localhost:3000`` in the address bar.
+8. Add the corresponding values to each variable.
+9. Save the **.env** file and close it.
+10. Go back to your terminal and start the application using ``node app``.
+11. Open your favourite browser and enter ``localhost:3000`` in the address bar.
 
 
 ## Problem
