@@ -20,7 +20,7 @@
 
     <% if (reservations && reservations.length > 0) { %>
     <ul class="reservation">
-      <li class="reservation__item reservation__heading">
+      <li class="reservation__heading">
         <span class="reservation__title">Product</span>
         <span class="reservation__title">Gereserveerd van</span>
         <span class="reservation__title">Gereserveerd tot</span>
@@ -29,7 +29,7 @@
       <% reservations.forEach((reservation, index) => { %>
       <li class="reservation__item reservation__line" data-id="<%= reservation.uitleningID %>">
         <span class="reservation__article--name"><%= reservation.productNaam %></span>
-        <span class="reservation__article--date-from"> <%= new Date(reservation.beginDatum).toLocaleDateString() %></span>
+        <span class="reservation__article--date-from"> <%= new Date(reservation.startDatum).toLocaleDateString() %></span>
         <span class="reservation__article--date-until"><%= new Date(reservation.eindDatum).toLocaleDateString() %></span>
 
         <button id="btn-cancel<%= index %>" class="btn secondary-button cancel-reservation">Annuleer reservatie</button>
