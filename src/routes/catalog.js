@@ -5,6 +5,7 @@ const path = require("path");
 const router = express.Router();
 const mysql = require("mysql");
 const dbService = require("../dbService");
+const { log } = require("console");
 const dbServiceInstance = new dbService();
 
 // middleware specific to this router
@@ -62,6 +63,28 @@ GROUP BY Product.productID, Product.naam`,
   }
 );
 
+
+  connection.query(`
+  SELECT 
+      Uitleenmandje.ProductID,
+      Uitleenmandje.aantal,
+      Product.aantalBeschikbaar
+  FROM 
+      Uitleenmandje
+  JOIN 
+      Product ON Uitleenmandje.ProductID = Product.ProductID
+  WHERE 
+      Uitleenmandje.aantal <= Product.aantalBeschikbaar;
+  `, (err, results) => {
+    if (err) {
+      console.error('Error executing selectProductQuery:', err);
+      return;
+    }
+    console.log('ProductID and aantalBeschikbaar from Product table:', results);
+  });
+
+
+  
 // Close DB connection
 connection.end();
 
