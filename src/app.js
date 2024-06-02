@@ -10,14 +10,10 @@ const port = process.env.PORT || 3000;
 const DBService = require("./dbService");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
+const checkRole = require('./middleware/role-auth');
 
 // Create Express app
 const app = express();
-
-// Global middleware
-app.use(express.json());
-app.use(cors());
-app.use(bodyParser.json());
 
 const sessionStore = new MySQLStore({
   host: process.env.DB_HOST,
@@ -26,6 +22,7 @@ const sessionStore = new MySQLStore({
   database: process.env.DB_DATABASE,
 });
 
+// Global middleware
 app.use(
   session({
     secret: process.env.SECRET,
@@ -34,6 +31,15 @@ app.use(
     store: sessionStore,
   })
 );
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
+app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(checkRole());
+
 const dbService = new DBService();
 
 // Routes
@@ -50,6 +56,7 @@ const getBasketCount = require('./routes/get-basket-count');
 const reservations = require ("./routes/reservaties");
 const mijnUitleengeschiedenis = require("./routes/mijn-uitleengeschiedenis");
 const admin = require ("./routes/admin");
+const notFound = require("./routes/not-found");
 
 
 
@@ -67,13 +74,13 @@ app.use("/get-basket-count", getBasketCount);
 app.use("/reservaties", reservations);
 app.use("/mijn-uitleengeschiedenis", mijnUitleengeschiedenis);
 app.use("/admin", admin);
+app.use("/not-found", notFound);
 
 
 
 
 // Set up view engine and static files
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
 
 // Start the server
 app.listen(port, () => {

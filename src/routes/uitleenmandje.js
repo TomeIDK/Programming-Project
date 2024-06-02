@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require("path");
 const mysql = require("mysql");
 const dbService = require("../dbService");
+const checkId = require("../middleware/id-auth");
+
 
 // middleware specific to this router
 
@@ -23,7 +25,7 @@ connection.connect((err) => {
 });
 
 // Define route handler function and render response with necessary data   WHERE Uitleenmandje.UitleenmandjeID = ?, [UitleenmandjeID],
-router.get("/:uitleenmandjeID", (req, res) => {
+router.get("/:uitleenmandjeID", checkId(), (req, res) => {
   const UitleenmandjeID = req.params.uitleenmandjeID;
 
   connection.query(
