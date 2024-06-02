@@ -8,9 +8,10 @@
 5. After ensuring you are in the repository's root directory, execute the following command in your VSCode terminal ``npm install``.
 6. Ensure all packages are installed correctly and don't give any errors.
 7. Change to the /src directory using ``cd ./src``.
-8. Make a **.env** file in the /src directory.
-9. Ensure this file's **exact** name is ``.env``.
-10. Add the following fields to the **.env** file:  
+8. If you have access to our Teams channel, download the .env file from there and place it in the /src directory, then skip to step 13. If you don't have access, continue to the next step.
+9. Make a **.env** file in the /src directory.
+10. Ensure this file's **exact** name is ``.env``.
+11. Add the following fields to the **.env** file:  
    ```
     DB_HOST=
     DB_USERNAME=
