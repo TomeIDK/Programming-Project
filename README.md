@@ -79,8 +79,9 @@ https://stackoverflow.com/questions/70374223/get-response-from-express-js-server
 https://expressjs.com/en/resources/middleware/cors.html  
 https://dev.to/speaklouder/how-to-configure-cors-in-nodejs-with-express-11h  
 https://stackoverflow.com/questions/61988495/cors-for-express-what-exactly-does-it-do  
-https://easepick.com
+https://easepick.com  
 https://www.npmjs.com/package/dotenv  
+https://chatgpt.com/share/1b0d0c22-30bd-46cd-8b59-ed67a94b3f10  
 
 ### Giles
 https://stackoverflow.com/questions/23923365/how-to-separate-routes-on-node-js-and-express-4  
