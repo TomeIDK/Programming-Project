@@ -128,18 +128,16 @@ router.get("/uitleengeschiedenis", (req, res) => {
 // Gebruikersbeheer
 router.get("/gebruikersbeheer", (req, res) => {
   const dbServiceInstance = new dbService();
-  
+
   dbServiceInstance.getAllUsers((error, result) => {
-    if(error) {
+    if (error) {
       console.error("Fout bij uitvoeren query: " + err.stack);
       return;
     } else {
-      console.log(result);
       res.render("admin-gebruikersbeheer", { users: result });
     }
   });
 });
-
 
 // POST Request for when Admin searches for an Uitlening by artikelID on /admin/retourbeheer
 router.post("/retourbeheer", (req, res) => {

@@ -12,16 +12,19 @@ h1 {
 
 
 .id-section {
-    margin-bottom: 2rem;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
 }
 
-.id-section input {
+/* .id-section input {
     padding: 0.5rem;
     border: 2px solid #ccc;
     border-radius: 5px;
     text-align: center;
     width: 200px;
-}
+} */
 .button-group{
     margin-top: 1rem;
 }

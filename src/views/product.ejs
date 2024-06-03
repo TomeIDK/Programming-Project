@@ -25,7 +25,8 @@
           <p class="product__availability">
             Nu beschikbaar
             <span class="availability-amount"
-              ><%= product.aantalBeschikbaar%>/<%= product.aantalBeschikbaar%></span
+              ><%= product.aantalBeschikbaar%>/<%=
+              product.aantalBeschikbaar%></span
             >
           </p>
           <img
@@ -41,15 +42,18 @@
           <% if( product.voorwaarde){ %>
           <h3>Specifieke voorwaarden voor uitlening</h3>
           <p class="product.voorwaarden"><%=product.voorwaarde %> <% } %></p>
-
-          <input
-            id="datepicker"
-            name="datepicker"
-            class="input"
-            placeholder="Kies een datum"
-          />
-          <button id="btn-terug" class="btn secondary-button">Ga terug</button
-          ><button id="btn-add" class="btn cta-button--blue" data-id="<%= product.productID %>">In uitleenmandje</button>
+          <div class="button-container">
+            <button id="btn-terug" class="btn secondary-button">
+              Ga terug
+            </button>
+            <button
+              id="btn-add"
+              class="btn cta-button--blue"
+              data-id="<%= product.productID %>"
+            >
+              In uitleenmandje
+            </button>
+          </div>
         </section>
       </div>
     </main>

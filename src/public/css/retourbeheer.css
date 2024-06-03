@@ -55,10 +55,6 @@ margin-left: 10rem;
 margin-right: 0;
 }
 
-.buttons-container{
-    margin-bottom: 2rem;
-}
-
 #beschadigd-reason{
     padding: 0.2rem;
     font-size: 1rem;
@@ -69,20 +65,48 @@ margin-right: 0;
     display: flex;
     gap: 2rem;
     margin-top: 1rem;
+    width: fit-content;
 }
 
 .block__column{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.column__group{
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    padding: .375rem;
+    min-width: 250px;
+}
+
+.column__group--beschadigd{
+    display: flex;
+    flex-direction: row;
+    gap: .375rem;
+    align-items: center;
+    height: 2.5rem;
+}
+
+#beschadigd-reason{
+    margin: 0;
 }
 
 .group__title{
     font-family: 'Inter';
     font-weight: 500;
+    font-size: 1.75rem;
 }
 
 .group__text{
     font-family: 'Inter';
     font-size: 1.25rem;
+}
+
+.buttons-container{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

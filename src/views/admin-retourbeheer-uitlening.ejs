@@ -1,75 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/components/button/button.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/retourbeheer.css" />
+    <link rel="stylesheet" type="text/css" href="/components/form/form.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <title>EhB MediaLab Admin - Retourbeheer</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="/components/button/button.css" />
-  <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="/css/default.css" />
-  <link rel="stylesheet" type="text/css" href="/css/retourbeheer.css" />
-  <link rel="stylesheet" type="text/css" href="/components/form/form.css" />
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-  <title>EhB MediaLab Admin - Retourbeheer</title>
-</head>
+  <body>
+    <ehb-header nobasket> </ehb-header>
 
-<body>
-  <ehb-header nobasket>
-  </ehb-header>
+    <hamburger-menu admin></hamburger-menu>
+    <main>
+      <h3>Retourbeheer</h3>
+      <div id="block">
+        <div class="block__column">
+          <div class="column__group">
+            <h3 class="group__title">Uitlener</h3>
+            <p class="group__text"><%= data.voornaam + " " + data.naam %></p>
+          </div>
 
-  <hamburger-menu admin></hamburger-menu>
-  <main>
-    <h3>Retourbeheer</h3>
-    <div id="block">
-      <div class="block__column">
+          <div class="column__group">
+            <h3 class="group__title">Uitlening ID</h3>
+            <p id="id-nr" class="group__text"><%= data.uitleningID %></p>
+          </div>
 
-        <div class="column__group">
-          <h3 class="group__title">Naam Uitlener</h3>
-          <p class="group__text"><%= data.voornaam + " " + data.naam %></p>
+          <div class="column__group">
+            <h3 class="group__title">Product</h3>
+            <p class="group__text"><%= product.naam %></p>
+          </div>
         </div>
 
-        <div class="column__group">
-          <h3 class="group__title">Uitlening ID</h3>
-          <p id="id-nr" class="group__text"><%= data.uitleningID %></p>
-        </div>
+        <div class="block__column">
+          <div class="column__group">
+            <h3 class="group__title">Geleend van</h3>
+            <p class="group__text">
+              <%=
+              data.startDatum.toLocaleDateString("nl-NL").split("-").join("/")
+              %>
+            </p>
+          </div>
 
-        <div class="column__group">
-          <h3 class="group__title">Product</h3>
-          <p class="group__text"><%= product.naam %></p>
-        </div>
+          <div class="column__group">
+            <h3 class="group__title">Geleend tot</h3>
+            <p class="group__text">
+              <%=
+              data.eindDatum.toLocaleDateString("nl-NL").split("-").join("/") %>
+            </p>
+          </div>
 
-        <div class="buttons-container">
-          <button id="btn-terug" class="btn secondary-button">Terug</button>
-          <button id="btn-terugbrengen" class="btn cta-button--blue">Terugbrengen</button>
+          <div class="column__group">
+            <h3 class="group__title">Beschadigd?</h3>
+            <div class="column__group column__group--beschadigd">
+              <input type="checkbox" id="beschadigd" class="checkbox-field" />
+              <input
+                type="text"
+                id="beschadigd-reason"
+                class="input"
+                placeholder="Beschrijving beschadiging"
+              />
+            </div>
+          </div>
         </div>
-
       </div>
-
-      <div class="block__column">
-
-        <div class="column__group">
-          <h3 class="group__title">Geleend van:</h3>
-          <p class="group__text"><%= data.startDatum.toLocaleDateString("nl-NL").split("-").join("/") %></p>
-        </div>
-
-        <div class="column__group">
-          <h3 class="group__title">Geleend tot:</h3>
-          <p class="group__text"><%= data.eindDatum.toLocaleDateString("nl-NL").split("-").join("/") %></p>
-        </div>
-
-        <div class="column__group">
-          <h3 class="group__title"">Beschadigd?</h3>
-          <input type="checkbox" id="beschadigd" class="checkbox-field">
-            <input type="text" id="beschadigd-reason" class="input" placeholder="Reden beschadiging">
-        </div>
+      <div class="buttons-container">
+        <button id="btn-terug" class="btn secondary-button">Terug</button>
+        <button id="btn-terugbrengen" class="btn cta-button--blue">
+          Terugbrengen
+        </button>
       </div>
-
-    </div>
-  </main>
-  <ehb-footer></ehb-footer>
-  <script src="/js/components.js"></script>
-  <script src="/js/admin-retourbeheer-uitlening.js"></script>
-  <script src="/js/default.js"></script>
-</body>
-
+    </main>
+    <ehb-footer></ehb-footer>
+    <script src="/js/components.js"></script>
+    <script src="/js/admin-retourbeheer-uitlening.js"></script>
+    <script src="/js/default.js"></script>
+  </body>
 </html>

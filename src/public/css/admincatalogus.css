@@ -28,7 +28,8 @@ h3 {
     border-radius: 0.5rem;
     text-decoration: none;
     padding: 1rem;
-    background-color: rgb(240, 240, 240);
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     width: 350px;
