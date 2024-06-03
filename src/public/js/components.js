@@ -93,6 +93,12 @@ class HamburgerMenu extends HTMLElement {
           <li class="nav-menu__item">
             <a href="/admin/retourbeheer" class="nav-menu__link">Retourbeheer</a>
           </li>
+          <li class="nav-menu__item">
+          <a href="/admin/uitleengeschiedenis" class="nav-menu__link">Uitleengeschiedenis</a>
+        </li>
+        <li class="nav-menu__item">
+        <a href="/admin/gebruikersbeheer" class="nav-menu__link">Gebruikersbeheer</a>
+      </li>
         </ul>
       </div>
 
@@ -125,11 +131,11 @@ class HamburgerMenu extends HTMLElement {
             <a href="/info" class="nav-menu__link">Meer Info</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Mijn Uitleningen</a>
-          </li>
-          <li class="nav-menu__item">
             <a href="/reservaties" class="nav-menu__link">Mijn Reservaties</a>
           </li>
+          <li class="nav-menu__item">
+          <a href="/mijn-uitleningen" class="nav-menu__link">Mijn Uitleningen</a>
+        </li>
           <li class="nav-menu__item">
             <a href="/mijn-uitleengeschiedenis" class="nav-menu__link">Mijn Uitleengeschiedenis</a>
           </li>
@@ -146,7 +152,6 @@ class HamburgerMenu extends HTMLElement {
 
     // Load component functionality
     loadScript("/components/custom/header/hamburger-menu.js", (script) => {
-      console.log(`Script ${script.src} loaded.`);
     });
   }
 }

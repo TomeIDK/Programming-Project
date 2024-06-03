@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/components/button/button.css">
+  <link rel="stylesheet" type="text/css" href="/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/css/default.css">
+  <link rel="stylesheet" type="text/css" href="/components/filter/filter.css">
+  <link rel="stylesheet" type="text/css" href="/css/gebruikersbeheer.css">
+  <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+  <title>EhB MediaLab - Gebruikersbeheer</title>
+</head>
+
+<body>
+  <ehb-header nobasket></ehb-header>
+  <hamburger-menu admin></hamburger-menu>
+  <main>
+    <h1>Gebruikersbeheer</h1>
+    <div class="gebruikersbeheer">
+      <% users.forEach((user) => { %>
+      <div class="gebruiker">
+        <img src="/images/user.svg" alt="User">
+        <div class="gebruiker-info">
+        <ul class="user__info">
+          <li><span class="info__key">Naam:</span> <%= user.voornaam + " " + user.naam %></li>
+          <li><span class="info__key">Rol:</span> <%= user.userType %></li>
+          <li><span class="info__key">ID:</span> <%= user.userID %></li>
+        </ul>
+
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </main>
+  <ehb-footer></ehb-footer>
+  <script src="/js/components.js"></script>
+  <script src="/components/filter/filter.js"></script>
+  <script src="/components/date-picker/date-picker.js"></script>
+
+
+</body>
+
+</html>

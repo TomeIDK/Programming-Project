@@ -21,20 +21,17 @@ btnAdd.addEventListener("click", async () => {
       if (response.ok) {
         updateBasketCounter();
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Product toegevoegd aan uitleenmandje", true);
         });
       } else {
         console.error("Request failed with status:", response.status);
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Kan product niet toevoegen aan uitleenmandje", false);
         });
       }
     } catch (error) {
       console.error("Request failed:", error);
       loadScript("/components/toast/toast.js", (script) => {
-        console.log(`Script ${script.src} loaded.`);
         showToast("Kan product niet toevoegen aan uitleenmandje", false);
       });
     }

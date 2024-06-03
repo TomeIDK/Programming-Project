@@ -40,21 +40,18 @@ btnTerugbrengen.addEventListener("click", async () => {
 
     if (response.ok) {
       loadScript("/components/toast/toast.js", (script) => {
-        console.log(`Script ${script.src} loaded.`);
         showToast("Uitlening succesvol teruggebracht", true);
       });
     window.location.href = "/admin/retourbeheer";
     } else {
       console.error("Failed to update uitlening:", data);
       loadScript("/components/toast/toast.js", (script) => {
-        console.log(`Script ${script.src} loaded.`);
         showToast("Kan uitlening niet terugbrengen", false);
       });
     }
   } catch (error) {
     console.error("An error occurred:", error.message);
     loadScript("/components/toast/toast.js", (script) => {
-      console.log(`Script ${script.src} loaded.`);
       showToast("Kan uitlening niet terugbrengen", false);
     });
   }

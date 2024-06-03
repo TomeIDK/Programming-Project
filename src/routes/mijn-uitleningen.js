@@ -3,8 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
-const DBService = require("../dbService");
-let dbServiceInstance = new DBService();
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -28,7 +26,7 @@ router.get("/", (req, res) => {
          FROM Uitlening U
          JOIN Artikel A ON U.artikelID = A.artikelID
          JOIN Product P ON A.productID = P.productID
-         WHERE U.userID = ?`,
+         WHERE U.userID = ? AND inleverDatum IS NULL AND isUitgeleend = 1`,
     [userID],
     (error, results) => {
       if (error) {
@@ -36,25 +34,13 @@ router.get("/", (req, res) => {
         res
           .status(500)
           .send(
-            "Er is een fout opgetreden bij het ophalen van de reservaties."
+            "Er is een fout opgetreden bij het ophalen van uw uitleningen."
           );
         return;
       }
-      res.render("reservaties", { reservations: results });
+      res.render("mijn-uitleningen", { reservations: results });
     }
   );
-});
-
-router.delete("/", (req, res) => {
-  dbServiceInstance.cancelReservation(req.body.uitleningID, (error, result) => {
-    if (error) {
-      console.error("Kan reservatie niet annuleren: ", error);
-      res.status(400).send("Kan reservatie niet annuleren");
-      return;
-    } else {
-      res.status(200).send("Reservatie succesvol geannuleerd");
-    }
-  });
 });
 
 module.exports = router;
