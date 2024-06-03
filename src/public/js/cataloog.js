@@ -184,10 +184,20 @@ for (let i = 0; i < productCards.length; i++) {
         });
       } else {
         console.error("Request failed with status:", response.status);
-        loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
-          showToast("Kan product niet toevoegen aan uitleenmandje", false);
-        });
+        if (response.status === 406) {
+          loadScript("/components/toast/toast.js", (script) => {
+            console.log(`Script ${script.src} loaded.`);
+            showToast(
+              "Je kan niet meer producten toevoegen dan er beschikbaar zijn",
+              false
+            );
+          });
+        } else {
+          loadScript("/components/toast/toast.js", (script) => {
+            console.log(`Script ${script.src} loaded.`);
+            showToast("Kan product niet toevoegen aan uitleenmandje", false);
+          });
+        }
       }
     } catch (error) {
       console.error("Request failed:", error);

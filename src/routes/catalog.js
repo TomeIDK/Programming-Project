@@ -102,6 +102,9 @@ router.post("/", async (req, res) => {
             }
           }
         });
+      } else if (result === 406) {
+        res.status(406).send("Geen artikelen meer beschikbaar");
+
       } else {
         res.status(200).send("Product toegevoegd aan uitleenmandje");
       }
