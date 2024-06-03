@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
@@ -27,9 +28,7 @@ router.get("/dashboard", (req, res) => {
   const today = new Date();
 
   connection.query(
-    `
-      
-      SELECT Uitlening.startDatum, Uitlening.eindDatum 
+    `SELECT Uitlening.startDatum, Uitlening.eindDatum 
       FROM Uitlening `,
     (err, result) => {
       if (err) {
@@ -83,20 +82,50 @@ router.get("/retourbeheer/:uitleningID", async (req, res) => {
       return;
     } else {
       data = result[0];
-      dbServiceInstance.getProductByArticleId(data.artikelID, (err, results) => {
-        if (err) {
-          console.error("Fout bij uitvoeren query: " + err.stack);
-          return;
-        } else {
-          product = results[0];
-          console.log(data);
-          console.log(product);
-          res.render("admin-retourbeheer-uitlening", { data: data, product: product });
+      dbServiceInstance.getProductByArticleId(
+        data.artikelID,
+        (err, results) => {
+          if (err) {
+            console.error("Fout bij uitvoeren query: " + err.stack);
+            return;
+          } else {
+            product = results[0];
+            console.log(data);
+            console.log(product);
+            res.render("admin-retourbeheer-uitlening", {
+              data: data,
+              product: product,
+            });
+          }
         }
-      });
+      );
     }
   });
+});
 
+// Uitleengeschiedenis
+router.get("/uitleengeschiedenis", (req, res) => {
+  connection.query(
+    `SELECT U.uitleningID, U.startDatum, U.inleverDatum, P.naam AS productNaam, USR.naam, USR.voornaam
+         FROM Uitlening U
+         JOIN Artikel A ON U.artikelID = A.artikelID
+         JOIN Product P ON A.productID = P.productID
+         JOIN User USR ON U.userID = USR.userID
+         WHERE inleverDatum != 'NULL'
+         ORDER BY inleverDatum DESC`,
+    (error, results) => {
+      if (error) {
+        console.error("Error executing query:", error);
+        res
+          .status(500)
+          .send(
+            "Er is een fout opgetreden bij het ophalen van de uitleengeschiedenis."
+          );
+        return;
+      }
+      res.render("admin-uitleengeschiedenis", { reservations: results });
+    }
+  );
 });
 
 // POST Request for when Admin searches for an Uitlening by artikelID on /admin/retourbeheer
@@ -132,14 +161,18 @@ router.post("/retourbeheer", (req, res) => {
 router.post("/retourbeheer/:uitleningID", async (req, res) => {
   const dbServiceInstance = new dbService();
 
-  dbServiceInstance.returnUitlening(req.params.uitleningID, req.body.isBeschadigd, (error, result) => {
-    if (error) {
-      console.error("Fout bij uitvoeren query: " + error.stack);
-      res.status(400).send("Kan uitlening niet terugbrengen");
-    } else {
-      res.status(200).send("Uitlening teruggebracht");
+  dbServiceInstance.returnUitlening(
+    req.params.uitleningID,
+    req.body.isBeschadigd,
+    (error, result) => {
+      if (error) {
+        console.error("Fout bij uitvoeren query: " + error.stack);
+        res.status(400).send("Kan uitlening niet terugbrengen");
+      } else {
+        res.status(200).send("Uitlening teruggebracht");
+      }
     }
-  });
+  );
 });
 
 module.exports = router;
