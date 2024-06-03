@@ -93,6 +93,12 @@ class HamburgerMenu extends HTMLElement {
           <li class="nav-menu__item">
             <a href="/admin/retourbeheer" class="nav-menu__link">Retourbeheer</a>
           </li>
+          <li class="nav-menu__item">
+          <a href="/admin/uitleengeschiedenis" class="nav-menu__link">Uitleengeschiedenis</a>
+        </li>
+        <li class="nav-menu__item">
+        <a href="/admin/gebruikersbeheer" class="nav-menu__link">Gebruikersbeheer</a>
+      </li>
         </ul>
       </div>
 
