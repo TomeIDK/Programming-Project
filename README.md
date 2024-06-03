@@ -8,7 +8,7 @@
 5. After ensuring you are in the repository's root directory, execute the following command in your VSCode terminal ``npm install``.
 6. Ensure all packages are installed correctly and don't give any errors.
 7. Change to the /src directory using ``cd ./src``.
-8. If you have access to our Teams channel, download the .env file from there and place it in the /src directory, then skip to step 13. If you don't have access, continue to the next step.
+8. If you have access to our Teams channel, download the .env file from the ".env" tab and place it in the /src directory, then skip to step 13. If you don't have access, continue to the next step.
 9. Make a **.env** file in the /src directory.
 10. Ensure this file's **exact** name is ``.env``.
 11. Add the following fields to the **.env** file:  
@@ -24,6 +24,7 @@
 12. Save the **.env** file and close it.
 13. Go back to your terminal and start the application using ``node app``.
 14. Open your favourite browser and enter ``localhost:3000`` in the address bar.
+15. You can find all login credentials in our Teams channel under the "Login" tab.
 
 
 ## Problem
