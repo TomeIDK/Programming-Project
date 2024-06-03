@@ -31,5 +31,4 @@ function getSelectedDate() {
     let pickerDate = new Date();
     pickerDate = picker.getDate();
     let selectedDate = `${pickerDate.getDate()}/${pickerDate.getMonth()}/${pickerDate.getFullYear()}`;
-    console.log(selectedDate);
 }

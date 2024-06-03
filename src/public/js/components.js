@@ -146,7 +146,6 @@ class HamburgerMenu extends HTMLElement {
 
     // Load component functionality
     loadScript("/components/custom/header/hamburger-menu.js", (script) => {
-      console.log(`Script ${script.src} loaded.`);
     });
   }
 }

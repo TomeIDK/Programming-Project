@@ -77,8 +77,6 @@ const removeProductFromUserBasket = (userID, productID) => {
 router.post("/", async (req, res) => {
   try {
     let { products, reden, startDatum } = req.body.reservationData;
-    console.log("startdatum: ", startDatum);
-    console.log(req.body);
     startDatum = convertToSQLDatetime(startDatum);
 
     let eindDatumDate = new Date(startDatum);
@@ -90,12 +88,7 @@ router.post("/", async (req, res) => {
         const articles = await getArticlesByProductIdPromise(productID);
 
         const productArticles = articles.map((artikel) => artikel.artikelID);
-        console.log(
-          "Artikelen van product opgehaald. product: ",
-          productID,
-          " - ",
-          productArticles
-        );
+        
 
         const unavailableArticles = await getUnavailableArticlesPromise(
           startDatum,
@@ -109,7 +102,6 @@ router.post("/", async (req, res) => {
         const availableArticle = productArticles.find(
           (value) => !unavailableArticlesArray.includes(value)
         );
-        console.log(availableArticle);
 
         if (availableArticle !== undefined) {
           await addReservationPromise(
@@ -127,12 +119,7 @@ router.post("/", async (req, res) => {
           return;
         }
       } catch (err) {
-        console.log(
-          "Kan artikelen niet ophalen voor product: ",
-          productID,
-          ": ",
-          err
-        );
+        
       }
     }
     res.status(200).send("Reservatie geslaagd");

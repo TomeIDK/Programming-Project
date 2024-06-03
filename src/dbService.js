@@ -29,7 +29,6 @@ class DBService {
           if (err) {
             console.error("Error reconnecting to database: " + err.stack);
           } else {
-            console.log("Reconnected to database");
           }
         });
       } else {
@@ -47,7 +46,6 @@ class DBService {
           console.error("Kan reservatie niet toevoegen: ", err);
           callback(err, null);
         } else {
-          console.log("Reservatie succesvol toegevoegd");
           callback(null, result);
         }
       }
@@ -71,7 +69,6 @@ class DBService {
                 console.error("Error creating new basket: ", insertErr);
                 callback(insertErr, null);
               } else {
-                console.log("New basket created successfully");
                 callback(null, true);
               }
             }
@@ -89,7 +86,6 @@ class DBService {
                 );
                 callback(selectErr, null);
               } else if (selectResult.length > 0) {
-                console.log("selectResult: ", selectResult);
 
                 this.connection.query(
                   `
@@ -102,10 +98,6 @@ class DBService {
                       );
                       return;
                     }
-                    console.log(
-                      "ProductID and aantalBeschikbaar from Product table:",
-                      aantalResults
-                    );
 
                     if (aantalResults.length <= 0) {
                       callback(null, 406);
@@ -122,9 +114,7 @@ class DBService {
                             );
                             callback(updateErr, null);
                           } else {
-                            console.log(
-                              "Basket item quantity updated successfully"
-                            );
+                            
                             callback(null, updateResult);
                           }
                         }
@@ -141,7 +131,6 @@ class DBService {
                       console.error("Error adding item to basket: ", insertErr);
                       callback(insertErr, null);
                     } else {
-                      console.log("Item added to basket succesfully");
                       callback(null, insertResult);
                     }
                   }
@@ -162,7 +151,6 @@ class DBService {
           console.error("Kan UitleenmandjeID niet ophalen uit database: ", err);
           callback(err, null);
         } else {
-          console.log("UitleenmandjeID succesvol opgehaald");
           callback(null, result);
         }
       }
@@ -174,12 +162,10 @@ class DBService {
       `DELETE FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
       (err, result) => {
         if (err) {
-          console.log("failed db");
 
           console.error("Kan item niet verwijderen uit uitleenmandje: ", err);
           callback(err, null);
         } else {
-          console.log("Item succesvol verwijdert uit uitleenmandje");
           callback(null, result);
         }
       }
@@ -197,7 +183,6 @@ class DBService {
           );
           callback(err, null);
         } else {
-          console.log("Aantal producten in uitleenmandje opgehaald");
           callback(null, result);
         }
       }
@@ -213,7 +198,6 @@ class DBService {
           console.error("Kan artikelen niet ophalen: ", err);
           callback(err, null);
         } else {
-          console.log("Artikelen opgehaald");
           callback(null, result);
         }
       }
@@ -229,7 +213,6 @@ class DBService {
           console.error("Kan onbeschikbare artikelen niet ophalen: ", err);
           callback(err, null);
         } else {
-          console.log("Onbeschikbare artikelen opgehaald: ", result);
           callback(null, result);
         }
       }
@@ -245,7 +228,6 @@ class DBService {
           console.error("Kan uitleenmandje niet legen of is al leeg: ", err);
           callback(err, null);
         } else {
-          console.log("Uitleenmandje van user leeggemaakt");
           callback(null, result);
         }
       }
@@ -263,7 +245,6 @@ class DBService {
           console.error("Error fetching product data: ", err);
           callback(err, null);
         } else {
-          console.log("Product data opgehaald");
           callback(null, result);
         }
       }
@@ -293,7 +274,6 @@ class DBService {
           console.error("error fetching uitleningen: ", err);
           callback(err, null);
         } else {
-          console.log("Uitleningen succesvol opgehaald");
           callback(null, result);
         }
       }
@@ -309,7 +289,6 @@ class DBService {
           console.error("Kan reservatie niet annuleren: ", err);
           callback(err, null);
         } else {
-          console.log("Reservatie geannuleerd");
           callback(null, result);
         }
       }
@@ -327,7 +306,6 @@ class DBService {
           console.error("error fetching uitleningen: ", err);
           callback(err, null);
         } else {
-          console.log("Uitleningen succesvol opgehaald");
           callback(null, result);
         }
       }
@@ -346,9 +324,6 @@ class DBService {
     if (day < 10) day = "0" + day;
 
     const formattedDate = `${year}-${month}-${day}`;
-    console.log(formattedDate);
-    console.log(isBeschadigd);
-    console.log(uitleningID);
 
     this.connection.query(
       `UPDATE Uitlening SET inleverDatum = '${formattedDate}', isBeschadigd = ${isBeschadigd} WHERE uitleningID = ${uitleningID}`,
@@ -357,7 +332,6 @@ class DBService {
           console.error("Error updating uitlening: ", err);
           callback(err, null);
         } else {
-          console.log("Uitleningen succesvol geupdatet");
           callback(null, result);
         }
       }

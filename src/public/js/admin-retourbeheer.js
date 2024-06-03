@@ -10,7 +10,6 @@ btnSearch.addEventListener("click", async () => {
   const artikelID = document.getElementById("id-input").value;
 
   if (!artikelID) {
-    console.log("Artikel ID is required");
     return;
   }
 

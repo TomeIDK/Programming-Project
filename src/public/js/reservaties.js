@@ -7,8 +7,6 @@ reservations.forEach((reservation, index) => {
   const uitleningID = reservation.getAttribute("data-id");
 
   btnCancel.addEventListener("click", async () => {
-    console.log("fired");
-    console.log(uitleningID);
     try {
       const response = await fetch("/reservaties", {
         method: "DELETE",
@@ -23,13 +21,11 @@ reservations.forEach((reservation, index) => {
       if (response.ok) {
         reservation.remove();
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Reservatie succesvol geannuleerd", true);
         });
       } else {
         console.error("Kan reservatie niet annuleren:", data);
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Kan reservatie niet annuleren", false);
         });
       }

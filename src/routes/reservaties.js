@@ -53,7 +53,6 @@ router.delete("/", (req, res) => {
       res.status(400).send("Kan reservatie niet annuleren");
       return;
     } else {
-      console.log("Reservatie succesvol geannuleerd");
       res.status(200).send("Reservatie succesvol geannuleerd");
     }
   });
