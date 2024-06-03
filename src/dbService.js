@@ -363,6 +363,22 @@ class DBService {
       }
     );
   }
+
+  getAllUsers(callback) {
+    this.connection.query(
+      `SELECT userID, voornaam, naam, userType
+      FROM User`,
+      (err, result) => {
+        if (err) {
+          console.error("error fetching uitleningen: ", err);
+          callback(err, null);
+        } else {
+          console.log("Uitleningen succesvol opgehaald");
+          callback(null, result);
+        }
+      }
+    );
+  }
 }
 
 module.exports = DBService;
