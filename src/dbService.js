@@ -18,7 +18,7 @@ class DBService {
         console.error("\nBen je geconnecteerd met het schoolnetwerk? (VPN)");
         return;
       }
-      console.log("Connected to database");
+      console.log("dbService Connected to database");
     });
 
     this.connection.on("error", function (err) {

@@ -21,7 +21,6 @@ connection.connect((err) => {
     console.error("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB: uitleenmandje.js ");
 });
 
 // Define route handler function and render response with necessary data   WHERE Uitleenmandje.UitleenmandjeID = ?, [UitleenmandjeID],
