@@ -9,90 +9,97 @@ h3 {
     font-size: 25px;
     padding-bottom: 1rem;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid black;
 }
 
-.geenideehoeikditmoetnoemen {
-    height: auto; /* Dynamically adjust height based on content */
-}
-.geenideehoeikditmoetnoemen img {
-   opacity: 80%;
-}
-
-#block {
+#adminbeheer {
     justify-content: space-between;
     display: flex;
-    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
-.geenideehoeikditmoetnoemen.gebruikershbeheer {
+.dashboard {
+    margin-bottom: 3rem;
     height: auto;
-    width: 67%;
 }
 
-.geenideehoeikditmoetnoemen.catalogusbeheer {
+.adminbeheer-item {
+    border-radius: 0.5rem;
+    text-decoration: none;
+    padding: 1rem;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminbeheer-item img {
+    width: 60%;
+    height: 60%;
+}
+
+.adminbeheer-item h4 {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem; /* Ruimte tussen afbeelding en tekst */
+}
+
+.dashboard.opditmoment {
+
     height: auto;
-    width: 27%;
 }
 
-#gebruikersbeheer__info {
+.dashboard.opditmoment h1{
+    font-size: 3rem;
+    
+}
+#opditmoment__info {
     gap: 15px;
     display: flex;
     width: 100%;
+}
+
+.opditmoment__info-item {
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.gebruikersbeheer__info-item  {
-    text-decoration: none;
-    color: black;
-    padding: 15px;
-    background-color: rgb(204, 255, 255);
-    border-radius: 25px;
-    text-align: center;
-    height: 150px;
-    width: 20%;
+.opditmoment__info-item-layer1 {
+    height: 30px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.gebruikersbeheer__info-item img {
-    height: auto;
-    width: 65%;
-}
-.timing {
-    text-align: center;
-    justify-content: center;
-    align-items: flex-start;
-    height: 150px;
-}
-.timing h4 {
-    margin-left: auto;
-    margin-right: auto;
-}
-.timing img {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 20%;
-    margin: 0;
-}
-.timing h4 {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-.timing h1 {
-    padding: 0;
-    margin-left: auto;
-    padding-bottom: 25px;
-    margin-right: auto;
 }
 
-/* Specifieke stijlen voor de achtergrondkleuren van de timing-items */
+.opditmoment__info-item-layer1 img {
+    height: 100%;
+}
+
+.opditmoment__info-item-layer2 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opditmoment__info-item-layer3 {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
 .optijd {
-    background-color: rgb(196, 255, 196);
+    background-color: #b6f7f6;
 }
 
 .laatstedag {
@@ -100,91 +107,10 @@ h3 {
 }
 
 .telaat {
-    background-color: rgb(255, 176, 176);
-}
-.icon-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    justify-items: center;
+    background-color: var(--primary-100);
 }
 
-.icon-item {
+.opditmoment__info-items-flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 1rem;
 }
-
-.icon {
-    width: 100px; /* Adjusted size */
-    height: 100px; /* Adjusted size */
-    border-radius: 50%;
-    background-color: #e0f0ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5px;
-    font-size: 40px; /* Adjusted size */
-    color: #333;
-}
-
-.icon-item p {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.materiaalingebruik {
-    width: 100%;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #e0f0ff;
-    border-radius: 10px;
-}
-
-#materiaal__info {
-    margin-bottom: 20px;
-}
-
-.materiaal__info-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.progress-bar {
-    width: 70%;
-    height: 10px;
-    background-color: #d3d3d3;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0 10px;
-}
-
-.progress {
-    height: 100%;
-    background-color: #ff69b4;
-    border-radius: 5px;
-}
-
-.button {
-    display: inline-block; 
-    margin: 10px auto; 
-    padding: 8px 16px; 
-    font-size: 14px; 
-    color: #fff;
-    background-color: #32cd32;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none; 
-    cursor: pointer;
-    transition: background-color 0.3s; 
-}
-
-.button:hover {
-    background-color: #28a428; 
-}
-
-
