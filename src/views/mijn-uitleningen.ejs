@@ -9,14 +9,14 @@
   <link rel="stylesheet" type="text/css" href="/css/default.css" />
   <link rel="stylesheet" type="text/css" href="/css/reservaties.css" />
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-  <title>EhB MediaLab - Mijn Uitleengeschiedenis</title>
+  <title>EhB MediaLab - Mijn Uitleningen</title>
 </head>
 
 <body>
   <ehb-header></ehb-header>
   <hamburger-menu></hamburger-menu>
   <main>
-    <h1>Mijn Uitleengeschiedenis</h1>
+    <h1>Mijn Uitleningen</h1>
 
     <% if (reservations && reservations.length > 0) { %>
     <ul class="reservation">
@@ -24,24 +24,24 @@
         <span class="reservation__title">Uitlening ID</span>
         <span class="reservation__title">Product</span>
         <span class="reservation__title">Uitgeleend van</span>
-        <span class="reservation__title">Teruggebracht op</span>
+        <span class="reservation__title">Uitgeleend tot</span>
       </li>
       <% reservations.forEach((reservation, index) => { %>
       <li class="reservation__item reservation__line">
         <span class="reservation__article--name"><%= reservation.uitleningID %></span>
         <span class="reservation__article--name"><%= reservation.productNaam %></span>
         <span class="reservation__article--date-from"> <%= reservation.startDatum.toLocaleDateString("nl-NL").split("-").join("/") %></span>
-        <span class="reservation__article--date-until"><%= reservation.inleverDatum.toLocaleDateString("nl-NL").split("-").join("/") %></span>
+        <span class="reservation__article--date-until"><%= reservation.eindDatum.toLocaleDateString("nl-NL").split("-").join("/") %></span>
       </li>
       <% }) %>
     </ul>
     <% } else { %>
-    <p>Uw uitleengeschiedenis is leeg.</p>
+    <p>U heeft geen actieve uitleningen.</p>
     <% } %>
   </main>
   <ehb-footer></ehb-footer>
   <script src="/js/components.js"></script>
-  <script src="/js/mijn-uitleengeschiedenis.js"></script>
+  <script src="/js/mijn-uitleningen.js"></script>
   <script src="/js/default.js"></script>
 </body>
 
