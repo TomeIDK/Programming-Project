@@ -271,11 +271,23 @@ class DBService {
   }
 
   getUitleningenByArticleId(artikelID, callback) {
+    // Get today's date
+    const today = new Date();
+
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    const formattedDate = `${year}-${month}-${day}`;
+
     this.connection.query(
       `SELECT uitleningID, startDatum, eindDatum, User.voornaam, User.naam
       FROM Uitlening
       JOIN User ON Uitlening.userID = User.userID
-      WHERE artikelID = ${artikelID}`,
+      WHERE artikelID = ${artikelID} AND inleverDatum IS NULL AND startDatum < '${formattedDate}'`,
       (err, result) => {
         if (err) {
           console.error("error fetching uitleningen: ", err);
