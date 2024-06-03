@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="/css/reset.css" />
   <link rel="stylesheet" type="text/css" href="/css/default.css" />
   <link rel="stylesheet" type="text/css" href="/css/retourbeheer.css" />
+  <link rel="stylesheet" type="text/css" href="/components/form/form.css" />
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
   <title>EhB MediaLab Admin - Retourbeheer</title>
 </head>
@@ -18,49 +19,52 @@
 
   <hamburger-menu admin></hamburger-menu>
   <main>
-
-    <h2>Medewerker</h2>
-    
-
     <h3>Retourbeheer</h3>
     <div id="block">
-    <div class="paragraph">Naam lener</div>
-    <p id="naam-lener" class="input-field"><%= data.voornaam + " " + data.naam %></p>
-    <div class="form-group">
-      <div class="paragraph">ID nr</div>
-      <p id="id-nr" class="input-field"><%= data.uitleningID %></p>
-    </div>
-    
+      <div class="block__column">
 
-    <div class="flexbox">
-      <div>
-        <div class="paragraph">Naam materiaal</div>
-        <p id="nom-materiel" class="input-field"><%= product.naam %></p>
-        <div class="paragraph">
-          <label class="paragraph checkbox-label" for="beschadigd">Beschadigd</label>
-          <input type="checkbox" id="beschadigd" class="checkbox-field">
+        <div class="column__group">
+          <h3 class="group__title">Naam Uitlener</h3>
+          <p class="group__text"><%= data.voornaam + " " + data.naam %></p>
         </div>
 
-        <input type="text" id="beschadigd-reason" class="input-field" placeholder="Reden beschadiging">
+        <div class="column__group">
+          <h3 class="group__title">Uitlening ID</h3>
+          <p id="id-nr" class="group__text"><%= data.uitleningID %></p>
+        </div>
+
+        <div class="column__group">
+          <h3 class="group__title">Product</h3>
+          <p class="group__text"><%= product.naam %></p>
+        </div>
+
+        <div class="buttons-container">
+          <button id="btn-terug" class="btn secondary-button">Terug</button>
+          <button id="btn-terugbrengen" class="btn cta-button--blue">Terugbrengen</button>
+        </div>
 
       </div>
 
-      <div class="right-flex">
+      <div class="block__column">
 
-        <div class="paragraph">Geleend van:</div>
-        <p id="geleend-van" class="input-field" placeholder="Geleend van"><%= data.startDatum %></p>
-        
-        
-        <div class="paragraph">Geleend tot:</div>
-        <p id="geleend-tot" class="input-field" placeholder="Geleend tot"><%= data.eindDatum %></p>
+        <div class="column__group">
+          <h3 class="group__title">Geleend van:</h3>
+          <p class="group__text"><%= data.startDatum.toLocaleDateString("nl-NL").split("-").join("/") %></p>
+        </div>
+
+        <div class="column__group">
+          <h3 class="group__title">Geleend tot:</h3>
+          <p class="group__text"><%= data.eindDatum.toLocaleDateString("nl-NL").split("-").join("/") %></p>
+        </div>
+
+        <div class="column__group">
+          <h3 class="group__title"">Beschadigd?</h3>
+          <input type="checkbox" id="beschadigd" class="checkbox-field">
+            <input type="text" id="beschadigd-reason" class="input" placeholder="Reden beschadiging">
+        </div>
       </div>
-    </div>
 
-    <div class="buttons-container">
-      <button id="btn-terug" class="btn secondary-button">Terug</button>
-      <button id="btn-terugbrengen" class="btn cta-button--blue">Terugbrengen</button>
     </div>
-  </div>
   </main>
   <ehb-footer></ehb-footer>
   <script src="/js/components.js"></script>
@@ -69,4 +73,3 @@
 </body>
 
 </html>
-
