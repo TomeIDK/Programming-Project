@@ -125,11 +125,11 @@ class HamburgerMenu extends HTMLElement {
             <a href="/info" class="nav-menu__link">Meer Info</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#" class="nav-menu__link">Mijn Uitleningen</a>
-          </li>
-          <li class="nav-menu__item">
             <a href="/reservaties" class="nav-menu__link">Mijn Reservaties</a>
           </li>
+          <li class="nav-menu__item">
+          <a href="/mijn-uitleningen" class="nav-menu__link">Mijn Uitleningen</a>
+        </li>
           <li class="nav-menu__item">
             <a href="/mijn-uitleengeschiedenis" class="nav-menu__link">Mijn Uitleengeschiedenis</a>
           </li>

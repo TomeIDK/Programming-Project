@@ -55,11 +55,12 @@ const reserveren = require('./routes/reserveren');
 const getBasketCount = require('./routes/get-basket-count');
 const reservations = require ("./routes/reservaties");
 const mijnUitleengeschiedenis = require("./routes/mijn-uitleengeschiedenis");
+const mijnUitleningen = require("./routes/mijn-uitleningen");
 const admin = require ("./routes/admin");
 const notFound = require("./routes/not-found");
 
 
-
+// Define routes
 app.use("/login", login);
 app.use("/", login);
 app.use("/logout", logout);
@@ -73,6 +74,7 @@ app.use("/reserveren", reserveren);
 app.use("/get-basket-count", getBasketCount);
 app.use("/reservaties", reservations);
 app.use("/mijn-uitleengeschiedenis", mijnUitleengeschiedenis);
+app.use("/mijn-uitleningen", mijnUitleningen);
 app.use("/admin", admin);
 app.use("/not-found", notFound);
 
