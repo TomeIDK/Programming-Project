@@ -77,6 +77,7 @@ class DBService {
             }
           );
         } else {
+          let isBeschikbaar = true;
           // If User already has an Uitleenmandje check if product is already in Uitleenmandje
           this.connection.query(
             `SELECT * FROM Uitleenmandje WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
@@ -88,20 +89,46 @@ class DBService {
                 );
                 callback(selectErr, null);
               } else if (selectResult.length > 0) {
-                // If product already exists in Uitleenmandje increase aantal by 1
-                let currentQuantity = selectResult[0].aantal + 1;
+                console.log("selectResult: ", selectResult);
+
                 this.connection.query(
-                  `UPDATE Uitleenmandje SET aantal = ${currentQuantity} WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
-                  (updateErr, updateResult) => {
-                    if (updateErr) {
+                  `
+                  SELECT aantalBeschikbaar FROM Product WHERE Product.aantalBeschikbaar > ${selectResult[0].aantal} AND productID = ${productID}`,
+                  (aantalErr, aantalResults) => {
+                    if (aantalErr) {
                       console.error(
-                        "Error updating basket item quantity: ",
-                        updateErr
+                        "Error executing selectProductQuery:",
+                        aantalErr
                       );
-                      callback(updateErr, null);
+                      return;
+                    }
+                    console.log(
+                      "ProductID and aantalBeschikbaar from Product table:",
+                      aantalResults
+                    );
+
+                    if (aantalResults.length <= 0) {
+                      callback(null, 406);
                     } else {
-                      console.log("Basket item quantity updated successfully");
-                      callback(null, updateResult);
+                      // If product already exists in Uitleenmandje increase aantal by 1
+                      let currentQuantity = selectResult[0].aantal + 1;
+                      this.connection.query(
+                        `UPDATE Uitleenmandje SET aantal = ${currentQuantity} WHERE UitleenmandjeID = ${UitleenmandjeID} AND userID = ${userID} AND productID = ${productID}`,
+                        (updateErr, updateResult) => {
+                          if (updateErr) {
+                            console.error(
+                              "Error updating basket item quantity: ",
+                              updateErr
+                            );
+                            callback(updateErr, null);
+                          } else {
+                            console.log(
+                              "Basket item quantity updated successfully"
+                            );
+                            callback(null, updateResult);
+                          }
+                        }
+                      );
                     }
                   }
                 );
