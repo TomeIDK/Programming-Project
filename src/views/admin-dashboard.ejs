@@ -16,39 +16,54 @@
   <ehb-header nobasket></ehb-header>
   <hamburger-menu admin></hamburger-menu>
   <main>
-    <h1 class="page__subtitle">Admin Dashboard</h1>
+    <h1>Dashboard Admin</h1>
+    <br>
     <div id="block">
-      <div class="geenideehoeikditmoetnoemen gebruikersbeheer">
-        <div id="gebruikersbeheer__info">
-          <a class="gebruikersbeheer__info-item" href="/admin/retourbeheer">
-            <img src="/images/retourbeheer.svg" width="100px" alt="">
-            <h4>Retourbeheer</h4>
-          </a>
-          <a class="gebruikersbeheer__info-item" href="/admin/gebruikersbeheer">
-            <img src="/images/group-icon.svg" width="100px" alt="">
-            <h4>Gebruikersbeheer</h4>
-          </a>
-          <a class="gebruikersbeheer__info-item" href="/admin/uitleengeschiedenis">
-            <img src="/images/geschiedenis-icon.svg" width="100px" alt="">
-            <h4>Uitleengeschiedenis</h4>
-          </a>
-          <div class="gebruikersbeheer__info-item timing optijd">
-            <img src="/images/group-icon.svg" alt="">
-            <h1 class="gebruikersbeheer__info--optijd"><%= onTime %></h1>
-            <h4>Op tijd</h4>
+      <div class="dashboard opditmoment">
+        <div class="opditmoment__info-items-flex">
+          <div class="opditmoment__info-item timing optijd">
+            <div class="opditmoment__info-item-layer1"> <img src="/images/group-icon.svg" alt=""></div>     
+            <div class="opditmoment__info-item-layer2" ><h1 class="opditmoment__info--optijd"><%= onTime %></h1></div>
+            <div class="opditmoment__info-item-layer3"><h4>Op tijd</h4></div>
           </div>
-          <div class="gebruikersbeheer__info-item timing laatstedag">
-            <img src="/images/group-icon.svg" alt="">
-            <h1 class="gebruikersbeheer__info--aantallaatstedag"><%= lastDay %></h1>
-            <h4>Laatste dag</h4>
+          <div class="opditmoment__info-item timing laatstedag">
+            <div class="opditmoment__info-item-layer1"> <img src="/images/group-icon.svg" alt=""></div>     
+            <div class="opditmoment__info-item-layer2" ><h1 class="opditmoment__info--aantallaatstedag"><%= lastDay %></h1></div>
+            <div class="opditmoment__info-item-layer3"><h4>Laatste dag</h4></div>
           </div>
-          <div class="gebruikersbeheer__info-item timing telaat">
-            <img src="/images/group-icon.svg" alt="">
-            <h1 class="gebruikersbeheer__info--aantaltelaat"><%= late %></h1>
-            <h4>Te laat</h4>
+          <div class="opditmoment__info-item timing telaat">
+            <div class="opditmoment__info-item-layer1"> <img src="/images/group-icon.svg" alt=""></div>     
+            <div class="opditmoment__info-item-layer2" ><h1 class="opditmoment__info--aantaltelaat"><%= late %></h1> </div>
+            <div class="opditmoment__info-item-layer3"> <h4>Te laat</h4></div>
           </div>
         </div>
       </div>
+      <div class="dashboard adminbeheer">
+        <div id="adminbeheer">
+          <a class="adminbeheer-item" href="/admin/retourbeheer">
+            <img src="/images/retour-icon.png" alt="">
+            <h4>Retourbeheer</h4>
+          </a>
+          <a class="adminbeheer-item" href="/admin/retourbeheer">
+            <img src="/images/opgehaald-icon.png" alt="">
+            <h4>Product opgehaald</h4>
+          </a>
+          <a class="adminbeheer-item" href="gebruikerbeheer.html">
+            <img src="/images/group-icon.svg" alt="">
+            <h4>Gebruikers</h4>
+          </a>
+          <a class="adminbeheer-item" href="opditmoment.html">
+            <img src="/images/geschiedenis-icon.svg" alt="">
+            <h4>Uitleengeschiedenis</h4>
+          </a>
+          
+        </div>
+      </div>
+      <br>
+      
+      <div class="dashboard materiaalingebruik">
+      </div>
+    </div>    
   </main>
   <ehb-footer></ehb-footer>
   <script src="/js/components.js"></script>
