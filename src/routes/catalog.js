@@ -43,11 +43,12 @@ connection.query("SELECT tagNaam from Tag", (error, results, fields) => {
 
 // Retrieve Products
 connection.query(
-  `SELECT Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, COALESCE(GROUP_CONCAT(Tag.tagNaam SEPARATOR ', '), 'Verbenaceae, Test') AS product_tags
+`SELECT Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, COALESCE(Uitleenmandje.aantal, 0) AS aantal,  COALESCE(GROUP_CONCAT(Tag.tagNaam SEPARATOR ', '), 'Verbenaceae, Test') AS product_tags
 FROM Product
 LEFT JOIN ProductTag ON Product.productID = ProductTag.productID
 LEFT JOIN Tag ON ProductTag.tagID = Tag.tagID
-GROUP BY Product.productID, Product.naam`,
+LEFT JOIN Uitleenmandje ON Product.productID = Uitleenmandje.productID
+GROUP BY Product.productID, Product.naam, Product.aantalBeschikbaar, Product.afbeelding, Uitleenmandje.aantal`,
   (error, results, fields) => {
     if (error) {
       console.error("Error executing query:", error);

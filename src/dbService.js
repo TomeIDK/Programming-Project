@@ -142,7 +142,7 @@ class DBService {
                       callback(insertErr, null);
                     } else {
                       console.log("Item added to basket succesfully");
-                      callback(null, insertResult);
+                      callback(null, insertResult); 
                     }
                   }
                 );
