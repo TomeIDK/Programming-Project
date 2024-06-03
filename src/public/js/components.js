@@ -119,7 +119,7 @@ class HamburgerMenu extends HTMLElement {
       <div class="nav-menu__section">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <a href="/cataloog" class="nav-menu__link">Reserveren</a>
+            <a href="/cataloog" class="nav-menu__link">Cataloog</a>
           </li>
           <li class="nav-menu__item">
             <a href="/info" class="nav-menu__link">Meer Info</a>
