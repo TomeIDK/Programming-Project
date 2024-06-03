@@ -31,6 +31,8 @@ h1.page__title{
 .search-bar__filter {
   width: 30%;
   display: flex;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .search-bar__icon {
