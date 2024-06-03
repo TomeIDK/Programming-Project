@@ -17,7 +17,6 @@ connection.connect((err) => {
     console.error("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB");
 });
 
 router.get("/", (req, res) => {

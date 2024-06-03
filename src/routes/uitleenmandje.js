@@ -21,7 +21,6 @@ connection.connect((err) => {
     console.error("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB: uitleenmandje.js ");
 });
 
 // Define route handler function and render response with necessary data   WHERE Uitleenmandje.UitleenmandjeID = ?, [UitleenmandjeID],
@@ -58,7 +57,6 @@ router.post("/delete", (req, res) => {
     productID,
     (err, result) => {
       if (err) {
-        console.log("failed post");
         res.status(401).send("Kan product niet uit uitleenmandje verwijderen");
       } else {
         res.status(200).send("Product verwijdert uit uitleenmandje");

@@ -19,7 +19,6 @@ connection.connect((err) => {
     console.error("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB: admin.js");
 });
 
 // define the home page route
@@ -90,8 +89,6 @@ router.get("/retourbeheer/:uitleningID", async (req, res) => {
             return;
           } else {
             product = results[0];
-            console.log(data);
-            console.log(product);
             res.render("admin-retourbeheer-uitlening", {
               data: data,
               product: product,
@@ -159,7 +156,6 @@ router.post("/retourbeheer", (req, res) => {
       console.error("Fout bij uitvoeren query: " + err.stack);
       return;
     } else if (result.length > 0) {
-      console.log(result);
       dbServiceInstance.getUitleningenByArticleId(artikelID, (err, results) => {
         if (err) {
           console.error("Fout bij uitvoeren query: " + err.stack);

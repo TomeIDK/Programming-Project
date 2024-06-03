@@ -19,7 +19,6 @@ connection.connect((err) => {
     console.error("fout bij verbinden met DB: ", err);
     return;
   }
-  console.log("verbonden met DB");
 });
 
 router.get("/", (req, res) => {
@@ -53,7 +52,6 @@ router.delete("/", (req, res) => {
       res.status(400).send("Kan reservatie niet annuleren");
       return;
     } else {
-      console.log("Reservatie succesvol geannuleerd");
       res.status(200).send("Reservatie succesvol geannuleerd");
     }
   });

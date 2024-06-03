@@ -31,7 +31,6 @@ btnReserveren.addEventListener("click", async () => {
   // Validate gegevens
   if (!startDatum) {
     loadScript("/components/toast/toast.js", (script) => {
-      console.log(`Script ${script.src} loaded.`);
       showToast("Selecteer een startdatum voor de reservatie.", false);
     });
     return;
@@ -39,7 +38,6 @@ btnReserveren.addEventListener("click", async () => {
 
   if (!reden) {
     loadScript("/components/toast/toast.js", (script) => {
-      console.log(`Script ${script.src} loaded.`);
       showToast("Kies een reden voor uw reservatie", false);
     });
     return;
@@ -62,14 +60,12 @@ btnReserveren.addEventListener("click", async () => {
     .then((response) => response.text())
     .then((data) => {
       loadScript("/components/toast/toast.js", (script) => {
-        console.log(`Script ${script.src} loaded.`);
         showToast("Reservatie geslaagd", true);
       });
     })
     .catch((error) => {
       console.error("Error:", error);
       loadScript("/components/toast/toast.js", (script) => {
-        console.log(`Script ${script.src} loaded.`);
         showToast("Uw reservatie kon niet aangemaakt worden", false);
       });
     });
@@ -93,21 +89,18 @@ for (let i = 0; i < basketItems.length; i++) {
       body: JSON.stringify({ productID: productID }),
     })
       .then((response) => {
-        console.log(response.status);
         return response.text();
       })
       .then((data) => {
         basketItems[i].remove();
         updateBasketCounter();
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Product verwijdert uit uitleenmandje", true);
         });
       })
       .catch((error) => {
         console.error("Error:", error);
         loadScript("/components/toast/toast.js", (script) => {
-          console.log(`Script ${script.src} loaded.`);
           showToast("Kan product niet uit uitleenmandje verwijderen", false);
         });
       });

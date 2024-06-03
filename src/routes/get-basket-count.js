@@ -19,7 +19,6 @@ router.get("/", (req, res) => {
         );
         res.json(-1);
       } else {
-        console.log("Aantal producten in uitleenmandje opgehaald");
         res.json(result);
       }
     }
