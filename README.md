@@ -37,7 +37,7 @@ Om een efficiënt en gebruiksvriendelijk uitleningssysteem te ontwikkelen, begon
 
 ## Team
 
-### Scrum Master
+### Head Lead
 Cedric Pas  
 ### Database Admin
 Soulaymane Tahri
